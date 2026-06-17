@@ -1,0 +1,7 @@
+﻿"#","Outage Date","Site ID","Site Name","Outage Start","Outage End","Alarm Before Down (h)","Outage Duration (h)","ETA (min)","Passive/Active","RCA","Resolution Comment","Fuel Outage","TRB Ref"
+"2","16-juin-2026","DRKN0186","Logec","16/06/2026 19:25:34","16/06/2026 19:40:00","1,5","0,24","20","Passive","Fuel Contaminé","Allongé le tuyaux","Oui","TRB1374087"
+"2","16-juin-2026","DRKN0186","Logec","16/06/2026 20:41:37","16/06/2026 22:19:00","0","1,63","30","Passive","Fuel Contaminé","Appoint 25L en charge","Oui","TRB1374149"
+"3","16-juin-2026","DRKN2156","Telecom","16/06/2026 20:37:37","16/06/2026 21:20:00","0","0,72","","Passive","CB overload calibre de 100 A, load 129 A","CB Enclancher","Non","TRB1374155"
+"4","16-juin-2026","DRKN2156","Telecom","16/06/2026 22:10:00","17/06/2026 00:46:00","0","2,6","","Passive","CB overload calibre de 100 A, load 129 A","CB Remplacer","Non","TRB1374175"
+"5","16-juin-2026","DRKN0699","Boboliko","16/06/2026 22:04:00","17/06/2026 00:05:00","0","2,02","","Passive","Disjoncteur de la BBS déclancher","Disjoncteur Enclancher","Non","TRB1374182"
+"6","","DRKN8372","Kin_Maluka2","16/06/2026 22:57:00","16/06/2026 23:30:00","1,67","0,55","","Passive","CB overload calibre de 100 A, load 119A","CB Enclancher","Non","TRB1374178"
