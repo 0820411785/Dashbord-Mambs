@@ -1,0 +1,5 @@
+﻿"#","Outage Date","Site ID","Site Name","Outage Start","Outage End","Alarm Before Down (h)","Outage Duration (h)","ETA (min)","Passive/Active","RCA","Resolution Comment","Fuel Outage","TRB Ref"
+"2","21-juin-2026","DRKN0071","Sangamamba","21/06/2026 14:59:25","21/06/2026 15:11:00","2,33","0,2","25","Passive","High temp causé par le silencieux du DG Troué","Ajout coolant et démarrage DG remplacement en cours","Non","TRB1376617"
+"2","21-juin-2026","DRKN0071","Sangamamba","21/06/2026 15:21:20","21/06/2026 15:31:00","2,33","0,16","25","Passive","High temp causé par le silencieux du DG Troué","Ajout coolant et démarrage DG remplacement en cours","Non","TRB1376617"
+"3","21-juin-2026","DRKN0171","Kimwenza Gare","21/06/2026 16:55:12","21/06/2026 17:10:00","0,25","0,26","30","Passive","High temp causé par  le surchauffe DG","Ajout coolant et démarrage DG remplacement en cours","Non","TRB1376693"
+"4","21-juin-2026","DRKN9179","lundele fondation","21/06/2026 19:51:15","21/06/2026 20:04:00","0,52","0,22","30","Passive","site up par le gardien (site lointe","Site up par le gardien du site","Non","TRB1376740"
