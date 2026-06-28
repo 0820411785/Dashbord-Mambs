@@ -1,0 +1,7 @@
+﻿"#","Outage Date","Site ID","Site Name","Outage Start","Outage End","Alarm Before Down (h)","Outage Duration (h)","ETA (min)","Passive/Active","RCA","Resolution Comment","Fuel Outage","TRB Ref"
+"2","23-juin-2026","DRKN0074","Sans Fil","23/06/2026 13:19:32","23/06/2026 14:52:00","0","1,54","30","Passive","Vodacom Overload Calibre 100A Load 117A","enclenchement manuel du CB","Non","TRB1377627"
+"2","23-juin-2026","DRKN2106","Kinshasa_Bakayau","23/06/2026 17:04:51","23/06/2026 18:36:00","0","1,52","25","Passive","Cb vodacom switch off dans la DC box","enclenchement manuel du CB","Non","TRB1377723"
+"3","23-juin-2026","DRKN0245","Kwango","23/06/2026 16:27:00","23/06/2026 20:26:00","0","3,98","30","Passive","High Temp  au niveau de la BBS cause par 3/4 fan falty","Enclechement de disjocteur et Fan souffler","Non","TRB1377779"
+"4","23-juin-2026","DRKN0245","Kwango","23/06/2026 19:18:20","23/06/2026 20:24:00","2,33","1,11","30","Passive","High Temp  au niveau de la BBS cause par 3/4 fan falty","Enclechement de disjocteur et Fan souffler","Non","TRB1377801"
+"5","23-juin-2026","DRKN0201","Mama Yemo","23/06/2026 20:32:03","23/06/2026 21:06:00","0","0,57","30","Passive","Cb vodacom switch off dans la DC box","enclenchement manuel du CB","Non","TRB1377817"
+"6","23-juin-2026","DRKN2106","Kinshasa_Bakayau","23/06/2026 23:15:16","24/06/2026 00:30:00","0","1,26","25","Passive","Cb vodacom switch off dans la DC box","enclenchement manuel du CB","Non","TRB1377886"
