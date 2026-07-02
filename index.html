@@ -41,9 +41,13 @@ tbody tr:nth-child(even) { background: #f8fafc; }
 <div class="kpi"><span>Dashboards publies</span><strong>20</strong></div>
 <div class="kpi"><span>Derniere journee</span><strong><a href='2026-07-01/index.html'>Incidents du 01 juillet 2026</a></strong></div>
 <div class="kpi"><span>Fichier source</span><strong>OUTAGE 01.xlsb</strong></div>
-<div class="kpi"><span>Derniere generation</span><strong>2026-07-02 07:04</strong></div>
-<div class="kpi"><span>Sites cumules</span><strong>69</strong></div>
-<div class="kpi"><span>Down cumule</span><strong>227.85 h</strong></div>
+<div class="kpi"><span>Derniere generation</span><strong>2026-07-02 07:41</strong></div>
+<div class="kpi"><span>DDTP moyen du mois (juillet 2026)</span><strong>20.44</strong></div>
+<div class="kpi"><span>Jours DDTP suivis (juillet 2026)</span><strong>1</strong></div>
+<div class="kpi"><span>Sites du jour (01/07/2026)</span><strong>7</strong></div>
+<div class="kpi"><span>Down du jour (01/07/2026)</span><strong>9.89 h</strong></div>
+<div class="kpi"><span>Sites cumules juin 2026</span><strong>67</strong></div>
+<div class="kpi"><span>Down cumule juin 2026</span><strong>217.96 h</strong></div>
 </section>
 <h2>Dashboards journaliers</h2>
 <div class="toolbar">
@@ -55,7 +59,7 @@ tbody tr:nth-child(even) { background: #f8fafc; }
 <table id="dashboards-table">
 <thead><tr><th>Date</th><th>Dashboard</th><th>Fichier source</th><th>Generation</th></tr></thead>
 <tbody>
-<tr data-search='2026-07-01 Incidents du 01 juillet 2026 OUTAGE 01.xlsb 2026-07-02 07:04'><td>2026-07-01</td><td><a href='2026-07-01/index.html'>Incidents du 01 juillet 2026</a></td><td>OUTAGE 01.xlsb</td><td>2026-07-02 07:04</td></tr>
+<tr data-search='2026-07-01 Incidents du 01 juillet 2026 OUTAGE 01.xlsb 2026-07-02 07:41'><td>2026-07-01</td><td><a href='2026-07-01/index.html'>Incidents du 01 juillet 2026</a></td><td>OUTAGE 01.xlsb</td><td>2026-07-02 07:41</td></tr>
 <tr data-search='2026-06-30 Incidents du 30 juin 2026 OUTAGE 30 nn.xlsb 2026-07-01 01:59'><td>2026-06-30</td><td><a href='2026-06-30/index.html'>Incidents du 30 juin 2026</a></td><td>OUTAGE 30 nn.xlsb</td><td>2026-07-01 01:59</td></tr>
 <tr data-search='2026-06-29 Incidents du 29 juin 2026 OUTAGE 29 (1).xlsb 2026-07-01 02:06'><td>2026-06-29</td><td><a href='2026-06-29/index.html'>Incidents du 29 juin 2026</a></td><td>OUTAGE 29 (1).xlsb</td><td>2026-07-01 02:06</td></tr>
 <tr data-search='2026-06-28 Incidents du 28 juin 2026 OUTAGE 28.xlsb 2026-06-29 01:10'><td>2026-06-28</td><td><a href='2026-06-28/index.html'>Incidents du 28 juin 2026</a></td><td>OUTAGE 28.xlsb</td><td>2026-06-29 01:10</td></tr>
@@ -78,85 +82,103 @@ tbody tr:nth-child(even) { background: #f8fafc; }
 </tbody>
 </table>
 </div>
-<h2>Cumul des down par site</h2>
+<h2>Outages du jour par site (01/07/2026)</h2>
 <div class="toolbar">
 <input id="site-search" type="search" placeholder="Rechercher un site, un nom, une date">
 <button id="site-clear" type="button">Reinitialiser</button>
 </div>
-<p id="site-count" class="count">69 / 69</p>
+<p id="site-count" class="count">7 / 7</p>
 <div class="panel">
 <table id="site-totals-table">
+<thead><tr><th>Site ID</th><th>Nom du site</th><th>Incidents</th><th>Down (h)</th></tr></thead>
+<tbody>
+<tr data-search='DRKN8821 Kin_Notredame_Fatima 1 5.05 1 2026-07-01'><td>DRKN8821</td><td>Kin_Notredame_Fatima</td><td>1</td><td>5.05</td></tr>
+<tr data-search='DRKN0697 Ex. Maternit&#233; 1 1.6 1 2026-07-01'><td>DRKN0697</td><td>Ex. Maternit&#233;</td><td>1</td><td>1.6</td></tr>
+<tr data-search='DRKN0216 Bamboma 2 1.21 1 2026-07-01'><td>DRKN0216</td><td>Bamboma</td><td>2</td><td>1.21</td></tr>
+<tr data-search='DRKN2246 Kinshasa_Lulendo 2 0.66 1 2026-07-01'><td>DRKN2246</td><td>Kinshasa_Lulendo</td><td>2</td><td>0.66</td></tr>
+<tr data-search='DRKN8036 Camping_Pascalin 2 0.65 1 2026-07-01'><td>DRKN8036</td><td>Camping_Pascalin</td><td>2</td><td>0.65</td></tr>
+<tr data-search='DRKN8097 Kimbuala_Shamba 1 0.6 1 2026-07-01'><td>DRKN8097</td><td>Kimbuala_Shamba</td><td>1</td><td>0.6</td></tr>
+<tr data-search='DRKN0202 Mbanza Mpa 1 0.12 1 2026-07-01'><td>DRKN0202</td><td>Mbanza Mpa</td><td>1</td><td>0.12</td></tr>
+</tbody>
+</table>
+</div>
+<h2>Cumul des down par site - juin 2026</h2>
+<div class="toolbar">
+<input id="june-site-search" type="search" placeholder="Rechercher un site, un nom, une date">
+<button id="june-site-clear" type="button">Reinitialiser</button>
+</div>
+<p id="june-site-count" class="count">67 / 67</p>
+<div class="panel">
+<table id="june-site-totals-table">
 <thead><tr><th>Site ID</th><th>Nom du site</th><th>Incidents cumules</th><th>Down cumule (h)</th><th>Jours impactes</th><th>Derniere journee</th></tr></thead>
 <tbody>
-<tr data-search='DRKN0202 Mbanza Mpa 15 18.81 2026-07-01'><td>DRKN0202</td><td>Mbanza Mpa</td><td>15</td><td>18.81</td><td>11</td><td>2026-07-01</td></tr>
-<tr data-search='DRKN0190 Cuba 8 17.32 2026-06-29'><td>DRKN0190</td><td>Cuba</td><td>8</td><td>17.32</td><td>5</td><td>2026-06-29</td></tr>
-<tr data-search='DRKN0249 Ngomba Kikusa 5 13.83 2026-06-28'><td>DRKN0249</td><td>Ngomba Kikusa</td><td>5</td><td>13.83</td><td>5</td><td>2026-06-28</td></tr>
-<tr data-search='DRKN0171 Kimwenza Gare 6 9.74 2026-06-26'><td>DRKN0171</td><td>Kimwenza Gare</td><td>6</td><td>9.74</td><td>3</td><td>2026-06-26</td></tr>
-<tr data-search='DRKN0697 Ex. Maternit&#233; 5 9.5 2026-07-01'><td>DRKN0697</td><td>Ex. Maternit&#233;</td><td>5</td><td>9.5</td><td>4</td><td>2026-07-01</td></tr>
-<tr data-search='DRKN2246 Kinshasa_Lulendo 6 8.91 2026-07-01'><td>DRKN2246</td><td>Kinshasa_Lulendo</td><td>6</td><td>8.91</td><td>3</td><td>2026-07-01</td></tr>
-<tr data-search='DRKN2099 Kinshasa_Bunda 8 8.02 2026-06-30'><td>DRKN2099</td><td>Kinshasa_Bunda</td><td>8</td><td>8.02</td><td>5</td><td>2026-06-30</td></tr>
-<tr data-search='DRKN2037 Station_Ma_Campagne2 6 7.58 2026-06-27'><td>DRKN2037</td><td>Station_Ma_Campagne2</td><td>6</td><td>7.58</td><td>5</td><td>2026-06-27</td></tr>
-<tr data-search='DRKN0292 Saint Fran&#231;ois 6 6.85 2026-06-19'><td>DRKN0292</td><td>Saint Fran&#231;ois</td><td>6</td><td>6.85</td><td>4</td><td>2026-06-19</td></tr>
-<tr data-search='DRKN0040 Ozone 2 4 6.66 2026-06-14'><td>DRKN0040</td><td>Ozone 2</td><td>4</td><td>6.66</td><td>2</td><td>2026-06-14</td></tr>
-<tr data-search='DRKN0216 Bamboma 8 6.56 2026-07-01'><td>DRKN0216</td><td>Bamboma</td><td>8</td><td>6.56</td><td>4</td><td>2026-07-01</td></tr>
-<tr data-search='DRKN7180 CS-Mafema3 2 5.74 2026-06-13'><td>DRKN7180</td><td>CS-Mafema3</td><td>2</td><td>5.74</td><td>1</td><td>2026-06-13</td></tr>
-<tr data-search='DRKN0286 Ngaliema 2 5.63 2026-06-30'><td>DRKN0286</td><td>Ngaliema</td><td>2</td><td>5.63</td><td>2</td><td>2026-06-30</td></tr>
-<tr data-search='DRKN0247 Malueka 4 5.52 2026-06-22'><td>DRKN0247</td><td>Malueka</td><td>4</td><td>5.52</td><td>3</td><td>2026-06-22</td></tr>
-<tr data-search='DRKN2156 Telecom 3 5.31 2026-06-18'><td>DRKN2156</td><td>Telecom</td><td>3</td><td>5.31</td><td>2</td><td>2026-06-18</td></tr>
-<tr data-search='DRKN0245 Kwango 2 5.09 2026-06-23'><td>DRKN0245</td><td>Kwango</td><td>2</td><td>5.09</td><td>1</td><td>2026-06-23</td></tr>
-<tr data-search='DRKN8821 Kin_Notredame_Fatima 1 5.05 2026-07-01'><td>DRKN8821</td><td>Kin_Notredame_Fatima</td><td>1</td><td>5.05</td><td>1</td><td>2026-07-01</td></tr>
-<tr data-search='DRKN0189 Vivi 2 4.58 2026-06-12'><td>DRKN0189</td><td>Vivi</td><td>2</td><td>4.58</td><td>1</td><td>2026-06-12</td></tr>
-<tr data-search='DRKN2063 Kinshasa_Flamboyant 4 4.54 2026-06-24'><td>DRKN2063</td><td>Kinshasa_Flamboyant</td><td>4</td><td>4.54</td><td>2</td><td>2026-06-24</td></tr>
-<tr data-search='DRKN8036 Camping_Pascalin 5 4.09 2026-07-01'><td>DRKN8036</td><td>Camping_Pascalin</td><td>5</td><td>4.09</td><td>4</td><td>2026-07-01</td></tr>
-<tr data-search='DRKN0206 Mawana 2 3.95 2026-06-30'><td>DRKN0206</td><td>Mawana</td><td>2</td><td>3.95</td><td>2</td><td>2026-06-30</td></tr>
-<tr data-search='DRKN2152 Nguma 1 3.82 2026-06-13'><td>DRKN2152</td><td>Nguma</td><td>1</td><td>3.82</td><td>1</td><td>2026-06-13</td></tr>
-<tr data-search='DRKN0253 Camping 5 3.43 2026-06-29'><td>DRKN0253</td><td>Camping</td><td>5</td><td>3.43</td><td>5</td><td>2026-06-29</td></tr>
-<tr data-search='DRKN0828 M&#233;t&#233;o_Erosion 1 3.06 2026-06-19'><td>DRKN0828</td><td>M&#233;t&#233;o_Erosion</td><td>1</td><td>3.06</td><td>1</td><td>2026-06-19</td></tr>
-<tr data-search='DRKN7201 Lubwaku 1 2.87 2026-06-26'><td>DRKN7201</td><td>Lubwaku</td><td>1</td><td>2.87</td><td>1</td><td>2026-06-26</td></tr>
-<tr data-search='DRKN0699 Boboliko 2 2.83 2026-06-16'><td>DRKN0699</td><td>Boboliko</td><td>2</td><td>2.83</td><td>2</td><td>2026-06-16</td></tr>
-<tr data-search='DRKN2106 Kinshasa_Bakayau 2 2.78 2026-06-23'><td>DRKN2106</td><td>Kinshasa_Bakayau</td><td>2</td><td>2.78</td><td>1</td><td>2026-06-23</td></tr>
-<tr data-search='DRKN8442 Kin_Malueka_Nkotila 3 2.63 2026-06-20'><td>DRKN8442</td><td>Kin_Malueka_Nkotila</td><td>3</td><td>2.63</td><td>2</td><td>2026-06-20</td></tr>
-<tr data-search='DRKN0069 Bumba 2 2.42 2026-06-26'><td>DRKN0069</td><td>Bumba</td><td>2</td><td>2.42</td><td>2</td><td>2026-06-26</td></tr>
-<tr data-search='DRKN8274 Kolomoni_Telecom 1 2.23 2026-06-13'><td>DRKN8274</td><td>Kolomoni_Telecom</td><td>1</td><td>2.23</td><td>1</td><td>2026-06-13</td></tr>
-<tr data-search='DRKN8342 Aicha KBG_Kintambo 2 2.17 2026-06-20'><td>DRKN8342</td><td>Aicha KBG_Kintambo</td><td>2</td><td>2.17</td><td>2</td><td>2026-06-20</td></tr>
-<tr data-search='DRKN6881 Kinsuka-Pecheur2 4 2.16 2026-06-26'><td>DRKN6881</td><td>Kinsuka-Pecheur2</td><td>4</td><td>2.16</td><td>1</td><td>2026-06-26</td></tr>
-<tr data-search='DRKN7520 Kin_Station_Macampagne_2 1 2.15 2026-06-13'><td>DRKN7520</td><td>Kin_Station_Macampagne_2</td><td>1</td><td>2.15</td><td>1</td><td>2026-06-13</td></tr>
-<tr data-search='DRKN8034 Camp_Luka3 1 1.88 2026-06-28'><td>DRKN8034</td><td>Camp_Luka3</td><td>1</td><td>1.88</td><td>1</td><td>2026-06-28</td></tr>
-<tr data-search='DRKN0186 Logec 2 1.87 2026-06-16'><td>DRKN0186</td><td>Logec</td><td>2</td><td>1.87</td><td>1</td><td>2026-06-16</td></tr>
-<tr data-search='DRKN2225 Makelele 1 1.85 2026-06-14'><td>DRKN2225</td><td>Makelele</td><td>1</td><td>1.85</td><td>1</td><td>2026-06-14</td></tr>
-<tr data-search='DRKN0221 Herady 1 1.83 2026-06-24'><td>DRKN0221</td><td>Herady</td><td>1</td><td>1.83</td><td>1</td><td>2026-06-24</td></tr>
-<tr data-search='DRKN8372 Kin_Maluka2 2 1.62 2026-06-18'><td>DRKN8372</td><td>Kin_Maluka2</td><td>2</td><td>1.62</td><td>2</td><td>2026-06-18</td></tr>
-<tr data-search='DRKN0074 Sans Fil 1 1.54 2026-06-23'><td>DRKN0074</td><td>Sans Fil</td><td>1</td><td>1.54</td><td>1</td><td>2026-06-23</td></tr>
-<tr data-search='DRKN8305 Regideso-Ngaliema 1 1.49 2026-06-14'><td>DRKN8305</td><td>Regideso-Ngaliema</td><td>1</td><td>1.49</td><td>1</td><td>2026-06-14</td></tr>
-<tr data-search='DRKN0073 Mitendi 1 1.44 2026-06-13'><td>DRKN0073</td><td>Mitendi</td><td>1</td><td>1.44</td><td>1</td><td>2026-06-13</td></tr>
-<tr data-search='DRKN0755 Hesbaye 1 1.37 2026-06-13'><td>DRKN0755</td><td>Hesbaye</td><td>1</td><td>1.37</td><td>1</td><td>2026-06-13</td></tr>
-<tr data-search='DRKN0068 Badiadingi 2 1.31 2026-06-28'><td>DRKN0068</td><td>Badiadingi</td><td>2</td><td>1.31</td><td>2</td><td>2026-06-28</td></tr>
-<tr data-search='DRKN6883 Lacolline2 1 1.21 2026-06-26'><td>DRKN6883</td><td>Lacolline2</td><td>1</td><td>1.21</td><td>1</td><td>2026-06-26</td></tr>
-<tr data-search='DRKN8190 Kin_Mbudi_Nature 2 1.19 2026-06-25'><td>DRKN8190</td><td>Kin_Mbudi_Nature</td><td>2</td><td>1.19</td><td>2</td><td>2026-06-25</td></tr>
-<tr data-search='DRKN8066 Quartier_CPA 3 1.11 2026-06-29'><td>DRKN8066</td><td>Quartier_CPA</td><td>3</td><td>1.11</td><td>2</td><td>2026-06-29</td></tr>
-<tr data-search='DRKN0064 Sola 2 1.1 2026-06-19'><td>DRKN0064</td><td>Sola</td><td>2</td><td>1.1</td><td>2</td><td>2026-06-19</td></tr>
-<tr data-search='DRKN0125 Kin_Malueka_Nkotila 1 1.09 2026-06-20'><td>DRKN0125</td><td>Kin_Malueka_Nkotila</td><td>1</td><td>1.09</td><td>1</td><td>2026-06-20</td></tr>
-<tr data-search='DRKN6862 New Etrier 1 1.03 2026-06-12'><td>DRKN6862</td><td>New Etrier</td><td>1</td><td>1.03</td><td>1</td><td>2026-06-12</td></tr>
-<tr data-search='DRKN0201 Mama Yemo 2 0.95 2026-06-23'><td>DRKN0201</td><td>Mama Yemo</td><td>2</td><td>0.95</td><td>2</td><td>2026-06-23</td></tr>
-<tr data-search='DRKN8064 Temple_Sion 1 0.85 2026-06-14'><td>DRKN8064</td><td>Temple_Sion</td><td>1</td><td>0.85</td><td>1</td><td>2026-06-14</td></tr>
-<tr data-search='DRKN0195 Kasa Vubu 1 0.78 2026-06-12'><td>DRKN0195</td><td>Kasa Vubu</td><td>1</td><td>0.78</td><td>1</td><td>2026-06-12</td></tr>
-<tr data-search='DRKN0071 Sangamamba 5 0.73 2026-06-29'><td>DRKN0071</td><td>Sangamamba</td><td>5</td><td>0.73</td><td>3</td><td>2026-06-29</td></tr>
-<tr data-search='DRKN0117 Kimbualea 2 2 0.72 2026-06-29'><td>DRKN0117</td><td>Kimbualea 2</td><td>2</td><td>0.72</td><td>2</td><td>2026-06-29</td></tr>
-<tr data-search='DRKN0191 Kitomesa 4 0.65 2026-06-29'><td>DRKN0191</td><td>Kitomesa</td><td>4</td><td>0.65</td><td>3</td><td>2026-06-29</td></tr>
-<tr data-search='DRKN7232 Kin_Telecom_Dandu 1 0.65 2026-06-28'><td>DRKN7232</td><td>Kin_Telecom_Dandu</td><td>1</td><td>0.65</td><td>1</td><td>2026-06-28</td></tr>
-<tr data-search='DRKN7453 Cite Pumbu 1 0.65 2026-06-13'><td>DRKN7453</td><td>Cite Pumbu</td><td>1</td><td>0.65</td><td>1</td><td>2026-06-13</td></tr>
-<tr data-search='DRKN8147 Malueka_Nkotila 1 0.65 2026-06-14'><td>DRKN8147</td><td>Malueka_Nkotila</td><td>1</td><td>0.65</td><td>1</td><td>2026-06-14</td></tr>
-<tr data-search='DRKN0192 Bondo 3 0.61 2026-06-27'><td>DRKN0192</td><td>Bondo</td><td>3</td><td>0.61</td><td>3</td><td>2026-06-27</td></tr>
-<tr data-search='DRKN8097 Kimbuala_Shamba 1 0.6 2026-07-01'><td>DRKN8097</td><td>Kimbuala_Shamba</td><td>1</td><td>0.6</td><td>1</td><td>2026-07-01</td></tr>
-<tr data-search='DRKN8048 Route_Sebo 1 0.45 2026-06-12'><td>DRKN8048</td><td>Route_Sebo</td><td>1</td><td>0.45</td><td>1</td><td>2026-06-12</td></tr>
-<tr data-search='DRKN9179 lundele fondation 2 0.44 2026-06-21'><td>DRKN9179</td><td>lundele fondation</td><td>2</td><td>0.44</td><td>2</td><td>2026-06-21</td></tr>
-<tr data-search='DRKN2139 Nguba 1 0.17 2026-06-14'><td>DRKN2139</td><td>Nguba</td><td>1</td><td>0.17</td><td>1</td><td>2026-06-14</td></tr>
-<tr data-search='DRKN0067 Eucalyptus1 1 0.12 2026-06-27'><td>DRKN0067</td><td>Eucalyptus1</td><td>1</td><td>0.12</td><td>1</td><td>2026-06-27</td></tr>
-<tr data-search='DRKN8052 Telecom_Sengo 1 0.04 2026-06-29'><td>DRKN8052</td><td>Telecom_Sengo</td><td>1</td><td>0.04</td><td>1</td><td>2026-06-29</td></tr>
-<tr data-search='DRKN8178 New Matadi Mayo 1 0.03 2026-06-29'><td>DRKN8178</td><td>New Matadi Mayo</td><td>1</td><td>0.03</td><td>1</td><td>2026-06-29</td></tr>
-<tr data-search='DRKN0097 St Philippe 1 0 2026-06-22'><td>DRKN0097</td><td>St Philippe</td><td>1</td><td>0</td><td>1</td><td>2026-06-22</td></tr>
-<tr data-search='DRKN0205 Sanga Mamba 1 0 2026-06-14'><td>DRKN0205</td><td>Sanga Mamba</td><td>1</td><td>0</td><td>1</td><td>2026-06-14</td></tr>
-<tr data-search='DRKN7642 Logec_2 1 0 2026-06-29'><td>DRKN7642</td><td>Logec_2</td><td>1</td><td>0</td><td>1</td><td>2026-06-29</td></tr>
+<tr data-search='DRKN0202 Mbanza Mpa 14 18.69 10 2026-06-30'><td>DRKN0202</td><td>Mbanza Mpa</td><td>14</td><td>18.69</td><td>10</td><td>2026-06-30</td></tr>
+<tr data-search='DRKN0190 Cuba 8 17.32 5 2026-06-29'><td>DRKN0190</td><td>Cuba</td><td>8</td><td>17.32</td><td>5</td><td>2026-06-29</td></tr>
+<tr data-search='DRKN0249 Ngomba Kikusa 5 13.83 5 2026-06-28'><td>DRKN0249</td><td>Ngomba Kikusa</td><td>5</td><td>13.83</td><td>5</td><td>2026-06-28</td></tr>
+<tr data-search='DRKN0171 Kimwenza Gare 6 9.74 3 2026-06-26'><td>DRKN0171</td><td>Kimwenza Gare</td><td>6</td><td>9.74</td><td>3</td><td>2026-06-26</td></tr>
+<tr data-search='DRKN2246 Kinshasa_Lulendo 4 8.25 2 2026-06-26'><td>DRKN2246</td><td>Kinshasa_Lulendo</td><td>4</td><td>8.25</td><td>2</td><td>2026-06-26</td></tr>
+<tr data-search='DRKN2099 Kinshasa_Bunda 8 8.02 5 2026-06-30'><td>DRKN2099</td><td>Kinshasa_Bunda</td><td>8</td><td>8.02</td><td>5</td><td>2026-06-30</td></tr>
+<tr data-search='DRKN0697 Ex. Maternit&#233; 4 7.9 3 2026-06-30'><td>DRKN0697</td><td>Ex. Maternit&#233;</td><td>4</td><td>7.9</td><td>3</td><td>2026-06-30</td></tr>
+<tr data-search='DRKN2037 Station_Ma_Campagne2 6 7.58 5 2026-06-27'><td>DRKN2037</td><td>Station_Ma_Campagne2</td><td>6</td><td>7.58</td><td>5</td><td>2026-06-27</td></tr>
+<tr data-search='DRKN0292 Saint Fran&#231;ois 6 6.85 4 2026-06-19'><td>DRKN0292</td><td>Saint Fran&#231;ois</td><td>6</td><td>6.85</td><td>4</td><td>2026-06-19</td></tr>
+<tr data-search='DRKN0040 Ozone 2 4 6.66 2 2026-06-14'><td>DRKN0040</td><td>Ozone 2</td><td>4</td><td>6.66</td><td>2</td><td>2026-06-14</td></tr>
+<tr data-search='DRKN7180 CS-Mafema3 2 5.74 1 2026-06-13'><td>DRKN7180</td><td>CS-Mafema3</td><td>2</td><td>5.74</td><td>1</td><td>2026-06-13</td></tr>
+<tr data-search='DRKN0286 Ngaliema 2 5.63 2 2026-06-30'><td>DRKN0286</td><td>Ngaliema</td><td>2</td><td>5.63</td><td>2</td><td>2026-06-30</td></tr>
+<tr data-search='DRKN0247 Malueka 4 5.52 3 2026-06-22'><td>DRKN0247</td><td>Malueka</td><td>4</td><td>5.52</td><td>3</td><td>2026-06-22</td></tr>
+<tr data-search='DRKN0216 Bamboma 6 5.35 3 2026-06-30'><td>DRKN0216</td><td>Bamboma</td><td>6</td><td>5.35</td><td>3</td><td>2026-06-30</td></tr>
+<tr data-search='DRKN2156 Telecom 3 5.31 2 2026-06-18'><td>DRKN2156</td><td>Telecom</td><td>3</td><td>5.31</td><td>2</td><td>2026-06-18</td></tr>
+<tr data-search='DRKN0245 Kwango 2 5.09 1 2026-06-23'><td>DRKN0245</td><td>Kwango</td><td>2</td><td>5.09</td><td>1</td><td>2026-06-23</td></tr>
+<tr data-search='DRKN0189 Vivi 2 4.58 1 2026-06-12'><td>DRKN0189</td><td>Vivi</td><td>2</td><td>4.58</td><td>1</td><td>2026-06-12</td></tr>
+<tr data-search='DRKN2063 Kinshasa_Flamboyant 4 4.54 2 2026-06-24'><td>DRKN2063</td><td>Kinshasa_Flamboyant</td><td>4</td><td>4.54</td><td>2</td><td>2026-06-24</td></tr>
+<tr data-search='DRKN0206 Mawana 2 3.95 2 2026-06-30'><td>DRKN0206</td><td>Mawana</td><td>2</td><td>3.95</td><td>2</td><td>2026-06-30</td></tr>
+<tr data-search='DRKN2152 Nguma 1 3.82 1 2026-06-13'><td>DRKN2152</td><td>Nguma</td><td>1</td><td>3.82</td><td>1</td><td>2026-06-13</td></tr>
+<tr data-search='DRKN8036 Camping_Pascalin 3 3.44 3 2026-06-30'><td>DRKN8036</td><td>Camping_Pascalin</td><td>3</td><td>3.44</td><td>3</td><td>2026-06-30</td></tr>
+<tr data-search='DRKN0253 Camping 5 3.43 5 2026-06-29'><td>DRKN0253</td><td>Camping</td><td>5</td><td>3.43</td><td>5</td><td>2026-06-29</td></tr>
+<tr data-search='DRKN0828 M&#233;t&#233;o_Erosion 1 3.06 1 2026-06-19'><td>DRKN0828</td><td>M&#233;t&#233;o_Erosion</td><td>1</td><td>3.06</td><td>1</td><td>2026-06-19</td></tr>
+<tr data-search='DRKN7201 Lubwaku 1 2.87 1 2026-06-26'><td>DRKN7201</td><td>Lubwaku</td><td>1</td><td>2.87</td><td>1</td><td>2026-06-26</td></tr>
+<tr data-search='DRKN0699 Boboliko 2 2.83 2 2026-06-16'><td>DRKN0699</td><td>Boboliko</td><td>2</td><td>2.83</td><td>2</td><td>2026-06-16</td></tr>
+<tr data-search='DRKN2106 Kinshasa_Bakayau 2 2.78 1 2026-06-23'><td>DRKN2106</td><td>Kinshasa_Bakayau</td><td>2</td><td>2.78</td><td>1</td><td>2026-06-23</td></tr>
+<tr data-search='DRKN8442 Kin_Malueka_Nkotila 3 2.63 2 2026-06-20'><td>DRKN8442</td><td>Kin_Malueka_Nkotila</td><td>3</td><td>2.63</td><td>2</td><td>2026-06-20</td></tr>
+<tr data-search='DRKN0069 Bumba 2 2.42 2 2026-06-26'><td>DRKN0069</td><td>Bumba</td><td>2</td><td>2.42</td><td>2</td><td>2026-06-26</td></tr>
+<tr data-search='DRKN8274 Kolomoni_Telecom 1 2.23 1 2026-06-13'><td>DRKN8274</td><td>Kolomoni_Telecom</td><td>1</td><td>2.23</td><td>1</td><td>2026-06-13</td></tr>
+<tr data-search='DRKN8342 Aicha KBG_Kintambo 2 2.17 2 2026-06-20'><td>DRKN8342</td><td>Aicha KBG_Kintambo</td><td>2</td><td>2.17</td><td>2</td><td>2026-06-20</td></tr>
+<tr data-search='DRKN6881 Kinsuka-Pecheur2 4 2.16 1 2026-06-26'><td>DRKN6881</td><td>Kinsuka-Pecheur2</td><td>4</td><td>2.16</td><td>1</td><td>2026-06-26</td></tr>
+<tr data-search='DRKN7520 Kin_Station_Macampagne_2 1 2.15 1 2026-06-13'><td>DRKN7520</td><td>Kin_Station_Macampagne_2</td><td>1</td><td>2.15</td><td>1</td><td>2026-06-13</td></tr>
+<tr data-search='DRKN8034 Camp_Luka3 1 1.88 1 2026-06-28'><td>DRKN8034</td><td>Camp_Luka3</td><td>1</td><td>1.88</td><td>1</td><td>2026-06-28</td></tr>
+<tr data-search='DRKN0186 Logec 2 1.87 1 2026-06-16'><td>DRKN0186</td><td>Logec</td><td>2</td><td>1.87</td><td>1</td><td>2026-06-16</td></tr>
+<tr data-search='DRKN2225 Makelele 1 1.85 1 2026-06-14'><td>DRKN2225</td><td>Makelele</td><td>1</td><td>1.85</td><td>1</td><td>2026-06-14</td></tr>
+<tr data-search='DRKN0221 Herady 1 1.83 1 2026-06-24'><td>DRKN0221</td><td>Herady</td><td>1</td><td>1.83</td><td>1</td><td>2026-06-24</td></tr>
+<tr data-search='DRKN8372 Kin_Maluka2 2 1.62 2 2026-06-18'><td>DRKN8372</td><td>Kin_Maluka2</td><td>2</td><td>1.62</td><td>2</td><td>2026-06-18</td></tr>
+<tr data-search='DRKN0074 Sans Fil 1 1.54 1 2026-06-23'><td>DRKN0074</td><td>Sans Fil</td><td>1</td><td>1.54</td><td>1</td><td>2026-06-23</td></tr>
+<tr data-search='DRKN8305 Regideso-Ngaliema 1 1.49 1 2026-06-14'><td>DRKN8305</td><td>Regideso-Ngaliema</td><td>1</td><td>1.49</td><td>1</td><td>2026-06-14</td></tr>
+<tr data-search='DRKN0073 Mitendi 1 1.44 1 2026-06-13'><td>DRKN0073</td><td>Mitendi</td><td>1</td><td>1.44</td><td>1</td><td>2026-06-13</td></tr>
+<tr data-search='DRKN0755 Hesbaye 1 1.37 1 2026-06-13'><td>DRKN0755</td><td>Hesbaye</td><td>1</td><td>1.37</td><td>1</td><td>2026-06-13</td></tr>
+<tr data-search='DRKN0068 Badiadingi 2 1.31 2 2026-06-28'><td>DRKN0068</td><td>Badiadingi</td><td>2</td><td>1.31</td><td>2</td><td>2026-06-28</td></tr>
+<tr data-search='DRKN6883 Lacolline2 1 1.21 1 2026-06-26'><td>DRKN6883</td><td>Lacolline2</td><td>1</td><td>1.21</td><td>1</td><td>2026-06-26</td></tr>
+<tr data-search='DRKN8190 Kin_Mbudi_Nature 2 1.19 2 2026-06-25'><td>DRKN8190</td><td>Kin_Mbudi_Nature</td><td>2</td><td>1.19</td><td>2</td><td>2026-06-25</td></tr>
+<tr data-search='DRKN8066 Quartier_CPA 3 1.11 2 2026-06-29'><td>DRKN8066</td><td>Quartier_CPA</td><td>3</td><td>1.11</td><td>2</td><td>2026-06-29</td></tr>
+<tr data-search='DRKN0064 Sola 2 1.1 2 2026-06-19'><td>DRKN0064</td><td>Sola</td><td>2</td><td>1.1</td><td>2</td><td>2026-06-19</td></tr>
+<tr data-search='DRKN0125 Kin_Malueka_Nkotila 1 1.09 1 2026-06-20'><td>DRKN0125</td><td>Kin_Malueka_Nkotila</td><td>1</td><td>1.09</td><td>1</td><td>2026-06-20</td></tr>
+<tr data-search='DRKN6862 New Etrier 1 1.03 1 2026-06-12'><td>DRKN6862</td><td>New Etrier</td><td>1</td><td>1.03</td><td>1</td><td>2026-06-12</td></tr>
+<tr data-search='DRKN0201 Mama Yemo 2 0.95 2 2026-06-23'><td>DRKN0201</td><td>Mama Yemo</td><td>2</td><td>0.95</td><td>2</td><td>2026-06-23</td></tr>
+<tr data-search='DRKN8064 Temple_Sion 1 0.85 1 2026-06-14'><td>DRKN8064</td><td>Temple_Sion</td><td>1</td><td>0.85</td><td>1</td><td>2026-06-14</td></tr>
+<tr data-search='DRKN0195 Kasa Vubu 1 0.78 1 2026-06-12'><td>DRKN0195</td><td>Kasa Vubu</td><td>1</td><td>0.78</td><td>1</td><td>2026-06-12</td></tr>
+<tr data-search='DRKN0071 Sangamamba 5 0.73 3 2026-06-29'><td>DRKN0071</td><td>Sangamamba</td><td>5</td><td>0.73</td><td>3</td><td>2026-06-29</td></tr>
+<tr data-search='DRKN0117 Kimbualea 2 2 0.72 2 2026-06-29'><td>DRKN0117</td><td>Kimbualea 2</td><td>2</td><td>0.72</td><td>2</td><td>2026-06-29</td></tr>
+<tr data-search='DRKN0191 Kitomesa 4 0.65 3 2026-06-29'><td>DRKN0191</td><td>Kitomesa</td><td>4</td><td>0.65</td><td>3</td><td>2026-06-29</td></tr>
+<tr data-search='DRKN7232 Kin_Telecom_Dandu 1 0.65 1 2026-06-28'><td>DRKN7232</td><td>Kin_Telecom_Dandu</td><td>1</td><td>0.65</td><td>1</td><td>2026-06-28</td></tr>
+<tr data-search='DRKN7453 Cite Pumbu 1 0.65 1 2026-06-13'><td>DRKN7453</td><td>Cite Pumbu</td><td>1</td><td>0.65</td><td>1</td><td>2026-06-13</td></tr>
+<tr data-search='DRKN8147 Malueka_Nkotila 1 0.65 1 2026-06-14'><td>DRKN8147</td><td>Malueka_Nkotila</td><td>1</td><td>0.65</td><td>1</td><td>2026-06-14</td></tr>
+<tr data-search='DRKN0192 Bondo 3 0.61 3 2026-06-27'><td>DRKN0192</td><td>Bondo</td><td>3</td><td>0.61</td><td>3</td><td>2026-06-27</td></tr>
+<tr data-search='DRKN8048 Route_Sebo 1 0.45 1 2026-06-12'><td>DRKN8048</td><td>Route_Sebo</td><td>1</td><td>0.45</td><td>1</td><td>2026-06-12</td></tr>
+<tr data-search='DRKN9179 lundele fondation 2 0.44 2 2026-06-21'><td>DRKN9179</td><td>lundele fondation</td><td>2</td><td>0.44</td><td>2</td><td>2026-06-21</td></tr>
+<tr data-search='DRKN2139 Nguba 1 0.17 1 2026-06-14'><td>DRKN2139</td><td>Nguba</td><td>1</td><td>0.17</td><td>1</td><td>2026-06-14</td></tr>
+<tr data-search='DRKN0067 Eucalyptus1 1 0.12 1 2026-06-27'><td>DRKN0067</td><td>Eucalyptus1</td><td>1</td><td>0.12</td><td>1</td><td>2026-06-27</td></tr>
+<tr data-search='DRKN8052 Telecom_Sengo 1 0.04 1 2026-06-29'><td>DRKN8052</td><td>Telecom_Sengo</td><td>1</td><td>0.04</td><td>1</td><td>2026-06-29</td></tr>
+<tr data-search='DRKN8178 New Matadi Mayo 1 0.03 1 2026-06-29'><td>DRKN8178</td><td>New Matadi Mayo</td><td>1</td><td>0.03</td><td>1</td><td>2026-06-29</td></tr>
+<tr data-search='DRKN0097 St Philippe 1 0 1 2026-06-22'><td>DRKN0097</td><td>St Philippe</td><td>1</td><td>0</td><td>1</td><td>2026-06-22</td></tr>
+<tr data-search='DRKN0205 Sanga Mamba 1 0 1 2026-06-14'><td>DRKN0205</td><td>Sanga Mamba</td><td>1</td><td>0</td><td>1</td><td>2026-06-14</td></tr>
+<tr data-search='DRKN7642 Logec_2 1 0 1 2026-06-29'><td>DRKN7642</td><td>Logec_2</td><td>1</td><td>0</td><td>1</td><td>2026-06-29</td></tr>
 </tbody>
 </table>
 </div>
@@ -197,6 +219,7 @@ tbody tr:nth-child(even) { background: #f8fafc; }
 
     wireSearch('dashboards-table', 'portal-search', 'portal-clear', 'portal-count');
     wireSearch('site-totals-table', 'site-search', 'site-clear', 'site-count');
+    wireSearch('june-site-totals-table', 'june-site-search', 'june-site-clear', 'june-site-count');
 }());
 </script>
 </body>
