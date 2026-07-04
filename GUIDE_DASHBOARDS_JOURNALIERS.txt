@@ -1,0 +1,72 @@
+GUIDE - Dashboards journaliers incidents
+
+Objectif
+--------
+Chaque jour, tu prends le fichier Excel prepare au travail, tu generes un dashboard HTML,
+puis les gens consultent le portail pour choisir la date qu'ils veulent voir.
+
+Dossiers importants
+-------------------
+Incoming_Files
+  Depose ici les fichiers Excel du jour.
+
+Daily_Dashboards
+  C'est le portail a publier sur SharePoint / OneDrive / Teams.
+  Le fichier principal a partager est :
+  Daily_Dashboards\index.html
+
+Procedure quotidienne
+---------------------
+Exemple pour le dashboard du 13 juin 2026 :
+
+1. Deposer le fichier Excel du 13 dans :
+   C:\Users\hp\Documents\MAMBS\Incoming_Files
+
+2. Lancer PowerShell dans le dossier MAMBS.
+
+3. Executer la commande en adaptant le nom du fichier :
+   powershell -ExecutionPolicy Bypass -File .\Publish-DailyDashboard.ps1 -InputPath ".\Incoming_Files\NOM_DU_FICHIER_DU_13.xlsb" -Date "2026-06-13" -Title "Incidents du 13 juin 2026"
+
+4. Le script ajoute automatiquement la journee dans :
+   Daily_Dashboards\2026-06-13\index.html
+
+5. Le portail est mis a jour ici :
+   Daily_Dashboards\index.html
+
+Publication pour acces depuis la maison
+---------------------------------------
+Option recommandee :
+
+1. Mettre le dossier Daily_Dashboards sur SharePoint, OneDrive ou Teams.
+2. Partager le lien du dossier ou du fichier index.html.
+3. Choisir un partage securise :
+   - Personnes dans Helios Towers
+   - ou personnes specifiques
+
+Important
+---------
+Le lien local http://10.243.253.38:8080/ marche seulement sur le meme reseau.
+Pour un acces depuis la maison, il faut SharePoint, OneDrive, Teams, Power BI,
+ou un serveur web/intranet de l'entreprise.
+
+Courbes actuellement disponibles
+--------------------------------
+- KPI journaliers
+- Top sites par duree de down
+- Incidents par heure
+- Duree de down par heure
+- Repartition des durees
+- Fuel vs Non Fuel
+- Passive / Active
+- Top mots RCA
+- Classement des sites
+- Details des incidents
+
+Evolution possible
+------------------
+Quand le processus est stable, on peut passer a Power BI pour avoir :
+- filtres interactifs
+- comparaison jour par jour
+- tendance semaine/mois
+- acces securise depuis partout
+- rafraichissement plus propre

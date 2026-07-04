@@ -1,0 +1,149 @@
+﻿<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tableau de bord incidents</title>
+<style>
+body { margin: 0; font-family: Arial, Helvetica, sans-serif; color: #172033; background: #f5f7fb; }
+header { background: #0f766e; color: white; padding: 24px 32px; }
+h1 { margin: 0 0 6px; font-size: 28px; }
+h2 { margin: 0 0 14px; font-size: 18px; color: #172033; }
+main { padding: 24px 32px 40px; }
+.meta { opacity: .9; font-size: 13px; }
+.kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; margin-bottom: 22px; }
+.kpi { background: white; border: 1px solid #d9e1ec; border-radius: 6px; padding: 14px; }
+.kpi span { display: block; font-size: 12px; color: #5b6678; margin-bottom: 8px; }
+.kpi strong { font-size: 24px; color: #111827; }
+.grid { display: grid; grid-template-columns: repeat(2, minmax(280px, 1fr)); gap: 18px; }
+.panel { background: white; border: 1px solid #d9e1ec; border-radius: 6px; padding: 16px; overflow-x: auto; }
+svg { width: 100%; height: auto; }
+.bar { fill: #2563eb; }
+.axis-label { font-size: 12px; fill: #334155; }
+.value-label { font-size: 12px; fill: #0f172a; font-weight: 700; }
+table { width: 100%; border-collapse: collapse; font-size: 12px; }
+th { text-align: left; background: #e8eef6; color: #172033; }
+th, td { border: 1px solid #d9e1ec; padding: 7px 8px; vertical-align: top; }
+.wide { grid-column: 1 / -1; }
+.legend-only { display: grid; gap: 10px; max-width: 520px; }
+.legend-row { display: grid; grid-template-columns: 18px 1fr auto; gap: 8px; align-items: center; }
+.swatch { width: 14px; height: 14px; border-radius: 3px; display: inline-block; }
+@media (max-width: 850px) { .grid { grid-template-columns: 1fr; } main { padding: 18px; } header { padding: 20px; } }
+</style>
+</head>
+<body>
+<header>
+<h1>Tableau de bord journalier des incidents</h1>
+<div class="meta">Source : C:\Users\hp\Documents\MAMBS\Incoming_Files\OUTAGE 22.xlsb | Genere le : 2026-06-23 06:00</div>
+</header>
+<main>
+<section class="kpis">
+<div class="kpi"><span>Total incidents</span><strong>4</strong></div>
+<div class="kpi"><span>Sites impactes</span><strong>3</strong></div>
+<div class="kpi"><span>Duree totale de down</span><strong>3.58 h</strong></div>
+<div class="kpi"><span>Duree moyenne de down</span><strong>0.9 h</strong></div>
+<div class="kpi"><span>Incidents Fuel</span><strong>0</strong></div>
+<div class="kpi"><span>Incidents Non Fuel</span><strong>0</strong></div>
+<div class="kpi"><span>DTPT de la journee</span><strong>7.41</strong></div>
+</section>
+<section class="grid">
+<div class="panel"><h2>Top sites par duree de down</h2><svg viewBox='0 0 760 158' role='img'>
+<text x='0' y='43' class='axis-label'>DRKN0249</text>
+<rect x='170' y='24' width='500' height='28' rx='3' class='bar'></rect>
+<text x='678' y='43' class='value-label'>2.03</text>
+<text x='0' y='81' class='axis-label'>DRKN0247</text>
+<rect x='170' y='62' width='382' height='28' rx='3' class='bar'></rect>
+<text x='560' y='81' class='value-label'>1.55</text>
+<text x='0' y='119' class='axis-label'>DRKN0097</text>
+<rect x='170' y='100' width='2' height='28' rx='3' class='bar'></rect>
+<text x='180' y='119' class='value-label'>0</text>
+</svg></div>
+<div class="panel"><h2>Incidents par heure</h2><svg viewBox='0 0 760 196' role='img'>
+<text x='0' y='43' class='axis-label'>14:00</text>
+<rect x='170' y='24' width='500' height='28' rx='3' class='bar'></rect>
+<text x='678' y='43' class='value-label'>1</text>
+<text x='0' y='81' class='axis-label'>17:00</text>
+<rect x='170' y='62' width='500' height='28' rx='3' class='bar'></rect>
+<text x='678' y='81' class='value-label'>1</text>
+<text x='0' y='119' class='axis-label'>20:00</text>
+<rect x='170' y='100' width='500' height='28' rx='3' class='bar'></rect>
+<text x='678' y='119' class='value-label'>1</text>
+<text x='0' y='157' class='axis-label'>23:00</text>
+<rect x='170' y='138' width='500' height='28' rx='3' class='bar'></rect>
+<text x='678' y='157' class='value-label'>1</text>
+</svg></div>
+<div class="panel"><h2>Duree de down par heure</h2><svg viewBox='0 0 760 196' role='img'>
+<text x='0' y='43' class='axis-label'>14:00</text>
+<rect x='170' y='24' width='333' height='28' rx='3' class='bar'></rect>
+<text x='511' y='43' class='value-label'>1.35</text>
+<text x='0' y='81' class='axis-label'>17:00</text>
+<rect x='170' y='62' width='49' height='28' rx='3' class='bar'></rect>
+<text x='227' y='81' class='value-label'>0.2</text>
+<text x='0' y='119' class='axis-label'>20:00</text>
+<rect x='170' y='100' width='500' height='28' rx='3' class='bar'></rect>
+<text x='678' y='119' class='value-label'>2.03</text>
+<text x='0' y='157' class='axis-label'>23:00</text>
+<rect x='170' y='138' width='2' height='28' rx='3' class='bar'></rect>
+<text x='180' y='157' class='value-label'>0</text>
+</svg></div>
+<div class="panel"><h2>Repartition des durees</h2><svg viewBox='0 0 760 234' role='img'>
+<text x='0' y='43' class='axis-label'>&lt; 30 min</text>
+<rect x='170' y='24' width='500' height='28' rx='3' class='bar'></rect>
+<text x='678' y='43' class='value-label'>2</text>
+<text x='0' y='81' class='axis-label'>30 min - 1 h</text>
+<rect x='170' y='62' width='2' height='28' rx='3' class='bar'></rect>
+<text x='180' y='81' class='value-label'>0</text>
+<text x='0' y='119' class='axis-label'>1 h - 2 h</text>
+<rect x='170' y='100' width='250' height='28' rx='3' class='bar'></rect>
+<text x='428' y='119' class='value-label'>1</text>
+<text x='0' y='157' class='axis-label'>2 h - 4 h</text>
+<rect x='170' y='138' width='250' height='28' rx='3' class='bar'></rect>
+<text x='428' y='157' class='value-label'>1</text>
+<text x='0' y='195' class='axis-label'>&gt; 4 h</text>
+<rect x='170' y='176' width='2' height='28' rx='3' class='bar'></rect>
+<text x='180' y='195' class='value-label'>0</text>
+</svg></div>
+<div class="panel"><h2>Fuel vs Non Fuel</h2><div class='legend-only'><div class='legend-row'><span class='swatch' style='background:#2563eb'></span><span>Non precise</span><strong>4 (100%)</strong></div></div></div>
+<div class="panel"><h2>Passive / Active</h2><svg viewBox='0 0 760 82' role='img'>
+<text x='0' y='43' class='axis-label'>Passive</text>
+<rect x='170' y='24' width='500' height='28' rx='3' class='bar'></rect>
+<text x='678' y='43' class='value-label'>4</text>
+</svg></div>
+<div class="panel"><h2>Top mots RCA</h2><svg viewBox='0 0 760 424' role='img'>
+<text x='0' y='43' class='axis-label'>box</text>
+<rect x='170' y='24' width='500' height='28' rx='3' class='bar'></rect>
+<text x='678' y='43' class='value-label'>1</text>
+<text x='0' y='81' class='axis-label'>overload</text>
+<rect x='170' y='62' width='500' height='28' rx='3' class='bar'></rect>
+<text x='678' y='81' class='value-label'>1</text>
+<text x='0' y='119' class='axis-label'>zone</text>
+<rect x='170' y='100' width='500' height='28' rx='3' class='bar'></rect>
+<text x='678' y='119' class='value-label'>1</text>
+<text x='0' y='157' class='axis-label'>arrive</text>
+<rect x='170' y='138' width='500' height='28' rx='3' class='bar'></rect>
+<text x='678' y='157' class='value-label'>1</text>
+<text x='0' y='195' class='axis-label'>situ&#233;</text>
+<rect x='170' y='176' width='500' height='28' rx='3' class='bar'></rect>
+<text x='678' y='195' class='value-label'>1</text>
+<text x='0' y='233' class='axis-label'>rouge</text>
+<rect x='170' y='214' width='500' height='28' rx='3' class='bar'></rect>
+<text x='678' y='233' class='value-label'>1</text>
+<text x='0' y='271' class='axis-label'>airtel</text>
+<rect x='170' y='252' width='500' height='28' rx='3' class='bar'></rect>
+<text x='678' y='271' class='value-label'>1</text>
+<text x='0' y='309' class='axis-label'>off</text>
+<rect x='170' y='290' width='500' height='28' rx='3' class='bar'></rect>
+<text x='678' y='309' class='value-label'>1</text>
+<text x='0' y='347' class='axis-label'>grid</text>
+<rect x='170' y='328' width='500' height='28' rx='3' class='bar'></rect>
+<text x='678' y='347' class='value-label'>1</text>
+<text x='0' y='385' class='axis-label'>load</text>
+<rect x='170' y='366' width='500' height='28' rx='3' class='bar'></rect>
+<text x='678' y='385' class='value-label'>1</text>
+</svg></div>
+<div class="panel wide"><h2>Classement des sites</h2><table><thead><tr><th>Site ID</th><th>Nom du site</th><th>Incidents</th><th>Duree down (h)</th></tr></thead><tbody><tr><td>DRKN0249</td><td>Ngomba Kikusa</td><td>1</td><td>2.03</td></tr><tr><td>DRKN0247</td><td>Malueka</td><td>2</td><td>1.55</td></tr><tr><td>DRKN0097</td><td>St Philippe</td><td>1</td><td>0</td></tr></tbody></table></div>
+<div class="panel wide"><h2>Details des incidents</h2><table><thead><tr><th>#</th><th>Date outage</th><th>Site ID</th><th>Nom du site</th><th>Debut outage</th><th>Fin outage</th><th>Duree outage (h)</th><th>Passive/Active</th><th>Fuel outage</th><th>Reference TRB</th><th>RCA</th></tr></thead><tbody><tr><td>2</td><td>22-juin-2026</td><td>DRKN0247</td><td>Malueka</td><td>06/22/2026 14:38:00</td><td>06/22/2026 15:59:00</td><td>1.35</td><td>Passive</td><td></td><td>TRB1377117</td><td>batterie de d&#233;marrage d&#233;charg&#233;e.</td></tr><tr><td>2</td><td>22-juin-2026</td><td>DRKN0247</td><td>Malueka</td><td>06/22/2026 17:29:00</td><td>06/22/2026 17:41:00</td><td>0.2</td><td>Passive</td><td></td><td>TRB1377191</td><td>site down pendant la restauration du grid</td></tr><tr><td>3</td><td>22-juin-2026</td><td>DRKN0249</td><td>Ngomba Kikusa</td><td>06/22/2026 20:37:26</td><td>06/22/2026 22:39:00</td><td>2.03</td><td>Passive</td><td></td><td>TRB1377275</td><td>CB Off au DC Box, Airtel Overload; le load arrive &#224; 104A pour un CB de 100A</td></tr><tr><td>4</td><td>22-juin-2026</td><td>DRKN0097</td><td>St Philippe</td><td>06/22/2026 23:12:00</td><td></td><td>0</td><td>Passive</td><td></td><td>TRB1377263</td><td>Site situ&#233; dans une zone rouge, l&#39;intervention le matin</td></tr></tbody></table></div>
+</section>
+</main>
+</body>
+</html>

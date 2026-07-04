@@ -1,0 +1,5 @@
+﻿"#","Outage Date","Site ID","Site Name","Outage Start","Outage End","Alarm Before Down (h)","Outage Duration (h)","ETA (min)","Passive/Active","RCA","Resolution Comment","Fuel Outage","TRB Ref"
+"1","15juin 2026","DRKN8066","Quartier_CPA","15/06/2026 03:44:50","15/06/2026 04:44:00","2","1","","Passive","Dimunition de liquide de refroidissement causé par le collier de radiateur deserré","collier serré et ajout de 2L de coullant","Non","TRB1373266"
+"2","15juin 2026","DRKN0202","Mbanza Mpa","15/06/2026 06:10:00","15/06/2026 09:55:00","0","3,76","","Passive","Fuel Shortage","Ravitaillement de 532L","Oui","TRB1373225"
+"3","15juin 2026","DRKN0292","Saint François","15/06/2026 13:08:00","15/06/2026 13:32:00","0","0,4","","Passive","Le site à faible autonomie coupe pendant le basculement","Isoler le Grid","Non","TRB1373484"
+"4","15juin 2026","DRKN0699","Boboliko","15/06/2026 22:59:00","15/06/2026 23:47:00","0","0,81","","Passive","Vodacom down ( Tenant overload)","Enclenchement du CB","Non","TRB1373704"

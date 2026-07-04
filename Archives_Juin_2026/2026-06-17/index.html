@@ -1,0 +1,143 @@
+﻿<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tableau de bord incidents</title>
+<style>
+body { margin: 0; font-family: Arial, Helvetica, sans-serif; color: #172033; background: #f5f7fb; }
+header { background: #0f766e; color: white; padding: 24px 32px; }
+h1 { margin: 0 0 6px; font-size: 28px; }
+h2 { margin: 0 0 14px; font-size: 18px; color: #172033; }
+main { padding: 24px 32px 40px; }
+.meta { opacity: .9; font-size: 13px; }
+.kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; margin-bottom: 22px; }
+.kpi { background: white; border: 1px solid #d9e1ec; border-radius: 6px; padding: 14px; }
+.kpi span { display: block; font-size: 12px; color: #5b6678; margin-bottom: 8px; }
+.kpi strong { font-size: 24px; color: #111827; }
+.grid { display: grid; grid-template-columns: repeat(2, minmax(280px, 1fr)); gap: 18px; }
+.panel { background: white; border: 1px solid #d9e1ec; border-radius: 6px; padding: 16px; overflow-x: auto; }
+svg { width: 100%; height: auto; }
+.bar { fill: #2563eb; }
+.axis-label { font-size: 12px; fill: #334155; }
+.value-label { font-size: 12px; fill: #0f172a; font-weight: 700; }
+table { width: 100%; border-collapse: collapse; font-size: 12px; }
+th { text-align: left; background: #e8eef6; color: #172033; }
+th, td { border: 1px solid #d9e1ec; padding: 7px 8px; vertical-align: top; }
+.wide { grid-column: 1 / -1; }
+.legend-only { display: grid; gap: 10px; max-width: 520px; }
+.legend-row { display: grid; grid-template-columns: 18px 1fr auto; gap: 8px; align-items: center; }
+.swatch { width: 14px; height: 14px; border-radius: 3px; display: inline-block; }
+@media (max-width: 850px) { .grid { grid-template-columns: 1fr; } main { padding: 18px; } header { padding: 20px; } }
+</style>
+</head>
+<body>
+<header>
+<h1>Tableau de bord journalier des incidents</h1>
+<div class="meta">Source : C:\Users\hp\Documents\MAMBS\Incoming_Files\To Brice_Template Incident_21 (1) (2).xlsb | Genere le : 2026-06-23 05:54</div>
+</header>
+<main>
+<section class="kpis">
+<div class="kpi"><span>Total incidents</span><strong>4</strong></div>
+<div class="kpi"><span>Sites impactes</span><strong>3</strong></div>
+<div class="kpi"><span>Duree totale de down</span><strong>0.84 h</strong></div>
+<div class="kpi"><span>Duree moyenne de down</span><strong>0.21 h</strong></div>
+<div class="kpi"><span>Incidents Fuel</span><strong>0</strong></div>
+<div class="kpi"><span>Incidents Non Fuel</span><strong>4</strong></div>
+<div class="kpi"><span>DTPT de la journee</span><strong></strong></div>
+</section>
+<section class="grid">
+<div class="panel"><h2>Top sites par duree de down</h2><svg viewBox='0 0 760 158' role='img'>
+<text x='0' y='43' class='axis-label'>DRKN0071</text>
+<rect x='170' y='24' width='500' height='28' rx='3' class='bar'></rect>
+<text x='678' y='43' class='value-label'>0.36</text>
+<text x='0' y='81' class='axis-label'>DRKN0171</text>
+<rect x='170' y='62' width='361' height='28' rx='3' class='bar'></rect>
+<text x='539' y='81' class='value-label'>0.26</text>
+<text x='0' y='119' class='axis-label'>DRKN9179</text>
+<rect x='170' y='100' width='306' height='28' rx='3' class='bar'></rect>
+<text x='484' y='119' class='value-label'>0.22</text>
+</svg></div>
+<div class="panel"><h2>Incidents par heure</h2><svg viewBox='0 0 760 196' role='img'>
+<text x='0' y='43' class='axis-label'>14:00</text>
+<rect x='170' y='24' width='500' height='28' rx='3' class='bar'></rect>
+<text x='678' y='43' class='value-label'>1</text>
+<text x='0' y='81' class='axis-label'>15:00</text>
+<rect x='170' y='62' width='500' height='28' rx='3' class='bar'></rect>
+<text x='678' y='81' class='value-label'>1</text>
+<text x='0' y='119' class='axis-label'>16:00</text>
+<rect x='170' y='100' width='500' height='28' rx='3' class='bar'></rect>
+<text x='678' y='119' class='value-label'>1</text>
+<text x='0' y='157' class='axis-label'>19:00</text>
+<rect x='170' y='138' width='500' height='28' rx='3' class='bar'></rect>
+<text x='678' y='157' class='value-label'>1</text>
+</svg></div>
+<div class="panel"><h2>Duree de down par heure</h2><svg viewBox='0 0 760 196' role='img'>
+<text x='0' y='43' class='axis-label'>14:00</text>
+<rect x='170' y='24' width='385' height='28' rx='3' class='bar'></rect>
+<text x='563' y='43' class='value-label'>0.2</text>
+<text x='0' y='81' class='axis-label'>15:00</text>
+<rect x='170' y='62' width='308' height='28' rx='3' class='bar'></rect>
+<text x='486' y='81' class='value-label'>0.16</text>
+<text x='0' y='119' class='axis-label'>16:00</text>
+<rect x='170' y='100' width='500' height='28' rx='3' class='bar'></rect>
+<text x='678' y='119' class='value-label'>0.26</text>
+<text x='0' y='157' class='axis-label'>19:00</text>
+<rect x='170' y='138' width='423' height='28' rx='3' class='bar'></rect>
+<text x='601' y='157' class='value-label'>0.22</text>
+</svg></div>
+<div class="panel"><h2>Repartition des durees</h2><svg viewBox='0 0 760 234' role='img'>
+<text x='0' y='43' class='axis-label'>&lt; 30 min</text>
+<rect x='170' y='24' width='500' height='28' rx='3' class='bar'></rect>
+<text x='678' y='43' class='value-label'>4</text>
+<text x='0' y='81' class='axis-label'>30 min - 1 h</text>
+<rect x='170' y='62' width='2' height='28' rx='3' class='bar'></rect>
+<text x='180' y='81' class='value-label'>0</text>
+<text x='0' y='119' class='axis-label'>1 h - 2 h</text>
+<rect x='170' y='100' width='2' height='28' rx='3' class='bar'></rect>
+<text x='180' y='119' class='value-label'>0</text>
+<text x='0' y='157' class='axis-label'>2 h - 4 h</text>
+<rect x='170' y='138' width='2' height='28' rx='3' class='bar'></rect>
+<text x='180' y='157' class='value-label'>0</text>
+<text x='0' y='195' class='axis-label'>&gt; 4 h</text>
+<rect x='170' y='176' width='2' height='28' rx='3' class='bar'></rect>
+<text x='180' y='195' class='value-label'>0</text>
+</svg></div>
+<div class="panel"><h2>Fuel vs Non Fuel</h2><div class='legend-only'><div class='legend-row'><span class='swatch' style='background:#2563eb'></span><span>Non</span><strong>4 (100%)</strong></div></div></div>
+<div class="panel"><h2>Passive / Active</h2><svg viewBox='0 0 760 82' role='img'>
+<text x='0' y='43' class='axis-label'>Passive</text>
+<rect x='170' y='24' width='500' height='28' rx='3' class='bar'></rect>
+<text x='678' y='43' class='value-label'>4</text>
+</svg></div>
+<div class="panel"><h2>Top mots RCA</h2><svg viewBox='0 0 760 348' role='img'>
+<text x='0' y='43' class='axis-label'>temp</text>
+<rect x='170' y='24' width='500' height='28' rx='3' class='bar'></rect>
+<text x='678' y='43' class='value-label'>3</text>
+<text x='0' y='81' class='axis-label'>caus&#233;</text>
+<rect x='170' y='62' width='500' height='28' rx='3' class='bar'></rect>
+<text x='678' y='81' class='value-label'>3</text>
+<text x='0' y='119' class='axis-label'>high</text>
+<rect x='170' y='100' width='500' height='28' rx='3' class='bar'></rect>
+<text x='678' y='119' class='value-label'>3</text>
+<text x='0' y='157' class='axis-label'>silencieux</text>
+<rect x='170' y='138' width='333' height='28' rx='3' class='bar'></rect>
+<text x='511' y='157' class='value-label'>2</text>
+<text x='0' y='195' class='axis-label'>trou&#233;</text>
+<rect x='170' y='176' width='333' height='28' rx='3' class='bar'></rect>
+<text x='511' y='195' class='value-label'>2</text>
+<text x='0' y='233' class='axis-label'>lointe</text>
+<rect x='170' y='214' width='167' height='28' rx='3' class='bar'></rect>
+<text x='345' y='233' class='value-label'>1</text>
+<text x='0' y='271' class='axis-label'>surchauffe</text>
+<rect x='170' y='252' width='167' height='28' rx='3' class='bar'></rect>
+<text x='345' y='271' class='value-label'>1</text>
+<text x='0' y='309' class='axis-label'>gardien</text>
+<rect x='170' y='290' width='167' height='28' rx='3' class='bar'></rect>
+<text x='345' y='309' class='value-label'>1</text>
+</svg></div>
+<div class="panel wide"><h2>Classement des sites</h2><table><thead><tr><th>Site ID</th><th>Nom du site</th><th>Incidents</th><th>Duree down (h)</th></tr></thead><tbody><tr><td>DRKN0071</td><td>Sangamamba</td><td>2</td><td>0.36</td></tr><tr><td>DRKN0171</td><td>Kimwenza Gare</td><td>1</td><td>0.26</td></tr><tr><td>DRKN9179</td><td>lundele fondation</td><td>1</td><td>0.22</td></tr></tbody></table></div>
+<div class="panel wide"><h2>Details des incidents</h2><table><thead><tr><th>#</th><th>Date outage</th><th>Site ID</th><th>Nom du site</th><th>Debut outage</th><th>Fin outage</th><th>Duree outage (h)</th><th>Passive/Active</th><th>Fuel outage</th><th>Reference TRB</th><th>RCA</th></tr></thead><tbody><tr><td>2</td><td>21-juin-2026</td><td>DRKN0071</td><td>Sangamamba</td><td>06/21/2026 14:59:25</td><td>06/21/2026 15:11:00</td><td>0.2</td><td>Passive</td><td>Non</td><td>TRB1376617</td><td>High temp caus&#233; par le silencieux du DG Trou&#233;</td></tr><tr><td>2</td><td>21-juin-2026</td><td>DRKN0071</td><td>Sangamamba</td><td>06/21/2026 15:21:20</td><td>06/21/2026 15:31:00</td><td>0.16</td><td>Passive</td><td>Non</td><td>TRB1376617</td><td>High temp caus&#233; par le silencieux du DG Trou&#233;</td></tr><tr><td>3</td><td>21-juin-2026</td><td>DRKN0171</td><td>Kimwenza Gare</td><td>06/21/2026 16:55:12</td><td>06/21/2026 17:10:00</td><td>0.26</td><td>Passive</td><td>Non</td><td>TRB1376693</td><td>High temp caus&#233; par  le surchauffe DG</td></tr><tr><td>4</td><td>21-juin-2026</td><td>DRKN9179</td><td>lundele fondation</td><td>06/21/2026 19:51:15</td><td>06/21/2026 20:04:00</td><td>0.22</td><td>Passive</td><td>Non</td><td>TRB1376740</td><td>site up par le gardien (site lointe</td></tr></tbody></table></div>
+</section>
+</main>
+</body>
+</html>

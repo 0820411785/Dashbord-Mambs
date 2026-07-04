@@ -1,0 +1,310 @@
+﻿<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tableau de bord incidents</title>
+<style>
+:root { color-scheme: light; --ink: #172033; --muted: #5b6678; --line: #d9e1ec; --panel: #fff; --page: #f5f7fb; --brand: #0f766e; --brand-dark: #115e59; --blue: #2563eb; --amber: #d97706; }
+* { box-sizing: border-box; }
+body { margin: 0; font-family: Arial, Helvetica, sans-serif; color: var(--ink); background: var(--page); }
+header { background: linear-gradient(135deg, var(--brand-dark), var(--brand)); color: white; padding: 24px 32px; }
+h1 { margin: 0 0 6px; font-size: 28px; line-height: 1.15; }
+h2 { margin: 0 0 14px; font-size: 18px; color: var(--ink); }
+main { padding: 24px 32px 40px; }
+a { color: var(--brand-dark); font-weight: 700; text-decoration: none; }
+a:hover { text-decoration: underline; }
+.meta { opacity: .9; font-size: 13px; overflow-wrap: anywhere; }
+.actions { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 22px; }
+.actions a { background: white; border: 1px solid var(--line); border-radius: 6px; color: var(--brand-dark); padding: 8px 10px; font-size: 12px; }
+.kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; margin-bottom: 22px; }
+.kpi { background: var(--panel); border: 1px solid var(--line); border-radius: 6px; padding: 14px; min-height: 82px; }
+.kpi span { display: block; font-size: 12px; color: var(--muted); margin-bottom: 8px; }
+.kpi strong { display: block; font-size: 24px; line-height: 1.1; color: #111827; overflow-wrap: anywhere; }
+.kpi.wide-kpi { grid-column: span 2; }
+.grid { display: grid; grid-template-columns: repeat(2, minmax(280px, 1fr)); gap: 18px; }
+.panel { background: var(--panel); border: 1px solid var(--line); border-radius: 6px; padding: 16px; overflow-x: auto; }
+svg { width: 100%; height: auto; min-width: 420px; }
+.bar { fill: var(--blue); }
+.axis-label { font-size: 12px; fill: #334155; }
+.value-label { font-size: 12px; fill: #0f172a; font-weight: 700; }
+.toolbar { display: grid; grid-template-columns: minmax(220px, 1fr) repeat(3, minmax(130px, 170px)) auto; gap: 10px; align-items: center; margin-bottom: 12px; min-width: 760px; }
+input, select, button { border: 1px solid var(--line); border-radius: 6px; color: var(--ink); font: inherit; min-height: 38px; padding: 8px 10px; background: white; }
+button { cursor: pointer; font-weight: 700; color: var(--brand-dark); }
+.count { color: var(--muted); font-size: 12px; margin-bottom: 10px; }
+table { width: 100%; border-collapse: collapse; font-size: 12px; }
+th { text-align: left; background: #e8eef6; color: var(--ink); position: sticky; top: 0; z-index: 1; }
+th, td { border: 1px solid var(--line); padding: 7px 8px; vertical-align: top; }
+.data-table th { cursor: pointer; user-select: none; white-space: nowrap; }
+tbody tr:nth-child(even) { background: #f8fafc; }
+.wide { grid-column: 1 / -1; }
+.legend-only { display: grid; gap: 10px; max-width: 520px; }
+.legend-row { display: grid; grid-template-columns: 18px 1fr auto; gap: 8px; align-items: center; }
+.swatch { width: 14px; height: 14px; border-radius: 3px; display: inline-block; }
+@media (max-width: 850px) {
+    .grid { grid-template-columns: 1fr; }
+    main { padding: 18px; }
+    header { padding: 20px; }
+    .kpi.wide-kpi { grid-column: auto; }
+    svg { min-width: 360px; }
+}
+</style>
+</head>
+<body>
+<header>
+<h1>Tableau de bord journalier des incidents</h1>
+<div class="meta">Source : C:\Users\hp\Documents\MAMBS\Incoming_Files\OUTAGE 29 (1).xlsb | Genere le : 2026-07-01 02:06</div>
+</header>
+<main>
+<nav class="actions" aria-label="Exports CSV"><a href='index_Incidents.csv'>Incidents CSV</a><a href='index_BySite.csv'>Sites CSV</a><a href='index_ByHour.csv'>Heures CSV</a><a href='index_Fuel.csv'>Fuel CSV</a><a href='index_Durees.csv'>Durees CSV</a><a href='index_RCA.csv'>RCA CSV</a></nav>
+<section class="kpis">
+<div class="kpi"><span>Total incidents</span><strong>15</strong></div>
+<div class="kpi"><span>Sites impactes</span><strong>11</strong></div>
+<div class="kpi"><span>Duree totale de down</span><strong>0.95 h</strong></div>
+<div class="kpi"><span>Duree moyenne de down</span><strong>0.06 h</strong></div>
+<div class="kpi"><span>Incidents Fuel</span><strong>0</strong></div>
+<div class="kpi"><span>Incidents Non Fuel</span><strong>15</strong></div>
+<div class="kpi"><span>DTPT de la journee</span><strong>47.066091954</strong></div>
+<div class="kpi wide-kpi"><span>Plus longue interruption</span><strong>DRKN2099 - Kinshasa_Bunda (0.25 h)</strong></div>
+</section>
+<section class="grid">
+<div class="panel"><h2>Top sites par duree de down</h2><svg viewBox='0 0 760 424' role='img'>
+<text x='0' y='43' class='axis-label'>DRKN2099</text>
+<rect x='170' y='24' width='500' height='28' rx='3' class='bar'></rect>
+<text x='678' y='43' class='value-label'>0.32</text>
+<text x='0' y='81' class='axis-label'>DRKN0190</text>
+<rect x='170' y='62' width='250' height='28' rx='3' class='bar'></rect>
+<text x='428' y='81' class='value-label'>0.16</text>
+<text x='0' y='119' class='axis-label'>DRKN0253</text>
+<rect x='170' y='100' width='203' height='28' rx='3' class='bar'></rect>
+<text x='381' y='119' class='value-label'>0.13</text>
+<text x='0' y='157' class='axis-label'>DRKN8066</text>
+<rect x='170' y='138' width='172' height='28' rx='3' class='bar'></rect>
+<text x='350' y='157' class='value-label'>0.11</text>
+<text x='0' y='195' class='axis-label'>DRKN0202</text>
+<rect x='170' y='176' width='141' height='28' rx='3' class='bar'></rect>
+<text x='319' y='195' class='value-label'>0.09</text>
+<text x='0' y='233' class='axis-label'>DRKN0117</text>
+<rect x='170' y='214' width='78' height='28' rx='3' class='bar'></rect>
+<text x='256' y='233' class='value-label'>0.05</text>
+<text x='0' y='271' class='axis-label'>DRKN8052</text>
+<rect x='170' y='252' width='62' height='28' rx='3' class='bar'></rect>
+<text x='240' y='271' class='value-label'>0.04</text>
+<text x='0' y='309' class='axis-label'>DRKN8178</text>
+<rect x='170' y='290' width='47' height='28' rx='3' class='bar'></rect>
+<text x='225' y='309' class='value-label'>0.03</text>
+<text x='0' y='347' class='axis-label'>DRKN0191</text>
+<rect x='170' y='328' width='16' height='28' rx='3' class='bar'></rect>
+<text x='194' y='347' class='value-label'>0.01</text>
+<text x='0' y='385' class='axis-label'>DRKN0071</text>
+<rect x='170' y='366' width='16' height='28' rx='3' class='bar'></rect>
+<text x='194' y='385' class='value-label'>0.01</text>
+</svg></div>
+<div class="panel"><h2>Incidents par heure</h2><svg viewBox='0 0 760 424' role='img'>
+<text x='0' y='43' class='axis-label'>04:00</text>
+<rect x='170' y='24' width='250' height='28' rx='3' class='bar'></rect>
+<text x='428' y='43' class='value-label'>1</text>
+<text x='0' y='81' class='axis-label'>08:00</text>
+<rect x='170' y='62' width='250' height='28' rx='3' class='bar'></rect>
+<text x='428' y='81' class='value-label'>1</text>
+<text x='0' y='119' class='axis-label'>10:00</text>
+<rect x='170' y='100' width='250' height='28' rx='3' class='bar'></rect>
+<text x='428' y='119' class='value-label'>1</text>
+<text x='0' y='157' class='axis-label'>11:00</text>
+<rect x='170' y='138' width='250' height='28' rx='3' class='bar'></rect>
+<text x='428' y='157' class='value-label'>1</text>
+<text x='0' y='195' class='axis-label'>13:00</text>
+<rect x='170' y='176' width='500' height='28' rx='3' class='bar'></rect>
+<text x='678' y='195' class='value-label'>2</text>
+<text x='0' y='233' class='axis-label'>14:00</text>
+<rect x='170' y='214' width='250' height='28' rx='3' class='bar'></rect>
+<text x='428' y='233' class='value-label'>1</text>
+<text x='0' y='271' class='axis-label'>15:00</text>
+<rect x='170' y='252' width='250' height='28' rx='3' class='bar'></rect>
+<text x='428' y='271' class='value-label'>1</text>
+<text x='0' y='309' class='axis-label'>17:00</text>
+<rect x='170' y='290' width='250' height='28' rx='3' class='bar'></rect>
+<text x='428' y='309' class='value-label'>1</text>
+<text x='0' y='347' class='axis-label'>18:00</text>
+<rect x='170' y='328' width='250' height='28' rx='3' class='bar'></rect>
+<text x='428' y='347' class='value-label'>1</text>
+<text x='0' y='385' class='axis-label'>19:00</text>
+<rect x='170' y='366' width='250' height='28' rx='3' class='bar'></rect>
+<text x='428' y='385' class='value-label'>1</text>
+</svg></div>
+<div class="panel"><h2>Duree de down par heure</h2><svg viewBox='0 0 760 424' role='img'>
+<text x='0' y='43' class='axis-label'>04:00</text>
+<rect x='170' y='24' width='180' height='28' rx='3' class='bar'></rect>
+<text x='358' y='43' class='value-label'>0.09</text>
+<text x='0' y='81' class='axis-label'>08:00</text>
+<rect x='170' y='62' width='20' height='28' rx='3' class='bar'></rect>
+<text x='198' y='81' class='value-label'>0.01</text>
+<text x='0' y='119' class='axis-label'>10:00</text>
+<rect x='170' y='100' width='140' height='28' rx='3' class='bar'></rect>
+<text x='318' y='119' class='value-label'>0.07</text>
+<text x='0' y='157' class='axis-label'>11:00</text>
+<rect x='170' y='138' width='2' height='28' rx='3' class='bar'></rect>
+<text x='180' y='157' class='value-label'>0</text>
+<text x='0' y='195' class='axis-label'>13:00</text>
+<rect x='170' y='176' width='260' height='28' rx='3' class='bar'></rect>
+<text x='438' y='195' class='value-label'>0.13</text>
+<text x='0' y='233' class='axis-label'>14:00</text>
+<rect x='170' y='214' width='500' height='28' rx='3' class='bar'></rect>
+<text x='678' y='233' class='value-label'>0.25</text>
+<text x='0' y='271' class='axis-label'>15:00</text>
+<rect x='170' y='252' width='60' height='28' rx='3' class='bar'></rect>
+<text x='238' y='271' class='value-label'>0.03</text>
+<text x='0' y='309' class='axis-label'>17:00</text>
+<rect x='170' y='290' width='260' height='28' rx='3' class='bar'></rect>
+<text x='438' y='309' class='value-label'>0.13</text>
+<text x='0' y='347' class='axis-label'>18:00</text>
+<rect x='170' y='328' width='100' height='28' rx='3' class='bar'></rect>
+<text x='278' y='347' class='value-label'>0.05</text>
+<text x='0' y='385' class='axis-label'>19:00</text>
+<rect x='170' y='366' width='160' height='28' rx='3' class='bar'></rect>
+<text x='338' y='385' class='value-label'>0.08</text>
+</svg></div>
+<div class="panel"><h2>Repartition des durees</h2><svg viewBox='0 0 760 234' role='img'>
+<text x='0' y='43' class='axis-label'>&lt; 30 min</text>
+<rect x='170' y='24' width='500' height='28' rx='3' class='bar'></rect>
+<text x='678' y='43' class='value-label'>15</text>
+<text x='0' y='81' class='axis-label'>30 min - 1 h</text>
+<rect x='170' y='62' width='2' height='28' rx='3' class='bar'></rect>
+<text x='180' y='81' class='value-label'>0</text>
+<text x='0' y='119' class='axis-label'>1 h - 2 h</text>
+<rect x='170' y='100' width='2' height='28' rx='3' class='bar'></rect>
+<text x='180' y='119' class='value-label'>0</text>
+<text x='0' y='157' class='axis-label'>2 h - 4 h</text>
+<rect x='170' y='138' width='2' height='28' rx='3' class='bar'></rect>
+<text x='180' y='157' class='value-label'>0</text>
+<text x='0' y='195' class='axis-label'>&gt; 4 h</text>
+<rect x='170' y='176' width='2' height='28' rx='3' class='bar'></rect>
+<text x='180' y='195' class='value-label'>0</text>
+</svg></div>
+<div class="panel"><h2>Fuel vs Non Fuel</h2><div class='legend-only'><div class='legend-row'><span class='swatch' style='background:#2563eb'></span><span>Non</span><strong>15 (100%)</strong></div></div></div>
+<div class="panel"><h2>Passive / Active</h2><svg viewBox='0 0 760 82' role='img'>
+<text x='0' y='43' class='axis-label'>Passive</text>
+<rect x='170' y='24' width='500' height='28' rx='3' class='bar'></rect>
+<text x='678' y='43' class='value-label'>15</text>
+</svg></div>
+<div class="panel"><h2>Top mots RCA</h2><svg viewBox='0 0 760 424' role='img'>
+<text x='0' y='43' class='axis-label'>faulty</text>
+<rect x='170' y='24' width='500' height='28' rx='3' class='bar'></rect>
+<text x='678' y='43' class='value-label'>9</text>
+<text x='0' y='81' class='axis-label'>pompe</text>
+<rect x='170' y='62' width='222' height='28' rx='3' class='bar'></rect>
+<text x='400' y='81' class='value-label'>4</text>
+<text x='0' y='119' class='axis-label'>avr</text>
+<rect x='170' y='100' width='167' height='28' rx='3' class='bar'></rect>
+<text x='345' y='119' class='value-label'>3</text>
+<text x='0' y='157' class='axis-label'>m&#233;canique</text>
+<rect x='170' y='138' width='167' height='28' rx='3' class='bar'></rect>
+<text x='345' y='157' class='value-label'>3</text>
+<text x='0' y='195' class='axis-label'>coolant</text>
+<rect x='170' y='176' width='111' height='28' rx='3' class='bar'></rect>
+<text x='289' y='195' class='value-label'>2</text>
+<text x='0' y='233' class='axis-label'>fuite</text>
+<rect x='170' y='214' width='111' height='28' rx='3' class='bar'></rect>
+<text x='289' y='233' class='value-label'>2</text>
+<text x='0' y='271' class='axis-label'>radiateur</text>
+<rect x='170' y='252' width='111' height='28' rx='3' class='bar'></rect>
+<text x='289' y='271' class='value-label'>2</text>
+<text x='0' y='309' class='axis-label'>alarme</text>
+<rect x='170' y='290' width='111' height='28' rx='3' class='bar'></rect>
+<text x='289' y='309' class='value-label'>2</text>
+<text x='0' y='347' class='axis-label'>down</text>
+<rect x='170' y='328' width='111' height='28' rx='3' class='bar'></rect>
+<text x='289' y='347' class='value-label'>2</text>
+<text x='0' y='385' class='axis-label'>refoulement</text>
+<rect x='170' y='366' width='56' height='28' rx='3' class='bar'></rect>
+<text x='234' y='385' class='value-label'>1</text>
+</svg></div>
+<div class="panel wide"><h2>Classement des sites</h2><table id='sites-table' class='data-table'><thead><tr><th>Site ID</th><th>Nom du site</th><th>Incidents</th><th>Duree down (h)</th></tr></thead><tbody><tr><td>DRKN2099</td><td>Kinshasa_Bunda</td><td>3</td><td>0.32</td></tr><tr><td>DRKN0190</td><td>Cuba</td><td>2</td><td>0.16</td></tr><tr><td>DRKN0253</td><td>Camping</td><td>1</td><td>0.13</td></tr><tr><td>DRKN8066</td><td>Quartier_CPA</td><td>2</td><td>0.11</td></tr><tr><td>DRKN0202</td><td>Mbanza Mpa</td><td>1</td><td>0.09</td></tr><tr><td>DRKN0117</td><td>Kimbualea 2</td><td>1</td><td>0.05</td></tr><tr><td>DRKN8052</td><td>Telecom_Sengo</td><td>1</td><td>0.04</td></tr><tr><td>DRKN8178</td><td>New Matadi Mayo</td><td>1</td><td>0.03</td></tr><tr><td>DRKN0191</td><td>Kitomesa</td><td>1</td><td>0.01</td></tr><tr><td>DRKN0071</td><td>Sangamamba</td><td>1</td><td>0.01</td></tr></tbody></table></div>
+<div class="panel wide"><h2>Details des incidents</h2>
+<div class="toolbar">
+<input id="incident-search" type="search" placeholder="Rechercher site, TRB, RCA">
+<select id="fuel-filter"><option value="">Fuel: tous</option><option value="Oui">Oui</option><option value="Non">Non</option><option value="Non precise">Non precise</option></select>
+<select id="pa-filter"><option value="">Type: tous</option><option value="Passive">Passive</option><option value="Active">Active</option><option value="Non precise">Non precise</option></select>
+<select id="duration-filter"><option value="">Duree: toutes</option><option value="0.5">&gt;= 30 min</option><option value="1">&gt;= 1 h</option><option value="2">&gt;= 2 h</option><option value="4">&gt;= 4 h</option></select>
+<button id="clear-filters" type="button">Reinitialiser</button>
+</div>
+<div id="incident-count" class="count">15 / 15</div>
+<table id='incidents-table' class='data-table'><thead><tr><th>#</th><th>Date outage</th><th>Site ID</th><th>Nom du site</th><th>Debut outage</th><th>Fin outage</th><th>Duree outage (h)</th><th>Passive/Active</th><th>Fuel outage</th><th>Reference TRB</th><th>RCA</th></tr></thead><tbody><tr data-search='2 46202 DRKN0190 Cuba 29/06/2026 04:16  0.09 Passive Non TRB1380328 Dimunition d&#39;huile moteur' data-fuel='Non' data-pa='Passive' data-duration='0.09'><td>2</td><td>46202</td><td>DRKN0190</td><td>Cuba</td><td>29/06/2026 04:16</td><td></td><td>0.09</td><td>Passive</td><td>Non</td><td>TRB1380328</td><td>Dimunition d&#39;huile moteur</td></tr><tr data-search='2 46202 DRKN0191 Kitomesa 29/06/2026 08:29  0.01 Passive Non TRB1380408 Down pendant le changement de secteur' data-fuel='Non' data-pa='Passive' data-duration='0.01'><td>2</td><td>46202</td><td>DRKN0191</td><td>Kitomesa</td><td>29/06/2026 08:29</td><td></td><td>0.01</td><td>Passive</td><td>Non</td><td>TRB1380408</td><td>Down pendant le changement de secteur</td></tr><tr data-search='3 46202 DRKN0190 Cuba 29/06/2026 10:33  0.07 Passive Non TRB1380462 Fuite refoulement fuel sur electrovanne pompe causant une prise d&#39;air.' data-fuel='Non' data-pa='Passive' data-duration='0.07'><td>3</td><td>46202</td><td>DRKN0190</td><td>Cuba</td><td>29/06/2026 10:33</td><td></td><td>0.07</td><td>Passive</td><td>Non</td><td>TRB1380462</td><td>Fuite refoulement fuel sur electrovanne pompe causant une prise d&#39;air.</td></tr><tr data-search='4 46202 DRKN7642 Logec_2 29/06/2026 11:14  0 Passive Non TRB1380481 Poor autonomy' data-fuel='Non' data-pa='Passive' data-duration='0'><td>4</td><td>46202</td><td>DRKN7642</td><td>Logec_2</td><td>29/06/2026 11:14</td><td></td><td>0</td><td>Passive</td><td>Non</td><td>TRB1380481</td><td>Poor autonomy</td></tr><tr data-search='5 46202 DRKN0202 Mbanza Mpa 29/06/2026 13:20  0.09 Passive Non TRB1380540 surchauffe DG 20 KVA (fuite carter + d&#233;faut pr&#233;-bourrage)' data-fuel='Non' data-pa='Passive' data-duration='0.09'><td>5</td><td>46202</td><td>DRKN0202</td><td>Mbanza Mpa</td><td>29/06/2026 13:20</td><td></td><td>0.09</td><td>Passive</td><td>Non</td><td>TRB1380540</td><td>surchauffe DG 20 KVA (fuite carter + d&#233;faut pr&#233;-bourrage)</td></tr><tr data-search='6 46202 DRKN8052 Telecom_Sengo 29/06/2026 13:52  0.04 Passive Non TRB1380522 Arr&#234;t Brusque du DG d&#251; au Radiateur faulty' data-fuel='Non' data-pa='Passive' data-duration='0.04'><td>6</td><td>46202</td><td>DRKN8052</td><td>Telecom_Sengo</td><td>29/06/2026 13:52</td><td></td><td>0.04</td><td>Passive</td><td>Non</td><td>TRB1380522</td><td>Arr&#234;t Brusque du DG d&#251; au Radiateur faulty</td></tr><tr data-search='7 46202 DRKN2099 Kinshasa_Bunda 29/06/2026 14:52  0.25 Passive Non TRB1380549 Pompe m&#233;canique Faulty, AVR faulty' data-fuel='Non' data-pa='Passive' data-duration='0.25'><td>7</td><td>46202</td><td>DRKN2099</td><td>Kinshasa_Bunda</td><td>29/06/2026 14:52</td><td></td><td>0.25</td><td>Passive</td><td>Non</td><td>TRB1380549</td><td>Pompe m&#233;canique Faulty, AVR faulty</td></tr><tr data-search='8 46202 DRKN8066 Quartier_CPA 29/06/2026 15:24  0.03 Passive Non TRB1380601 1/5 Batterie Faulty' data-fuel='Non' data-pa='Passive' data-duration='0.03'><td>8</td><td>46202</td><td>DRKN8066</td><td>Quartier_CPA</td><td>29/06/2026 15:24</td><td></td><td>0.03</td><td>Passive</td><td>Non</td><td>TRB1380601</td><td>1/5 Batterie Faulty</td></tr><tr data-search='9 46202 DRKN0253 Camping 29/06/2026 17:44  0.13 Passive Non TRB1380667 CB off dans la BBS Airtel Down' data-fuel='Non' data-pa='Passive' data-duration='0.13'><td>9</td><td>46202</td><td>DRKN0253</td><td>Camping</td><td>29/06/2026 17:44</td><td></td><td>0.13</td><td>Passive</td><td>Non</td><td>TRB1380667</td><td>CB off dans la BBS Airtel Down</td></tr><tr data-search='10 46202 DRKN0117 Kimbualea 2 29/06/2026 18:55  0.05 Passive Non TRB1380645 Alarme Under Frequency due au diminution coolant au radiateur' data-fuel='Non' data-pa='Passive' data-duration='0.05'><td>10</td><td>46202</td><td>DRKN0117</td><td>Kimbualea 2</td><td>29/06/2026 18:55</td><td></td><td>0.05</td><td>Passive</td><td>Non</td><td>TRB1380645</td><td>Alarme Under Frequency due au diminution coolant au radiateur</td></tr><tr data-search='11 46202 DRKN8066 Quartier_CPA 29/06/2026 19:38  0.08 Passive Non TRB1380713 Alarme Coolant Hight Temp to DG&#160; ( plus d&#39;investigation le matin pour connaitre la root cause ) .' data-fuel='Non' data-pa='Passive' data-duration='0.08'><td>11</td><td>46202</td><td>DRKN8066</td><td>Quartier_CPA</td><td>29/06/2026 19:38</td><td></td><td>0.08</td><td>Passive</td><td>Non</td><td>TRB1380713</td><td>Alarme Coolant Hight Temp to DG&#160; ( plus d&#39;investigation le matin pour connaitre la root cause ) .</td></tr><tr data-search='12 46202 DRKN8178 New Matadi Mayo 29/06/2026 20:56  0.03 Passive Non TRB1380708 Insuffisances de modules ( 1/3 en bon &#233;tat) ) .' data-fuel='Non' data-pa='Passive' data-duration='0.03'><td>12</td><td>46202</td><td>DRKN8178</td><td>New Matadi Mayo</td><td>29/06/2026 20:56</td><td></td><td>0.03</td><td>Passive</td><td>Non</td><td>TRB1380708</td><td>Insuffisances de modules ( 1/3 en bon &#233;tat) ) .</td></tr><tr data-search='13 46202 DRKN2099 Kinshasa_Bunda 29/06/2026 21:31  0.02 Passive Non TRB1380760 Pompe m&#233;canique Faulty, AVR faulty' data-fuel='Non' data-pa='Passive' data-duration='0.02'><td>13</td><td>46202</td><td>DRKN2099</td><td>Kinshasa_Bunda</td><td>29/06/2026 21:31</td><td></td><td>0.02</td><td>Passive</td><td>Non</td><td>TRB1380760</td><td>Pompe m&#233;canique Faulty, AVR faulty</td></tr><tr data-search='14 46202 DRKN2099 Kinshasa_Bunda 29/06/2026 22:26  0.05 Passive Non TRB1380760 Pompe m&#233;canique Faulty, AVR faulty' data-fuel='Non' data-pa='Passive' data-duration='0.05'><td>14</td><td>46202</td><td>DRKN2099</td><td>Kinshasa_Bunda</td><td>29/06/2026 22:26</td><td></td><td>0.05</td><td>Passive</td><td>Non</td><td>TRB1380760</td><td>Pompe m&#233;canique Faulty, AVR faulty</td></tr><tr data-search='15 46202 DRKN0071 Sangamamba 29/06/2026 22:03  0.01 Passive Non TRB1380723 3/9 Faulty' data-fuel='Non' data-pa='Passive' data-duration='0.01'><td>15</td><td>46202</td><td>DRKN0071</td><td>Sangamamba</td><td>29/06/2026 22:03</td><td></td><td>0.01</td><td>Passive</td><td>Non</td><td>TRB1380723</td><td>3/9 Faulty</td></tr></tbody></table></div>
+</section>
+</main>
+<script>
+(function () {
+    var incidentTable = document.getElementById('incidents-table');
+    if (!incidentTable) { return; }
+
+    var searchInput = document.getElementById('incident-search');
+    var fuelFilter = document.getElementById('fuel-filter');
+    var paFilter = document.getElementById('pa-filter');
+    var durationFilter = document.getElementById('duration-filter');
+    var clearButton = document.getElementById('clear-filters');
+    var countLabel = document.getElementById('incident-count');
+    var rows = Array.prototype.slice.call(incidentTable.tBodies[0].rows);
+
+    function normalize(value) {
+        return (value || '').toString().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    }
+
+    function applyFilters() {
+        var query = normalize(searchInput.value);
+        var fuel = fuelFilter.value;
+        var pa = paFilter.value;
+        var minDuration = parseFloat(durationFilter.value || '0');
+        var visible = 0;
+
+        rows.forEach(function (row) {
+            var matchesSearch = normalize(row.dataset.search).indexOf(query) !== -1;
+            var matchesFuel = !fuel || row.dataset.fuel === fuel;
+            var matchesPa = !pa || row.dataset.pa === pa;
+            var duration = parseFloat(row.dataset.duration || '0');
+            var matchesDuration = duration >= minDuration;
+            var show = matchesSearch && matchesFuel && matchesPa && matchesDuration;
+            row.hidden = !show;
+            if (show) { visible += 1; }
+        });
+
+        countLabel.textContent = visible + ' / ' + rows.length;
+    }
+
+    [searchInput, fuelFilter, paFilter, durationFilter].forEach(function (control) {
+        control.addEventListener('input', applyFilters);
+        control.addEventListener('change', applyFilters);
+    });
+
+    clearButton.addEventListener('click', function () {
+        searchInput.value = '';
+        fuelFilter.value = '';
+        paFilter.value = '';
+        durationFilter.value = '';
+        applyFilters();
+        searchInput.focus();
+    });
+
+    document.querySelectorAll('.data-table').forEach(function (table) {
+        Array.prototype.slice.call(table.tHead.rows[0].cells).forEach(function (header, index) {
+            header.title = 'Trier';
+            header.addEventListener('click', function () {
+                var body = table.tBodies[0];
+                var tableRows = Array.prototype.slice.call(body.rows);
+                var direction = header.dataset.direction === 'asc' ? -1 : 1;
+                tableRows.sort(function (a, b) {
+                    var av = a.cells[index].textContent.trim();
+                    var bv = b.cells[index].textContent.trim();
+                    var an = parseFloat(av.replace(',', '.'));
+                    var bn = parseFloat(bv.replace(',', '.'));
+                    if (!isNaN(an) && !isNaN(bn)) { return (an - bn) * direction; }
+                    return av.localeCompare(bv, 'fr', { numeric: true, sensitivity: 'base' }) * direction;
+                });
+                tableRows.forEach(function (row) { body.appendChild(row); });
+                header.dataset.direction = direction === 1 ? 'asc' : 'desc';
+            });
+        });
+    });
+}());
+</script>
+</body>
+</html>

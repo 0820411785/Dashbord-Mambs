@@ -1,0 +1,8 @@
+﻿"#","Outage Date","Site ID","Site Name","Outage Start","Outage End","Alarm Before Down (h)","Outage Duration (h)","ETA (min)","Passive/Active","RCA","Resolution Comment","Fuel Outage","TRB Ref"
+"2","27-juin-2026","DRKN2037","Station_Ma_Campagne2","27/06/2026 09:05:00","27/06/2026 11:11:00","0","2,1","25","Passive","Courroie cassée( Higt Temp au niveau du coolant )","courroie remplacée","Non","TRB1379493"
+"2","27-juin-2026","DRKN0117","Kimbualea 2","27/06/2026 18:14:28","27/06/2026 18:54:00","2,1","0,67","30","Passive","huile moteur niveau bas","ajout 2l d'huile","Non","TRB1379704"
+"3","27-juin-2026","DRKN0253","Camping","27/06/2026 18:15:28","27/06/2026 18:44:00","0","0,48","25","Passive","CB Off Airtel Down","","Non","TRB1379740"
+"4","27-juin-2026","DRKN0697","Ex. Maternité","27/06/2026 18:28:28","27/06/2026 18:36:00","0","0,13","35","Passive","Dysfonctionnement du BBS et absence de 3 modules.","equilibrage de charge","Non","TRB1379750"
+"5","27-juin-2026","DRKN0067","Eucalyptus1","27/06/2026 20:36:02","27/06/2026 20:43:00","0","0,12","","Passive","Site à faible autonomie (DOWN PENDANT LE CHANGEMENT DE SECTEUR)","Site sous DG","Non","TRB1379810"
+"6","27-juin-2026","DRKN0192","Bondo","27/06/2026 23:02:02","27/06/2026 23:13:00","0","0,19","25","Passive","Insuffisance de modules 6/9","ajout 1 module","Non","TRB1379840"
+"7","27-juin-2026","DRKN0202","Mbanza Mpa","27/06/2026 21:07:02","27/06/2026 21:42:00","1,67","0,59","20","Passive","High temperature due a la fuite de liquid de refroidissement","Ajout de 2 litres de liquide de refroidissement.","Non","TRB1379800"
