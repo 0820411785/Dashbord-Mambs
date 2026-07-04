@@ -28,10 +28,9 @@ table { width: 100%; border-collapse: collapse; font-size: 14px; }
 th { text-align: left; background: #e8eef6; color: var(--ink); position: sticky; top: 0; z-index: 1; }
 th, td { border-bottom: 1px solid var(--line); padding: 12px 14px; vertical-align: top; }
 tbody tr:nth-child(even) { background: #f8fafc; }
-.btn-archive { position: absolute; right: 34px; background: rgba(255,255,255,0.2); color: white; border: 1px solid rgba(255,255,255,0.4); padding: 10px 16px; border-radius: 6px; font-weight: bold; transition: all 0.2s; }
-.btn-archive:hover { background: white; color: var(--brand-dark); }
-.hidden-section { display: none; }
-@media (max-width: 720px) { main { padding: 18px; } header { padding: 20px; flex-direction: column; align-items: flex-start; } .btn-archive { position: static; margin-top: 15px; } .toolbar { grid-template-columns: 1fr; } }
+.lnk-archive { position: absolute; right: 34px; background: white; color: var(--brand-dark); padding: 10px 16px; border-radius: 6px; font-weight: bold; font-size: 14px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+.lnk-archive:hover { background: #f1f5f9; text-decoration: none; }
+@media (max-width: 720px) { main { padding: 18px; } header { padding: 20px; flex-direction: column; align-items: flex-start; } .lnk-archive { position: static; margin-top: 15px; } .toolbar { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -40,14 +39,14 @@ tbody tr:nth-child(even) { background: #f8fafc; }
 <h1>Portail des dashboards incidents</h1>
 <div class="meta">Selectionner une journee pour consulter le dashboard correspondant.</div>
 </div>
-<button class="btn-archive" id="toggle-archive-btn" onclick="toggleArchive()">ðŸ“ Voir Archives (juin 2026)</button>
+<a class="lnk-archive" href="archive_2026_06.html" target="_blank">ðŸ“‹ Consulter Archives (juin 2026)</a>
 </header>
 <main>
 <section class="kpis">
-<div class="kpi"><span>Dashboards publies</span><strong>3</strong></div>
+<div class="kpi"><span>Dashboards publies</span><strong>22</strong></div>
 <div class="kpi"><span>Derniere journee</span><strong><a href='2026-07-03/index.html'>Incidents du 3 juillet 2026</a></strong></div>
 <div class="kpi"><span>Fichier source</span><strong>OUTAGE 03.xlsb</strong></div>
-<div class="kpi"><span>Derniere generation</span><strong>2026-07-04 17:00</strong></div>
+<div class="kpi"><span>Derniere generation</span><strong>2026-07-04 17:44</strong></div>
 <div class="kpi"><span>DDTP moyen du mois (juillet 2026)</span><strong>17.1</strong></div>
 <div class="kpi"><span>Jours DDTP suivis (juillet 2026)</span><strong>3</strong></div>
 <div class="kpi"><span>Sites du jour (03/07/2026)</span><strong>6</strong></div>
@@ -66,7 +65,7 @@ tbody tr:nth-child(even) { background: #f8fafc; }
 <table id="dashboards-table">
 <thead><tr><th>Date</th><th>Dashboard</th><th>Fichier source</th><th>Generation</th></tr></thead>
 <tbody>
-<tr data-search='2026-07-03 Incidents du 3 juillet 2026 OUTAGE 03.xlsb 2026-07-04 17:00'><td>2026-07-03</td><td><a href='2026-07-03/index.html'>Incidents du 3 juillet 2026</a></td><td>OUTAGE 03.xlsb</td><td>2026-07-04 17:00</td></tr>
+<tr data-search='2026-07-03 Incidents du 3 juillet 2026 OUTAGE 03.xlsb 2026-07-04 17:44'><td>2026-07-03</td><td><a href='2026-07-03/index.html'>Incidents du 3 juillet 2026</a></td><td>OUTAGE 03.xlsb</td><td>2026-07-04 17:44</td></tr>
 <tr data-search='2026-07-02 Incidents du 02 juillet 2026 OUTAGE 2.xlsb 2026-07-03 10:52'><td>2026-07-02</td><td><a href='2026-07-02/index.html'>Incidents du 02 juillet 2026</a></td><td>OUTAGE 2.xlsb</td><td>2026-07-03 10:52</td></tr>
 <tr data-search='2026-07-01 Incidents du 01 juillet 2026 OUTAGE 01.xlsb 2026-07-03 10:52'><td>2026-07-01</td><td><a href='2026-07-01/index.html'>Incidents du 01 juillet 2026</a></td><td>OUTAGE 01.xlsb</td><td>2026-07-03 10:52</td></tr>
 </tbody>
@@ -83,12 +82,12 @@ tbody tr:nth-child(even) { background: #f8fafc; }
 <table id="site-totals-table">
 <thead><tr><th>Site ID</th><th>Nom du site</th><th>Incidents</th><th>Down (h)</th></tr></thead>
 <tbody>
-<tr data-search='DRKN2099 Kinshasa_Bunda 1 4.45 1 2026-07-03'><td>DRKN2099</td><td>Kinshasa_Bunda</td><td>1</td><td>4.45</td></tr>
-<tr data-search='DRKN2194 IPN-Marine 2 2.93 1 2026-07-03'><td>DRKN2194</td><td>IPN-Marine</td><td>2</td><td>2.93</td></tr>
-<tr data-search='DRKN0125 Maman Mobutu 1 1 1 2026-07-03'><td>DRKN0125</td><td>Maman Mobutu</td><td>1</td><td>1</td></tr>
-<tr data-search='DRKN6883 Lacolline2 1 0.75 1 2026-07-03'><td>DRKN6883</td><td>Lacolline2</td><td>1</td><td>0.75</td></tr>
-<tr data-search='DRKN0171 Kimwenza Gare 1 0.49 1 2026-07-03'><td>DRKN0171</td><td>Kimwenza Gare</td><td>1</td><td>0.49</td></tr>
-<tr data-search='DRKN2164 Malueka 1 0.38 1 2026-07-03'><td>DRKN2164</td><td>Malueka</td><td>1</td><td>0.38</td></tr>
+<tr data-search='DRKN2099 Kinshasa_Bunda 1 4.45 1 2026-07-03'><td>DRKN2099</td><td>Kinshasa_Bunda</td><td>4.45</td></tr>
+<tr data-search='DRKN2194 IPN-Marine 2 2.93 1 2026-07-03'><td>DRKN2194</td><td>IPN-Marine</td><td>2.93</td></tr>
+<tr data-search='DRKN0125 Maman Mobutu 1 1 1 2026-07-03'><td>DRKN0125</td><td>Maman Mobutu</td><td>1</td></tr>
+<tr data-search='DRKN6883 Lacolline2 1 0.75 1 2026-07-03'><td>DRKN6883</td><td>Lacolline2</td><td>0.75</td></tr>
+<tr data-search='DRKN0171 Kimwenza Gare 1 0.49 1 2026-07-03'><td>DRKN0171</td><td>Kimwenza Gare</td><td>0.49</td></tr>
+<tr data-search='DRKN2164 Malueka 1 0.38 1 2026-07-03'><td>DRKN2164</td><td>Malueka</td><td>0.38</td></tr>
 </tbody>
 </table>
 </div>
@@ -123,44 +122,8 @@ tbody tr:nth-child(even) { background: #f8fafc; }
 </tbody>
 </table>
 </div>
-
-<!-- SECTION ARCHIVES INTERACTIVE (MASQUÃ‰E PAR DÃ‰FAUT) -->
-<div id="archive-section" class="hidden-section">
-<hr style="border: 0; border-top: 2px dashed var(--line); margin: 40px 0 20px;">
-<h2 style="color: var(--muted)">ðŸ—„ï¸ Archives Historiques - Cumul juin 2026</h2>
-<div class="toolbar">
-<input id="past-site-search" type="search" placeholder="Rechercher dans les archives...">
-<button id="past-site-clear" type="button">Reinitialiser</button>
-</div>
-<p id="past-site-count" class="count">0 / 0</p>
-<div class="panel" style="border-color: #cbd5e1;">
-<table id="past-site-totals-table">
-<thead><tr style="background: #e2e8f0;"><th>Site ID</th><th>Nom du site</th><th>Incidents cumules</th><th>Down cumule (h)</th><th>Jours impactes</th><th>Derniere journee</th></tr></thead>
-<tbody>
-<tr data-search='     '><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-</tbody>
-</table>
-</div>
-</div>
-
 </main>
 <script>
-function toggleArchive() {
-    var archiveDiv = document.getElementById('archive-section');
-    var btn = document.getElementById('toggle-archive-btn');
-    if (archiveDiv.classList.contains('hidden-section')) {
-        archiveDiv.classList.remove('hidden-section');
-        btn.textContent = "ðŸ“ Masquer Archives (juin 2026)";
-        btn.style.background = "white";
-        btn.style.color = "var(--brand-dark)";
-    } else {
-        archiveDiv.classList.add('hidden-section');
-        btn.textContent = "ðŸ“ Voir Archives (juin 2026)";
-        btn.style.background = "rgba(255,255,255,0.2)";
-        btn.style.color = "white";
-    }
-}
-
 (function () {
     function normalize(value) {
         return (value || '').toString().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
@@ -197,7 +160,6 @@ function toggleArchive() {
     wireSearch('dashboards-table', 'portal-search', 'portal-clear', 'portal-count');
     wireSearch('site-totals-table', 'site-search', 'site-clear', 'site-count');
     wireSearch('current-site-totals-table', 'current-site-search', 'current-site-clear', 'current-site-count');
-    wireSearch('past-site-totals-table', 'past-site-search', 'past-site-clear', 'past-site-count');
 }());
 </script>
 </body>
