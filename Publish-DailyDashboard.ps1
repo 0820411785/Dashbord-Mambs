@@ -250,9 +250,9 @@ $pastSiteTotalsRows = Get-SiteTotals $portalPath $pastEntries
 $pastSiteRows = New-SiteRowsHtml $pastSiteTotalsRows -IncludeMonthColumns
 $pastSiteCount = $pastSiteTotalsRows.Count
 
-# Generation du fichier dedie pour l'archive
-$archiveHtmlFile = "archive_" + ($pastMonthValue.ToString("yyyy_MM")) + ".html"
-$archiveHtmlPath = Join-Path $portalPath $archiveHtmlFile
+# Generation du fichier dedie pour l'archive (LIGNE MODIFIÉE ICI POUR GITHUB PAGES)
+$archiveHtmlFile = "Daily_Dashboards/archive_" + ($pastMonthValue.ToString("yyyy_MM")) + ".html"
+$archiveHtmlPath = Join-Path $portalPath ("archive_" + ($pastMonthValue.ToString("yyyy_MM")) + ".html")
 
 $archivePageHtml = @"
 <!doctype html>
