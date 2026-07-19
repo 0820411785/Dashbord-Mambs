@@ -1,0 +1,5 @@
+﻿"#","Outage Date","Site ID","Site Name","Outage Start","Outage End","Alarm Before Down (h)","Outage Duration (h)","ETA (min)","Passive/Active","RCA","Resolution Comment","Fuel Outage","TRB Ref"
+"2","18-juil.-2026","DRKN8034","Camp_Luka3","18/07/2026 00:03:45","18/07/2026 06:00:00","0","5,95","25","Passive","dysfonctionnement au niveau de l'enclenchement du LVD1 et LVD2 (Zone Rouge)","LVD enclenché manuellement .","Non","TRB1389546"
+"2","18-juil.-2026","DRKN2081","Kinshasa_Kisiama","18/07/2026 05:34:00","18/07/2026 07:32:00","1,4","1,97","25","Passive","Une fuite d'huile a été constatée au niveau des bourrages avant et arrière du moteur du groupe électrogène ( Zone rouge)","","Non","TRB1389614"
+"3","18-juil.-2026","DRKN2139","Nguba","18/07/2026 19:11:00","18/07/2026 20:14:00","0","1,05","25","Passive","Under Frequency due à une baisse de la fréquence","Réglage de la fréquence du générateur","Non","TRB1389917"
+"4","18-juil.-2026","DRKN7201","Lubwaku","18/07/2026 21:48:43","18/07/2026 23:24:00","0","1,59","30","Passive","Tenant Overload Calibre 100A Load 103A","CB Enclenché","Non","TRB1389939"
