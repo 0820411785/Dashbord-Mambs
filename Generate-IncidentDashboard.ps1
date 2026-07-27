@@ -298,6 +298,13 @@ function Get-RcaKeywords {
     )
 }
 
+function Test-IsOverloadIncident {
+    param($Incident)
+
+    $text = "$($Incident.RCA) $($Incident.'Resolution Comment')"
+    return $text -match "(?i)\bover\s*load\w*|\boverlaod\w*|\boverloade\w*"
+}
+
 $resolvedInput = (Resolve-Path -LiteralPath $InputPath).Path
 if ([string]::IsNullOrWhiteSpace($OutputPath)) {
     $stamp = Get-Date -Format "yyyyMMdd_HHmm"
@@ -379,6 +386,20 @@ $avgDownHours = [Math]::Round(($incidents | Measure-Object -Property "Outage Dur
 $maxDown = $incidents | Sort-Object "Outage Duration (h)" -Descending | Select-Object -First 1
 $fuelCount = @($incidents | Where-Object { $_."Fuel Outage" -eq "Oui" }).Count
 $nonFuelCount = @($incidents | Where-Object { $_."Fuel Outage" -eq "Non" }).Count
+$dtptSansExclusion = $summaryFromTemplate["DTPT journee"]
+$overloadIncidents = @($incidents | Where-Object { Test-IsOverloadIncident $_ })
+$nonOverloadIncidents = @($incidents | Where-Object { -not (Test-IsOverloadIncident $_) })
+$overloadDownHours = [Math]::Round((@($overloadIncidents) | Measure-Object -Property "Outage Duration (h)" -Sum).Sum, 2)
+$nonOverloadDownHours = [Math]::Round((@($nonOverloadIncidents) | Measure-Object -Property "Outage Duration (h)" -Sum).Sum, 2)
+$dtptSiteBase = 0.0
+if ($null -ne $dtptSansExclusion -and $dtptSansExclusion -gt 0 -and $totalDownHours -gt 0) {
+    $dtptSiteBase = ($totalDownHours * 60.0) / [double]$dtptSansExclusion
+}
+$dtptHorsOverload = if ($dtptSiteBase -gt 0) {
+    [Math]::Round(($nonOverloadDownHours * 60.0) / $dtptSiteBase, 2)
+} else {
+    ""
+}
 
 $bySite = @(
     $incidents |
@@ -470,7 +491,7 @@ if (-not $CreateExcel) {
     $durationChart = New-BarChartSvg $durationBuckets "Tranche" "Incidents"
     $rcaChart = New-BarChartSvg $rcaKeywords "Mot cle" "Occurrences"
     $topSitesTable = New-HtmlTable $bySite @("Site ID", "Site Name", "Incidents", "Down Hours") 10 "sites-table" "data-table"
-    $incidentsTable = New-HtmlTable $incidents @("#", "Outage Date", "Site ID", "Site Name", "Outage Start", "Outage End", "Outage Duration (h)", "Passive/Active", "Fuel Outage", "TRB Ref", "RCA") 0 "incidents-table" "data-table"
+    $incidentsTable = New-HtmlTable $incidents @("#", "Outage Date", "Site ID", "Site Name", "Outage Start", "Outage End", "Outage Duration (h)", "Passive/Active", "Fuel Outage", "TRB Ref", "RCA", "Resolution Comment") 0 "incidents-table" "data-table"
     $longestDownText = "$($maxDown.'Site ID') - $($maxDown.'Site Name') ($($maxDown.'Outage Duration (h)') h)"
     $downloadLinks = @(
         "<a href='$(ConvertTo-HtmlText ([System.IO.Path]::GetFileName($incidentsCsv)))'>Incidents CSV</a>",
@@ -548,7 +569,9 @@ tbody tr:nth-child(even) { background: #f8fafc; }
 <div class="kpi"><span>Duree moyenne de down</span><strong>$avgDownHours h</strong></div>
 <div class="kpi"><span>Incidents Fuel</span><strong>$fuelCount</strong></div>
 <div class="kpi"><span>Incidents Non Fuel</span><strong>$nonFuelCount</strong></div>
-<div class="kpi"><span>DTPT de la journee</span><strong>$($summaryFromTemplate["DTPT journee"])</strong></div>
+<div class="kpi"><span>DTPT sans exclusion</span><strong>$dtptSansExclusion</strong></div>
+<div class="kpi"><span>DTPT hors overload</span><strong>$dtptHorsOverload</strong></div>
+<div class="kpi"><span>Cas overload exclus</span><strong>$($overloadIncidents.Count)</strong></div>
 <div class="kpi wide-kpi"><span>Plus longue interruption</span><strong>$longestDownText</strong></div>
 </section>
 <section class="grid">
@@ -699,7 +722,10 @@ try {
         [PSCustomObject]@{ "KPI" = "Longest down site"; "Value" = "$($maxDown.'Site ID') - $($maxDown.'Site Name') ($($maxDown.'Outage Duration (h)') h)" },
         [PSCustomObject]@{ "KPI" = "Fuel incidents"; "Value" = $fuelCount },
         [PSCustomObject]@{ "KPI" = "Non fuel incidents"; "Value" = $nonFuelCount },
-        [PSCustomObject]@{ "KPI" = "Template DTPT journee"; "Value" = $summaryFromTemplate["DTPT journee"] }
+        [PSCustomObject]@{ "KPI" = "DTPT sans exclusion"; "Value" = $dtptSansExclusion },
+        [PSCustomObject]@{ "KPI" = "DTPT hors overload"; "Value" = $dtptHorsOverload },
+        [PSCustomObject]@{ "KPI" = "Overload incidents excluded"; "Value" = $overloadIncidents.Count },
+        [PSCustomObject]@{ "KPI" = "Overload down hours excluded"; "Value" = $overloadDownHours }
     )
     Write-Table $dashboard 5 1 @("KPI", "Value") $kpis
 

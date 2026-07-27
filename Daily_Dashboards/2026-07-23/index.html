@@ -1,0 +1,303 @@
+﻿<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tableau de bord incidents</title>
+<style>
+:root { color-scheme: light; --ink: #172033; --muted: #5b6678; --line: #d9e1ec; --panel: #fff; --page: #f5f7fb; --brand: #0f766e; --brand-dark: #115e59; --blue: #2563eb; --amber: #d97706; }
+* { box-sizing: border-box; }
+body { margin: 0; font-family: Arial, Helvetica, sans-serif; color: var(--ink); background: var(--page); }
+header { background: linear-gradient(135deg, var(--brand-dark), var(--brand)); color: white; padding: 24px 32px; }
+h1 { margin: 0 0 6px; font-size: 28px; line-height: 1.15; }
+h2 { margin: 0 0 14px; font-size: 18px; color: var(--ink); }
+main { padding: 24px 32px 40px; }
+a { color: var(--brand-dark); font-weight: 700; text-decoration: none; }
+a:hover { text-decoration: underline; }
+.meta { opacity: .9; font-size: 13px; overflow-wrap: anywhere; }
+.actions { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 22px; }
+.actions a { background: white; border: 1px solid var(--line); border-radius: 6px; color: var(--brand-dark); padding: 8px 10px; font-size: 12px; }
+.kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; margin-bottom: 22px; }
+.kpi { background: var(--panel); border: 1px solid var(--line); border-radius: 6px; padding: 14px; min-height: 82px; }
+.kpi span { display: block; font-size: 12px; color: var(--muted); margin-bottom: 8px; }
+.kpi strong { display: block; font-size: 24px; line-height: 1.1; color: #111827; overflow-wrap: anywhere; }
+.kpi.wide-kpi { grid-column: span 2; }
+.grid { display: grid; grid-template-columns: repeat(2, minmax(280px, 1fr)); gap: 18px; }
+.panel { background: var(--panel); border: 1px solid var(--line); border-radius: 6px; padding: 16px; overflow-x: auto; }
+svg { width: 100%; height: auto; min-width: 420px; }
+.bar { fill: var(--blue); }
+.axis-label { font-size: 12px; fill: #334155; }
+.value-label { font-size: 12px; fill: #0f172a; font-weight: 700; }
+.toolbar { display: grid; grid-template-columns: minmax(220px, 1fr) repeat(3, minmax(130px, 170px)) auto; gap: 10px; align-items: center; margin-bottom: 12px; min-width: 760px; }
+input, select, button { border: 1px solid var(--line); border-radius: 6px; color: var(--ink); font: inherit; min-height: 38px; padding: 8px 10px; background: white; }
+button { cursor: pointer; font-weight: 700; color: var(--brand-dark); }
+.count { color: var(--muted); font-size: 12px; margin-bottom: 10px; }
+table { width: 100%; border-collapse: collapse; font-size: 12px; }
+th { text-align: left; background: #e8eef6; color: var(--ink); position: sticky; top: 0; z-index: 1; }
+th, td { border: 1px solid var(--line); padding: 7px 8px; vertical-align: top; }
+.data-table th { cursor: pointer; user-select: none; white-space: nowrap; }
+tbody tr:nth-child(even) { background: #f8fafc; }
+.wide { grid-column: 1 / -1; }
+.legend-only { display: grid; gap: 10px; max-width: 520px; }
+.legend-row { display: grid; grid-template-columns: 18px 1fr auto; gap: 8px; align-items: center; }
+.swatch { width: 14px; height: 14px; border-radius: 3px; display: inline-block; }
+@media (max-width: 850px) {
+    .grid { grid-template-columns: 1fr; }
+    main { padding: 18px; }
+    header { padding: 20px; }
+    .kpi.wide-kpi { grid-column: auto; }
+    svg { min-width: 360px; }
+}
+</style>
+</head>
+<body>
+<header>
+<h1>Tableau de bord journalier des incidents</h1>
+<div class="meta">Source : C:\Users\hp\Documents\MAMBS\Incoming_Files\OUTAGE 23 juillet (1) (1) (1).xlsb | Genere le : 2026-07-24 15:55</div>
+</header>
+<main>
+<nav class="actions" aria-label="Exports CSV"><a href='index_Incidents.csv'>Incidents CSV</a><a href='index_BySite.csv'>Sites CSV</a><a href='index_ByHour.csv'>Heures CSV</a><a href='index_Fuel.csv'>Fuel CSV</a><a href='index_Durees.csv'>Durees CSV</a><a href='index_RCA.csv'>RCA CSV</a></nav>
+<section class="kpis">
+<div class="kpi"><span>Total incidents</span><strong>11</strong></div>
+<div class="kpi"><span>Sites impactes</span><strong>9</strong></div>
+<div class="kpi"><span>Duree totale de down</span><strong>16.69 h</strong></div>
+<div class="kpi"><span>Duree moyenne de down</span><strong>1.52 h</strong></div>
+<div class="kpi"><span>Incidents Fuel</span><strong>0</strong></div>
+<div class="kpi"><span>Incidents Non Fuel</span><strong>11</strong></div>
+<div class="kpi"><span>DTPT sans exclusion</span><strong>34.56</strong></div>
+<div class="kpi"><span>DTPT hors overload</span><strong>21.76</strong></div>
+<div class="kpi"><span>Cas overload exclus</span><strong>6</strong></div>
+<div class="kpi wide-kpi"><span>Plus longue interruption</span><strong>DRKN2037 - Station_Ma_Campagne2 (7.81 h)</strong></div>
+</section>
+<section class="grid">
+<div class="panel"><h2>Top sites par duree de down</h2><svg viewBox='0 0 760 386' role='img'>
+<text x='0' y='43' class='axis-label'>DRKN2037</text>
+<rect x='170' y='24' width='500' height='28' rx='3' class='bar'></rect>
+<text x='678' y='43' class='value-label'>7.81</text>
+<text x='0' y='81' class='axis-label'>DRKN2099</text>
+<rect x='170' y='62' width='243' height='28' rx='3' class='bar'></rect>
+<text x='421' y='81' class='value-label'>3.79</text>
+<text x='0' y='119' class='axis-label'>DRKN6881</text>
+<rect x='170' y='100' width='127' height='28' rx='3' class='bar'></rect>
+<text x='305' y='119' class='value-label'>1.98</text>
+<text x='0' y='157' class='axis-label'>DRKN0202</text>
+<rect x='170' y='138' width='114' height='28' rx='3' class='bar'></rect>
+<text x='292' y='157' class='value-label'>1.78</text>
+<text x='0' y='195' class='axis-label'>DRKN0753</text>
+<rect x='170' y='176' width='29' height='28' rx='3' class='bar'></rect>
+<text x='207' y='195' class='value-label'>0.45</text>
+<text x='0' y='233' class='axis-label'>DRKN2102</text>
+<rect x='170' y='214' width='20' height='28' rx='3' class='bar'></rect>
+<text x='198' y='233' class='value-label'>0.32</text>
+<text x='0' y='271' class='axis-label'>DRKN7201</text>
+<rect x='170' y='252' width='15' height='28' rx='3' class='bar'></rect>
+<text x='193' y='271' class='value-label'>0.23</text>
+<text x='0' y='309' class='axis-label'>DRKN0120</text>
+<rect x='170' y='290' width='13' height='28' rx='3' class='bar'></rect>
+<text x='191' y='309' class='value-label'>0.2</text>
+<text x='0' y='347' class='axis-label'>DRKN0252</text>
+<rect x='170' y='328' width='8' height='28' rx='3' class='bar'></rect>
+<text x='186' y='347' class='value-label'>0.13</text>
+</svg></div>
+<div class="panel"><h2>Incidents par heure</h2><svg viewBox='0 0 760 386' role='img'>
+<text x='0' y='43' class='axis-label'>07:00</text>
+<rect x='170' y='24' width='250' height='28' rx='3' class='bar'></rect>
+<text x='428' y='43' class='value-label'>1</text>
+<text x='0' y='81' class='axis-label'>12:00</text>
+<rect x='170' y='62' width='250' height='28' rx='3' class='bar'></rect>
+<text x='428' y='81' class='value-label'>1</text>
+<text x='0' y='119' class='axis-label'>14:00</text>
+<rect x='170' y='100' width='250' height='28' rx='3' class='bar'></rect>
+<text x='428' y='119' class='value-label'>1</text>
+<text x='0' y='157' class='axis-label'>15:00</text>
+<rect x='170' y='138' width='250' height='28' rx='3' class='bar'></rect>
+<text x='428' y='157' class='value-label'>1</text>
+<text x='0' y='195' class='axis-label'>18:00</text>
+<rect x='170' y='176' width='500' height='28' rx='3' class='bar'></rect>
+<text x='678' y='195' class='value-label'>2</text>
+<text x='0' y='233' class='axis-label'>19:00</text>
+<rect x='170' y='214' width='500' height='28' rx='3' class='bar'></rect>
+<text x='678' y='233' class='value-label'>2</text>
+<text x='0' y='271' class='axis-label'>20:00</text>
+<rect x='170' y='252' width='250' height='28' rx='3' class='bar'></rect>
+<text x='428' y='271' class='value-label'>1</text>
+<text x='0' y='309' class='axis-label'>21:00</text>
+<rect x='170' y='290' width='250' height='28' rx='3' class='bar'></rect>
+<text x='428' y='309' class='value-label'>1</text>
+<text x='0' y='347' class='axis-label'>22:00</text>
+<rect x='170' y='328' width='250' height='28' rx='3' class='bar'></rect>
+<text x='428' y='347' class='value-label'>1</text>
+</svg></div>
+<div class="panel"><h2>Duree de down par heure</h2><svg viewBox='0 0 760 386' role='img'>
+<text x='0' y='43' class='axis-label'>07:00</text>
+<rect x='170' y='24' width='13' height='28' rx='3' class='bar'></rect>
+<text x='191' y='43' class='value-label'>0.2</text>
+<text x='0' y='81' class='axis-label'>12:00</text>
+<rect x='170' y='62' width='13' height='28' rx='3' class='bar'></rect>
+<text x='191' y='81' class='value-label'>0.2</text>
+<text x='0' y='119' class='axis-label'>14:00</text>
+<rect x='170' y='100' width='20' height='28' rx='3' class='bar'></rect>
+<text x='198' y='119' class='value-label'>0.32</text>
+<text x='0' y='157' class='axis-label'>15:00</text>
+<rect x='170' y='138' width='131' height='28' rx='3' class='bar'></rect>
+<text x='309' y='157' class='value-label'>2.04</text>
+<text x='0' y='195' class='axis-label'>18:00</text>
+<rect x='170' y='176' width='23' height='28' rx='3' class='bar'></rect>
+<text x='201' y='195' class='value-label'>0.36</text>
+<text x='0' y='233' class='axis-label'>19:00</text>
+<rect x='170' y='214' width='239' height='28' rx='3' class='bar'></rect>
+<text x='417' y='233' class='value-label'>3.73</text>
+<text x='0' y='271' class='axis-label'>20:00</text>
+<rect x='170' y='252' width='114' height='28' rx='3' class='bar'></rect>
+<text x='292' y='271' class='value-label'>1.78</text>
+<text x='0' y='309' class='axis-label'>21:00</text>
+<rect x='170' y='290' width='16' height='28' rx='3' class='bar'></rect>
+<text x='194' y='309' class='value-label'>0.25</text>
+<text x='0' y='347' class='axis-label'>22:00</text>
+<rect x='170' y='328' width='500' height='28' rx='3' class='bar'></rect>
+<text x='678' y='347' class='value-label'>7.81</text>
+</svg></div>
+<div class="panel"><h2>Repartition des durees</h2><svg viewBox='0 0 760 234' role='img'>
+<text x='0' y='43' class='axis-label'>&lt; 30 min</text>
+<rect x='170' y='24' width='500' height='28' rx='3' class='bar'></rect>
+<text x='678' y='43' class='value-label'>6</text>
+<text x='0' y='81' class='axis-label'>30 min - 1 h</text>
+<rect x='170' y='62' width='2' height='28' rx='3' class='bar'></rect>
+<text x='180' y='81' class='value-label'>0</text>
+<text x='0' y='119' class='axis-label'>1 h - 2 h</text>
+<rect x='170' y='100' width='250' height='28' rx='3' class='bar'></rect>
+<text x='428' y='119' class='value-label'>3</text>
+<text x='0' y='157' class='axis-label'>2 h - 4 h</text>
+<rect x='170' y='138' width='83' height='28' rx='3' class='bar'></rect>
+<text x='261' y='157' class='value-label'>1</text>
+<text x='0' y='195' class='axis-label'>&gt; 4 h</text>
+<rect x='170' y='176' width='83' height='28' rx='3' class='bar'></rect>
+<text x='261' y='195' class='value-label'>1</text>
+</svg></div>
+<div class="panel"><h2>Fuel vs Non Fuel</h2><div class='legend-only'><div class='legend-row'><span class='swatch' style='background:#2563eb'></span><span>Non</span><strong>11 (100%)</strong></div></div></div>
+<div class="panel"><h2>Passive / Active</h2><svg viewBox='0 0 760 82' role='img'>
+<text x='0' y='43' class='axis-label'>Passive</text>
+<rect x='170' y='24' width='500' height='28' rx='3' class='bar'></rect>
+<text x='678' y='43' class='value-label'>11</text>
+</svg></div>
+<div class="panel"><h2>Top mots RCA</h2><svg viewBox='0 0 760 424' role='img'>
+<text x='0' y='43' class='axis-label'>airtel</text>
+<rect x='170' y='24' width='500' height='28' rx='3' class='bar'></rect>
+<text x='678' y='43' class='value-label'>6</text>
+<text x='0' y='81' class='axis-label'>jusqu</text>
+<rect x='170' y='62' width='417' height='28' rx='3' class='bar'></rect>
+<text x='595' y='81' class='value-label'>5</text>
+<text x='0' y='119' class='axis-label'>overloade</text>
+<rect x='170' y='100' width='417' height='28' rx='3' class='bar'></rect>
+<text x='595' y='119' class='value-label'>5</text>
+<text x='0' y='157' class='axis-label'>load</text>
+<rect x='170' y='138' width='417' height='28' rx='3' class='bar'></rect>
+<text x='595' y='157' class='value-label'>5</text>
+<text x='0' y='195' class='axis-label'>off</text>
+<rect x='170' y='176' width='417' height='28' rx='3' class='bar'></rect>
+<text x='595' y='195' class='value-label'>5</text>
+<text x='0' y='233' class='axis-label'>box</text>
+<rect x='170' y='214' width='333' height='28' rx='3' class='bar'></rect>
+<text x='511' y='233' class='value-label'>4</text>
+<text x='0' y='271' class='axis-label'>pas</text>
+<rect x='170' y='252' width='250' height='28' rx='3' class='bar'></rect>
+<text x='428' y='271' class='value-label'>3</text>
+<text x='0' y='309' class='axis-label'>atteint</text>
+<rect x='170' y='290' width='250' height='28' rx='3' class='bar'></rect>
+<text x='428' y='309' class='value-label'>3</text>
+<text x='0' y='347' class='axis-label'>attaint</text>
+<rect x='170' y='328' width='250' height='28' rx='3' class='bar'></rect>
+<text x='428' y='347' class='value-label'>3</text>
+<text x='0' y='385' class='axis-label'>secteur</text>
+<rect x='170' y='366' width='167' height='28' rx='3' class='bar'></rect>
+<text x='345' y='385' class='value-label'>2</text>
+</svg></div>
+<div class="panel wide"><h2>Classement des sites</h2><table id='sites-table' class='data-table'><thead><tr><th>Site ID</th><th>Nom du site</th><th>Incidents</th><th>Duree down (h)</th></tr></thead><tbody><tr><td>DRKN2037</td><td>Station_Ma_Campagne2</td><td>1</td><td>7.81</td></tr><tr><td>DRKN2099</td><td>Kinshasa_Bunda</td><td>2</td><td>3.79</td></tr><tr><td>DRKN6881</td><td>Kinsuka-Pecheur2</td><td>1</td><td>1.98</td></tr><tr><td>DRKN0202</td><td>Mbanza Mpa</td><td>1</td><td>1.78</td></tr><tr><td>DRKN0753</td><td>Tshikapa Ngombe</td><td>2</td><td>0.45</td></tr><tr><td>DRKN2102</td><td>kinshasa-herady</td><td>1</td><td>0.32</td></tr><tr><td>DRKN7201</td><td>Lubwaku</td><td>1</td><td>0.23</td></tr><tr><td>DRKN0120</td><td>Ngomba Kikusa</td><td>1</td><td>0.2</td></tr><tr><td>DRKN0252</td><td>Masangabila</td><td>1</td><td>0.13</td></tr></tbody></table></div>
+<div class="panel wide"><h2>Details des incidents</h2>
+<div class="toolbar">
+<input id="incident-search" type="search" placeholder="Rechercher site, TRB, RCA">
+<select id="fuel-filter"><option value="">Fuel: tous</option><option value="Oui">Oui</option><option value="Non">Non</option><option value="Non precise">Non precise</option></select>
+<select id="pa-filter"><option value="">Type: tous</option><option value="Passive">Passive</option><option value="Active">Active</option><option value="Non precise">Non precise</option></select>
+<select id="duration-filter"><option value="">Duree: toutes</option><option value="0.5">&gt;= 30 min</option><option value="1">&gt;= 1 h</option><option value="2">&gt;= 2 h</option><option value="4">&gt;= 4 h</option></select>
+<button id="clear-filters" type="button">Reinitialiser</button>
+</div>
+<div id="incident-count" class="count">11 / 11</div>
+<table id='incidents-table' class='data-table'><thead><tr><th>#</th><th>Date outage</th><th>Site ID</th><th>Nom du site</th><th>Debut outage</th><th>Fin outage</th><th>Duree outage (h)</th><th>Passive/Active</th><th>Fuel outage</th><th>Reference TRB</th><th>RCA</th><th>Commentaire resolution</th></tr></thead><tbody><tr data-search='2 23-juil.-2026 DRKN0753 Tshikapa Ngombe 23/07/2026 07:49 23/07/2026 08:01 0.2 Passive Non TRB1392264 site down pendant le changement de secteur Grid to DG( bacterie pas suffissanment charge 2 /9 module faulty ) demarrage du DG automatique' data-fuel='Non' data-pa='Passive' data-duration='0.2'><td>2</td><td>23-juil.-2026</td><td>DRKN0753</td><td>Tshikapa Ngombe</td><td>23/07/2026 07:49</td><td>23/07/2026 08:01</td><td>0.2</td><td>Passive</td><td>Non</td><td>TRB1392264</td><td>site down pendant le changement de secteur Grid to DG( bacterie pas suffissanment charge 2 /9 module faulty )</td><td>demarrage du DG automatique</td></tr><tr data-search='2 23-juil.-2026 DRKN0120 Ngomba Kikusa 23/07/2026 12:56 23/07/2026 13:08 0.2 Passive Non TRB1392409 Site down pendant le changement de secteur le  BBU ne charge pas correctement caus&#233; par le  retrait temporaire du Controleur le DG de 30 KVA n&#39;arrive pas a support&#233; la charge du site qui atteint le 410 A site sous grid' data-fuel='Non' data-pa='Passive' data-duration='0.2'><td>2</td><td>23-juil.-2026</td><td>DRKN0120</td><td>Ngomba Kikusa</td><td>23/07/2026 12:56</td><td>23/07/2026 13:08</td><td>0.2</td><td>Passive</td><td>Non</td><td>TRB1392409</td><td>Site down pendant le changement de secteur le  BBU ne charge pas correctement caus&#233; par le  retrait temporaire du Controleur le DG de 30 KVA n&#39;arrive pas a support&#233; la charge du site qui atteint le 410 A</td><td>site sous grid</td></tr><tr data-search='3 23-juil.-2026 DRKN2102 kinshasa-herady 23/07/2026 14:19 23/07/2026 14:39 0.32 Passive Non TRB1392421 high-temp due au  dysfonctionnnement capteur de temperature reparation et redemarrage DG' data-fuel='Non' data-pa='Passive' data-duration='0.32'><td>3</td><td>23-juil.-2026</td><td>DRKN2102</td><td>kinshasa-herady</td><td>23/07/2026 14:19</td><td>23/07/2026 14:39</td><td>0.32</td><td>Passive</td><td>Non</td><td>TRB1392421</td><td>high-temp due au  dysfonctionnnement capteur de temperature</td><td>reparation et redemarrage DG</td></tr><tr data-search='5 23-juil.-2026 DRKN2099 Kinshasa_Bunda 23/07/2026 15:34 23/07/2026 17:37 2.04 Passive Non TRB1392486 CB du tenant Airtel Off au niveau de DC Box, Airtel  Overloade, le load attaint jusqu&#39;&#224; 105 A avec un CB de 100 A Enclechement manuel du CB' data-fuel='Non' data-pa='Passive' data-duration='2.04'><td>5</td><td>23-juil.-2026</td><td>DRKN2099</td><td>Kinshasa_Bunda</td><td>23/07/2026 15:34</td><td>23/07/2026 17:37</td><td>2.04</td><td>Passive</td><td>Non</td><td>TRB1392486</td><td>CB du tenant Airtel Off au niveau de DC Box, Airtel  Overloade, le load attaint jusqu&#39;&#224; 105 A avec un CB de 100 A</td><td>Enclechement manuel du CB</td></tr><tr data-search='6 23-juil.-2026 DRKN0252 Masangabila 23/07/2026 18:32 23/07/2026 18:40 0.13 Passive Non TRB1392518 DG 20 kWa sous pression (Overload) Ajout coolant et demarrage' data-fuel='Non' data-pa='Passive' data-duration='0.13'><td>6</td><td>23-juil.-2026</td><td>DRKN0252</td><td>Masangabila</td><td>23/07/2026 18:32</td><td>23/07/2026 18:40</td><td>0.13</td><td>Passive</td><td>Non</td><td>TRB1392518</td><td>DG 20 kWa sous pression (Overload)</td><td>Ajout coolant et demarrage</td></tr><tr data-search='7 23-juil.-2026 DRKN7201 Lubwaku 23/07/2026 18:42 23/07/2026 18:56 0.23 Passive Non TRB1392521 CB du tenant Airtel Off au niveau de DC Box, Airtel  Overloade, le load attaint jusqu&#39;&#224; 107 A avec un CB de 100 A Enclechement manuel du CB' data-fuel='Non' data-pa='Passive' data-duration='0.23'><td>7</td><td>23-juil.-2026</td><td>DRKN7201</td><td>Lubwaku</td><td>23/07/2026 18:42</td><td>23/07/2026 18:56</td><td>0.23</td><td>Passive</td><td>Non</td><td>TRB1392521</td><td>CB du tenant Airtel Off au niveau de DC Box, Airtel  Overloade, le load attaint jusqu&#39;&#224; 107 A avec un CB de 100 A</td><td>Enclechement manuel du CB</td></tr><tr data-search='8 23-juil.-2026 DRKN6881 Kinsuka-Pecheur2 23/07/2026 19:17 23/07/2026 21:16 1.98 Passive Non TRB1392556 Fuel contamin&#233; prologement  de tuyau d&#39;aspiration, chasse prise d&#39;aire et demarrage DG' data-fuel='Non' data-pa='Passive' data-duration='1.98'><td>8</td><td>23-juil.-2026</td><td>DRKN6881</td><td>Kinsuka-Pecheur2</td><td>23/07/2026 19:17</td><td>23/07/2026 21:16</td><td>1.98</td><td>Passive</td><td>Non</td><td>TRB1392556</td><td>Fuel contamin&#233;</td><td>prologement  de tuyau d&#39;aspiration, chasse prise d&#39;aire et demarrage DG</td></tr><tr data-search='9 23-juil.-2026 DRKN2099 Kinshasa_Bunda 23/07/2026 19:24 23/07/2026 21:09 1.75 Passive Non TRB1392565 CB du tenant Airtel Off au niveau de DC Box, Airtel  Overloade, le load atteint jusqu&#39;&#224;  A106 A avec un CB de 100 A Enclechement manuel du CB' data-fuel='Non' data-pa='Passive' data-duration='1.75'><td>9</td><td>23-juil.-2026</td><td>DRKN2099</td><td>Kinshasa_Bunda</td><td>23/07/2026 19:24</td><td>23/07/2026 21:09</td><td>1.75</td><td>Passive</td><td>Non</td><td>TRB1392565</td><td>CB du tenant Airtel Off au niveau de DC Box, Airtel  Overloade, le load atteint jusqu&#39;&#224;  A106 A avec un CB de 100 A</td><td>Enclechement manuel du CB</td></tr><tr data-search='10 23-juil.-2026 DRKN0202 Mbanza Mpa 23/07/2026 20:15 23/07/2026 22:02 1.78 Passive Non TRB1392591 CB du tenant orange Off au niveau de BBS, Orange Overloade, le load attaint jusqu&#39;&#224; 128 A avec un CB de 100 A Enclechement manuel du CB' data-fuel='Non' data-pa='Passive' data-duration='1.78'><td>10</td><td>23-juil.-2026</td><td>DRKN0202</td><td>Mbanza Mpa</td><td>23/07/2026 20:15</td><td>23/07/2026 22:02</td><td>1.78</td><td>Passive</td><td>Non</td><td>TRB1392591</td><td>CB du tenant orange Off au niveau de BBS, Orange Overloade, le load attaint jusqu&#39;&#224; 128 A avec un CB de 100 A</td><td>Enclechement manuel du CB</td></tr><tr data-search='11 23-juil.-2026 DRKN0753 Tshikapa Ngombe 23/07/2026 21:00 23/07/2026 21:15 0.25 Passive Non TRB1392606 CB du tenant Vodacom  Off au niveau de DC Box, Vodacom  Overloade, le load atteint jusqu&#39;&#224;  A132 A avec un CB de 100 A Enclechement manuel du CB' data-fuel='Non' data-pa='Passive' data-duration='0.25'><td>11</td><td>23-juil.-2026</td><td>DRKN0753</td><td>Tshikapa Ngombe</td><td>23/07/2026 21:00</td><td>23/07/2026 21:15</td><td>0.25</td><td>Passive</td><td>Non</td><td>TRB1392606</td><td>CB du tenant Vodacom  Off au niveau de DC Box, Vodacom  Overloade, le load atteint jusqu&#39;&#224;  A132 A avec un CB de 100 A</td><td>Enclechement manuel du CB</td></tr><tr data-search='12 23-juil.-2026 DRKN2037 Station_Ma_Campagne2 23/07/2026 22:41 24/07/2026 06:29 7.81 Passive Non TRB1392653 Acces issue ( Concession priv&#233;e) ' data-fuel='Non' data-pa='Passive' data-duration='7.81'><td>12</td><td>23-juil.-2026</td><td>DRKN2037</td><td>Station_Ma_Campagne2</td><td>23/07/2026 22:41</td><td>24/07/2026 06:29</td><td>7.81</td><td>Passive</td><td>Non</td><td>TRB1392653</td><td>Acces issue ( Concession priv&#233;e)</td><td></td></tr></tbody></table></div>
+</section>
+</main>
+<script>
+(function () {
+    var incidentTable = document.getElementById('incidents-table');
+    if (!incidentTable) { return; }
+
+    var searchInput = document.getElementById('incident-search');
+    var fuelFilter = document.getElementById('fuel-filter');
+    var paFilter = document.getElementById('pa-filter');
+    var durationFilter = document.getElementById('duration-filter');
+    var clearButton = document.getElementById('clear-filters');
+    var countLabel = document.getElementById('incident-count');
+    var rows = Array.prototype.slice.call(incidentTable.tBodies[0].rows);
+
+    function normalize(value) {
+        return (value || '').toString().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    }
+
+    function applyFilters() {
+        var query = normalize(searchInput.value);
+        var fuel = fuelFilter.value;
+        var pa = paFilter.value;
+        var minDuration = parseFloat(durationFilter.value || '0');
+        var visible = 0;
+
+        rows.forEach(function (row) {
+            var matchesSearch = normalize(row.dataset.search).indexOf(query) !== -1;
+            var matchesFuel = !fuel || row.dataset.fuel === fuel;
+            var matchesPa = !pa || row.dataset.pa === pa;
+            var duration = parseFloat(row.dataset.duration || '0');
+            var matchesDuration = duration >= minDuration;
+            var show = matchesSearch && matchesFuel && matchesPa && matchesDuration;
+            row.hidden = !show;
+            if (show) { visible += 1; }
+        });
+
+        countLabel.textContent = visible + ' / ' + rows.length;
+    }
+
+    [searchInput, fuelFilter, paFilter, durationFilter].forEach(function (control) {
+        control.addEventListener('input', applyFilters);
+        control.addEventListener('change', applyFilters);
+    });
+
+    clearButton.addEventListener('click', function () {
+        searchInput.value = '';
+        fuelFilter.value = '';
+        paFilter.value = '';
+        durationFilter.value = '';
+        applyFilters();
+        searchInput.focus();
+    });
+
+    document.querySelectorAll('.data-table').forEach(function (table) {
+        Array.prototype.slice.call(table.tHead.rows[0].cells).forEach(function (header, index) {
+            header.title = 'Trier';
+            header.addEventListener('click', function () {
+                var body = table.tBodies[0];
+                var tableRows = Array.prototype.slice.call(body.rows);
+                var direction = header.dataset.direction === 'asc' ? -1 : 1;
+                tableRows.sort(function (a, b) {
+                    var av = a.cells[index].textContent.trim();
+                    var bv = b.cells[index].textContent.trim();
+                    var an = parseFloat(av.replace(',', '.'));
+                    var bn = parseFloat(bv.replace(',', '.'));
+                    if (!isNaN(an) && !isNaN(bn)) { return (an - bn) * direction; }
+                    return av.localeCompare(bv, 'fr', { numeric: true, sensitivity: 'base' }) * direction;
+                });
+                tableRows.forEach(function (row) { body.appendChild(row); });
+                header.dataset.direction = direction === 1 ? 'asc' : 'desc';
+            });
+        });
+    });
+}());
+</script>
+</body>
+</html>

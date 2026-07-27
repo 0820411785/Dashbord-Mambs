@@ -1,0 +1,3 @@
+﻿"#","Outage Date","Site ID","Site Name","Outage Start","Outage End","Alarm Before Down (h)","Outage Duration (h)","ETA (min)","Passive/Active","RCA","Resolution Comment","Fuel Outage","TRB Ref"
+"2","24-juil.-2026","DRKN0202","Mbanza Mpa","24/07/2026 21:08:00","24/07/2026 21:58:00","0","0,84","25","Active","CB Off dans la DC Box, Orange Tenant Overloaded, 142A","Enclenché","Non","TRB1393128"
+"2","24-juil.-2026","DRKN0753","Tshikapa Ngombe","24/07/2026 22:05:17","24/07/2026 22:16:00","0","0,18","30","Passive","Down pendant le changement de seceteur, site à faible autonomie","1 batterie/6 delestée","Non","TRB1393149"

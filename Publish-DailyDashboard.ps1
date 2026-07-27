@@ -42,10 +42,16 @@ function Convert-ToOptionalNumber {
     return $null
 }
 
-function Get-DashboardDtpt {
+function Test-IsOverloadText {
+    param($Value)
+    return "$Value" -match "(?i)\bover\s*load\w*|\boverlaod\w*|\boverloade\w*"
+}
+
+function Get-DashboardKpiNumber {
     param(
         [string]$PortalPath,
-        $Entry
+        $Entry,
+        [array]$Labels
     )
 
     if ($null -eq $Entry) { return $null }
@@ -53,11 +59,59 @@ function Get-DashboardDtpt {
     if (-not (Test-Path -LiteralPath $dashboardPath -PathType Leaf)) { return $null }
 
     $html = Get-Content -LiteralPath $dashboardPath -Raw
-    $match = [regex]::Match($html, "<span>\s*DTPT de la journee\s*</span>\s*<strong>([^<]*)</strong>", [System.Text.RegularExpressions.RegexOptions]::IgnoreCase)
-    if (-not $match.Success) { return $null }
+    foreach ($label in @($Labels)) {
+        $escapedLabel = [regex]::Escape($label)
+        $match = [regex]::Match($html, "<span>\s*$escapedLabel\s*</span>\s*<strong>([^<]*)</strong>", [System.Text.RegularExpressions.RegexOptions]::IgnoreCase)
+        if ($match.Success) {
+            $valueText = [System.Net.WebUtility]::HtmlDecode($match.Groups.Item(1).Value).Trim()
+            return Convert-ToOptionalNumber $valueText
+        }
+    }
 
-    $valueText = [System.Net.WebUtility]::HtmlDecode($match.Groups.Item(1).Value).Trim()
-    return Convert-ToOptionalNumber $valueText
+    return $null
+}
+
+function Get-DashboardDtpt {
+    param(
+        [string]$PortalPath,
+        $Entry
+    )
+
+    return Get-DashboardKpiNumber $PortalPath $Entry @("DTPT sans exclusion", "DTPT de la journee")
+}
+
+function Get-DashboardDtptHorsOverload {
+    param(
+        [string]$PortalPath,
+        $Entry
+    )
+
+    $directValue = Get-DashboardKpiNumber $PortalPath $Entry @("DTPT hors overload")
+    if ($null -ne $directValue) { return $directValue }
+
+    $dtptSansExclusion = Get-DashboardDtpt $PortalPath $Entry
+    if ($null -eq $dtptSansExclusion -or $dtptSansExclusion -le 0) { return $null }
+
+    $dashboardFolder = Split-Path $Entry.Path -Parent
+    if ([string]::IsNullOrWhiteSpace($dashboardFolder)) { return $null }
+
+    $incidentCsvPath = Join-Path (Join-Path $PortalPath $dashboardFolder) "index_Incidents.csv"
+    if (-not (Test-Path -LiteralPath $incidentCsvPath -PathType Leaf)) { return $null }
+
+    $incidents = @(Import-Csv -Path $incidentCsvPath)
+    $totalDownHours = [Math]::Round((@($incidents) | ForEach-Object { Convert-ToNumber $_.'Outage Duration (h)' } | Measure-Object -Sum).Sum, 2)
+    if ($totalDownHours -le 0) { return $dtptSansExclusion }
+
+    $nonOverloadDownHours = [Math]::Round((
+        @($incidents | Where-Object { -not (Test-IsOverloadText "$($_.RCA) $($_.'Resolution Comment')") }) |
+            ForEach-Object { Convert-ToNumber $_.'Outage Duration (h)' } |
+            Measure-Object -Sum
+    ).Sum, 2)
+
+    $dtptSiteBase = ($totalDownHours * 60.0) / [double]$dtptSansExclusion
+    if ($dtptSiteBase -le 0) { return $null }
+
+    return [Math]::Round(($nonOverloadDownHours * 60.0) / $dtptSiteBase, 2)
 }
 
 function Get-SiteTotals {
@@ -87,6 +141,7 @@ function Get-SiteTotals {
                     Incidents = 0
                     DownHours = 0.0
                     DaysImpacted = 0
+                    ImpactedDates = @()
                     LastSeen = $entry.Date
                 }
             }
@@ -98,6 +153,7 @@ function Get-SiteTotals {
             $item.Incidents += [int](Convert-ToNumber $site.Incidents)
             $item.DownHours = [Math]::Round($item.DownHours + (Convert-ToNumber $site.'Down Hours'), 2)
             $item.DaysImpacted += 1
+            if ($item.ImpactedDates -notcontains $entry.Date) { $item.ImpactedDates += $entry.Date }
             if ($entry.Date -gt $item.LastSeen) { $item.LastSeen = $entry.Date }
         }
     }
@@ -116,16 +172,18 @@ function New-SiteRowsHtml {
 
     $rows = @()
     foreach ($site in @($SiteRows)) {
-        $searchText = "$($site.SiteId) $($site.SiteName) $($site.Incidents) $($site.DownHours) $($site.DaysImpacted) $($site.LastSeen)"
+        $impactedDates = @($site.ImpactedDates | Sort-Object)
+        $impactedDateText = $impactedDates -join ", "
+        $searchText = "$($site.SiteId) $($site.SiteName) $($site.Incidents) $($site.DownHours) $($site.DaysImpacted) $impactedDateText $($site.LastSeen)"
         if ($IncludeMonthColumns) {
-            $rows += "<tr data-search='$(ConvertTo-HtmlText $searchText)'><td>$(ConvertTo-HtmlText $site.SiteId)</td><td>$(ConvertTo-HtmlText $site.SiteName)</td><td>$(ConvertTo-HtmlText $site.Incidents)</td><td>$(ConvertTo-HtmlText $site.DownHours)</td><td>$(ConvertTo-HtmlText $site.DaysImpacted)</td><td>$(ConvertTo-HtmlText $site.LastSeen)</td></tr>"
+            $rows += "<tr data-search='$(ConvertTo-HtmlText $searchText)'><td>$(ConvertTo-HtmlText $site.SiteId)</td><td>$(ConvertTo-HtmlText $site.SiteName)</td><td>$(ConvertTo-HtmlText $site.Incidents)</td><td>$(ConvertTo-HtmlText $site.DownHours)</td><td>$(ConvertTo-HtmlText $site.DaysImpacted)</td><td>$(ConvertTo-HtmlText $impactedDateText)</td><td>$(ConvertTo-HtmlText $site.LastSeen)</td></tr>"
         } else {
-            $rows += "<tr data-search='$(ConvertTo-HtmlText $searchText)'><td>$(ConvertTo-HtmlText $site.SiteId)</td><td>$(ConvertTo-HtmlText $site.SiteName)</td><td>$(ConvertTo-HtmlText $site.DownHours)</td></tr>"
+            $rows += "<tr data-search='$(ConvertTo-HtmlText $searchText)'><td>$(ConvertTo-HtmlText $site.SiteId)</td><td>$(ConvertTo-HtmlText $site.SiteName)</td><td>$(ConvertTo-HtmlText $site.Incidents)</td><td>$(ConvertTo-HtmlText $site.DownHours)</td></tr>"
         }
     }
 
     if ($rows.Count -eq 0) {
-        $colspan = if ($IncludeMonthColumns) { 6 } else { 4 }
+        $colspan = if ($IncludeMonthColumns) { 7 } else { 4 }
         $rows += "<tr><td colspan='$colspan'>Aucune donnee site disponible.</td></tr>"
     }
 
@@ -214,13 +272,25 @@ $dtptValues = @(
         if ($null -ne $value) { $value }
     }
 )
-$monthlyDdtpAverage = if ($dtptValues.Count -gt 0) {
+$dtptHorsOverloadValues = @(
+    foreach ($entry in $currentMonthEntries) {
+        $value = Get-DashboardDtptHorsOverload $portalPath $entry
+        if ($null -ne $value) { $value }
+    }
+)
+$monthlyDtptAverageSansExclusion = if ($dtptValues.Count -gt 0) {
     [Math]::Round((($dtptValues | Measure-Object -Average).Average), 2)
 } else {
     ""
 }
-$monthlyDdtpDays = $dtptValues.Count
-$monthlyDdtpSuffix = if ([string]::IsNullOrWhiteSpace($currentMonthLabel)) { "" } else { " ($currentMonthLabel)" }
+$monthlyDtptAverageHorsOverload = if ($dtptHorsOverloadValues.Count -gt 0) {
+    [Math]::Round((($dtptHorsOverloadValues | Measure-Object -Average).Average), 2)
+} else {
+    ""
+}
+$monthlyDtptDays = $dtptValues.Count
+$monthlyDtptHorsOverloadDays = $dtptHorsOverloadValues.Count
+$monthlyDtptSuffix = if ([string]::IsNullOrWhiteSpace($currentMonthLabel)) { "" } else { " ($currentMonthLabel)" }
 
 # --- CUMUL SITES DU MOIS EN COURS (JUILLET) ---
 $currentMonthSiteTotalsRows = Get-SiteTotals $portalPath $currentMonthEntries
@@ -288,13 +358,13 @@ tbody tr:nth-child(even) { background: #f8fafc; }
 <main>
 <h2>Synthese des outages par site ($pastMonthLabel)</h2>
 <div class="toolbar">
-<input id="past-site-search" type="search" placeholder="Rechercher un site, un nom...">
+<input id="past-site-search" type="search" placeholder="Rechercher un site, un nom, une date...">
 <button id="past-site-clear" type="button">Reinitialiser</button>
 </div>
 <p id="past-site-count" class="count">$pastSiteCount / $pastSiteCount</p>
 <div class="panel">
 <table id="past-site-totals-table">
-<thead><tr><th>Site ID</th><th>Nom du site</th><th>Incidents cumules</th><th>Down cumule (h)</th><th>Jours impactes</th><th>Derniere journee</th></tr></thead>
+<thead><tr><th>Site ID</th><th>Nom du site</th><th>Incidents cumules</th><th>Down cumule (h)</th><th>Jours impactes</th><th>Jours concernes</th><th>Derniere journee</th></tr></thead>
 <tbody>
 $($pastSiteRows -join "`n")
 </tbody>
@@ -380,8 +450,10 @@ tbody tr:nth-child(even) { background: #f8fafc; }
 <div class="kpi"><span>Derniere journee</span><strong>$latestLink</strong></div>
 <div class="kpi"><span>Fichier source</span><strong>$(ConvertTo-HtmlText $latestSource)</strong></div>
 <div class="kpi"><span>Derniere generation</span><strong>$(ConvertTo-HtmlText $latestGenerated)</strong></div>
-<div class="kpi"><span>DDTP moyen du mois$monthlyDdtpSuffix</span><strong>$monthlyDdtpAverage</strong></div>
-<div class="kpi"><span>Jours DDTP suivis$monthlyDdtpSuffix</span><strong>$monthlyDdtpDays</strong></div>
+<div class="kpi"><span>DTPT moyen sans exclusion$monthlyDtptSuffix</span><strong>$monthlyDtptAverageSansExclusion</strong></div>
+<div class="kpi"><span>DTPT moyen hors overload$monthlyDtptSuffix</span><strong>$monthlyDtptAverageHorsOverload</strong></div>
+<div class="kpi"><span>Jours DTPT suivis$monthlyDtptSuffix</span><strong>$monthlyDtptDays</strong></div>
+<div class="kpi"><span>Jours DTPT hors overload$monthlyDtptSuffix</span><strong>$monthlyDtptHorsOverloadDays</strong></div>
 <div class="kpi"><span>Sites du jour$latestDaySuffix</span><strong>$latestSiteCount</strong></div>
 <div class="kpi"><span>Down du jour$latestDaySuffix</span><strong>$totalDownForLatestDay h</strong></div>
 <div class="kpi"><span>Sites cumules $currentMonthLabel</span><strong>$currentMonthSiteCount</strong></div>
@@ -420,13 +492,13 @@ $($latestSiteRows -join "`n")
 
 <h2>Cumul des down par site - $currentMonthLabel</h2>
 <div class="toolbar">
-<input id="current-site-search" type="search" placeholder="Rechercher un site, un nom...">
+<input id="current-site-search" type="search" placeholder="Rechercher un site, un nom, une date...">
 <button id="current-site-clear" type="button">Reinitialiser</button>
 </div>
 <p id="current-site-count" class="count">$currentMonthSiteCount / $currentMonthSiteCount</p>
 <div class="panel">
 <table id="current-site-totals-table">
-<thead><tr><th>Site ID</th><th>Nom du site</th><th>Incidents cumules</th><th>Down cumule (h)</th><th>Jours impactes</th><th>Derniere journee</th></tr></thead>
+<thead><tr><th>Site ID</th><th>Nom du site</th><th>Incidents cumules</th><th>Down cumule (h)</th><th>Jours impactes</th><th>Jours concernes</th><th>Derniere journee</th></tr></thead>
 <tbody>
 $($currentMonthSiteRows -join "`n")
 </tbody>
@@ -477,6 +549,35 @@ $($currentMonthSiteRows -join "`n")
 "@
 
 [System.IO.File]::WriteAllText((Join-Path $portalPath "index.html"), $portalHtml, [System.Text.Encoding]::UTF8)
+
+if ((Split-Path $portalPath -Leaf) -eq "Daily_Dashboards") {
+    $rootIndexPath = Join-Path (Split-Path $portalPath -Parent) "index.html"
+    $rootRedirectHtml = @"
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="refresh" content="0; url=Daily_Dashboards/index.html">
+<title>Redirection vers le portail des dashboards incidents</title>
+<style>
+body { margin: 0; min-height: 100vh; display: grid; place-items: center; font-family: Arial, Helvetica, sans-serif; color: #172033; background: #f5f7fb; }
+main { max-width: 560px; padding: 24px; text-align: center; }
+a { color: #115e59; font-weight: 700; }
+</style>
+</head>
+<body>
+<main>
+<h1>Portail des dashboards incidents</h1>
+<p>Redirection vers le portail en cours.</p>
+<p><a href="Daily_Dashboards/index.html">Ouvrir le portail</a></p>
+</main>
+</body>
+</html>
+"@
+    [System.IO.File]::WriteAllText($rootIndexPath, $rootRedirectHtml, [System.Text.Encoding]::UTF8)
+    Write-Output "Index racine mis a jour: $rootIndexPath"
+}
 
 Write-Output "Dashboard journalier cree: $dashboardPath"
 Write-Output "Portail mis a jour: $(Join-Path $portalPath "index.html")"

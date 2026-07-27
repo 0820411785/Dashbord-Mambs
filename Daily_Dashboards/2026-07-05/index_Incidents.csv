@@ -1,0 +1,7 @@
+﻿"#","Outage Date","Site ID","Site Name","Outage Start","Outage End","Alarm Before Down (h)","Outage Duration (h)","ETA (min)","Passive/Active","RCA","Resolution Comment","Fuel Outage","TRB Ref"
+"2","05-juil.-2026","DRKN7181","Malueka2","05/07/2026 11:11:09","05/07/2026 11:18:00","0,83","0,13","25","Passive","Changement de secteur,BBU déchargé","Site sous DG","Non","TRB1383309"
+"2","05-juil.-2026","DRKN7181","Malueka2","05/07/2026 14:17:40","05/07/2026 14:28:00","0","0,18","30","Passive","Changement de secteur,BBU déchargé","Site sous DG","Non","TRB1383309"
+"3","05-juil.-2026","DRKN2141","Kin_Masangambila","05/07/2026 20:12:55","05/07/2026 20:56:00","2,49","0,73","30","Passive","Hightemp causée par une dimunition de liquide de refroidissement","Ajout de liquide refroidissement et Démarrage du DG","Non","TRB1383474"
+"4","05-juil.-2026","DRKN8454","New Okapi","05/07/2026 21:10:50","05/07/2026 21:57:00","2,17","0,77","25","Passive","Fiche de l'électrovanne desserrée","Renforcement du serrage de la fiche de l'électrovanne et rétablissement du Grid","Non","TRB1383495"
+"5","05-juil.-2026","DRKN0206","Mawana","05/07/2026 20:20:35","05/07/2026 21:02:00","0,7","0,7","30","Passive","L'electrovanne de l'ancien DG de 20KVA faulty","Démarrage du nouveau générateur de 30 KVA","Non","TRB1383514"
+"6","05-juil.-2026","DRKN0250","Musei","05/07/2026 22:37:00","06/07/2026 00:26:00","2,93","1,82","30","Passive","Insuffisance modules","2 module ajouté","","TRB1383536"

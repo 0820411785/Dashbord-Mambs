@@ -1,0 +1,7 @@
+﻿"#","Outage Date","Site ID","Site Name","Outage Start","Outage End","Alarm Before Down (h)","Outage Duration (h)","ETA (min)","Passive/Active","RCA","Resolution Comment","Fuel Outage","TRB Ref"
+"2","19-juil.-2026","DRKN0171","Kimwenza Gare","19/07/2026 07:54:18","19/07/2026 08:13:00","0,83","0,32","15","Passive","Batterie DG Faulty","Démarrage du DG à l'aide d'une batterie auxiaile","Non","TRB1390134"
+"2","19-juil.-2026","DRKN8245","College-Saint-Ignace3","19/07/2026 14:31:46","19/07/2026 15:57:00","0","1,43","25","Passive","Radiateur troué","En cours de remplacement","","TRB1390296"
+"3","19-juil.-2026","DRKN8123","Station_Brikin","19/07/2026 15:00:00","19/07/2026 16:28:00","0","1,48","30","Passive","CB Off dans DC Box Airtel Overload 109A","Enclenché","","TRB1390313"
+"4","19-juil.-2026","DRKN8115","Zamba_Telecom","19/07/2026 20:47:00","19/07/2026 22:01:00","0","1,23","30","Passive","CB du tenant orange Off au niveau de DC Box, Orange Overloade, le load attaint jusqu'à 141 A avec un CB de 125 A","","","TRB1390437"
+"5","19-juil.-2026","DRKN0699","Boboliko","19/07/2026 21:01:00","19/07/2026 21:45:00","0","0,73","","Passive","CB du tenant orange Off au niveau de DC Box, Orange Overloade, le load attaint jusqu'à 96 A avec un CB de 125 A","","","TRB1390440"
+"6","19-juil.-2026","DRKN0040","Ozone 2","19/07/2026 21:45:00","19/07/2026 22:20:00","13,08","0,58","30","Passive","Feu au niveau de DG (DG issue )","Site up by Grid","","TRB1390432"
