@@ -1,0 +1,11 @@
+﻿"#","Outage Date","Site ID","Site Name","Outage Start","Outage End","Alarm Before Down (h)","Outage Duration (h)","ETA (min)","Passive/Active","RCA","Resolution Comment","Fuel Outage","TRB Ref"
+"2","26-juil.-2026","DRKN0125","Maman Mobutu","26/07/2026 11:47:00","26/07/2026 12:18:00","0,6","0,52","25","Passive","Alarme trouvé High temp du DG due à l'absence du tissu anti-chaleur ( Absence du gardien )","alarme reset et demarrage DG.","Non","TRB1393888"
+"2","26-juil.-2026","DRKN6883","La colline 2","26/07/2026 13:25:00","26/07/2026 14:16:00","0","0,86","20","Passive","Hightemp au niveau du  DG causé par  radiateur Bloqué","nettoyage du radiateur et démarrage DG","Non","TRB1393938"
+"3","26-juil.-2026","DRKN0216","Bamboma","26/07/2026 16:33:08","26/07/2026 16:46:00","1,03","0,22","30","Passive","Alarme Gen Under Frequency causée par une fuite de carburant au niveau du filtre à gazole","filtre à gazole a été resserré et Demarrage DG","Non","TRB1393978"
+"5","26-juil.-2026","DRKN0117","Kimbualea 2","26/07/2026 16:41:08","26/07/2026 16:52:00","0,69","0,19","30","Passive","Défaut d'automatisation : le Gave Switch n'est pas raccordé au nouveau DG backup, empêchant le basculement automatique lors du changement de secteur.","Démarrage Manuel du DG","Non","TRB1393986"
+"6","26-juil.-2026","DRKN0202","Mbanza Mpa","26/07/2026 19:57:52","26/07/2026 22:51:00","0","2,9","30","Passive","Tenant Orange Overload CB switch off","Enclenchement du CB","Non","TRB1394080"
+"7","26-juil.-2026","DRKN0216","Bamboma","26/07/2026 20:14:10","26/07/2026 21:31:00","0","1,29","30","Passive","Le DG reconditionné ne supporte pas la charge du site.
+Le disjoncteur Compact côté réseau (Grid) présente des anomalies.","Démarrage du DG","Non","TRB1394083"
+"8","26-juil.-2026","DRKN0286","Ngaliema","26/07/2026 20:37:18","26/07/2026 21:56:00","0","1,31","20","Passive","Déclenchement du disjoncteur au niveau de la BBS","Enclenchement du disjoncteur","Non","TRB1394095"
+"9","27-juil.-2026","DRKN7453","Cite Pumbu","26/07/2026 21:32:29","27/07/2026 00:01:00","0,35","2,49","","Passive","Tenant Airtel Overload CB switch off","Enclenchement du disjoncteur","Non","TRB1394119"
+"10","27-juil.-2026","DRKN0216","Bamboma","26/07/2026 23:48:39","27/07/2026 01:08:00","0","1,32","","Passive","Le DG reconditionné ne supporte pas la charge du site.","Démarrage du DG","Non","TRB1394166"
