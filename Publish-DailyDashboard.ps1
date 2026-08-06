@@ -246,18 +246,21 @@ $latestDateValue = if ($null -ne $latestEntry) {
 }
 $latestDaySuffix = if ([string]::IsNullOrWhiteSpace($latestDateLabel)) { "" } else { " ($latestDateLabel)" }
 
-# --- CALCUL DYNAMIQUE DU MOIS EN COURS (JUILLET) ---
+# --- CALCUL DYNAMIQUE DU MOIS ACTIF ---
 $currentMonthEntries = @()
-$currentMonthLabel = "juillet 2026"
-if ($null -ne $latestDateValue) {
-    $currentMonthLabel = $latestDateValue.ToString("MMMM yyyy", [System.Globalization.CultureInfo]::GetCultureInfo("fr-FR"))
-    $currentMonthEntries = @(
-        $updated | Where-Object {
-            $entryDate = [datetime]::ParseExact($_.Date, "yyyy-MM-dd", [System.Globalization.CultureInfo]::InvariantCulture)
-            $entryDate.Year -eq $latestDateValue.Year -and $entryDate.Month -eq $latestDateValue.Month
-        }
-    )
+$todayValue = (Get-Date).Date
+$currentMonthValue = if ($null -ne $latestDateValue -and $latestDateValue -gt $todayValue) {
+    $latestDateValue
+} else {
+    $todayValue
 }
+$currentMonthLabel = $currentMonthValue.ToString("MMMM yyyy", [System.Globalization.CultureInfo]::GetCultureInfo("fr-FR"))
+$currentMonthEntries = @(
+    $updated | Where-Object {
+        $entryDate = [datetime]::ParseExact($_.Date, "yyyy-MM-dd", [System.Globalization.CultureInfo]::InvariantCulture)
+        $entryDate.Year -eq $currentMonthValue.Year -and $entryDate.Month -eq $currentMonthValue.Month
+    }
+)
 
 # --- MODIFICATION ICI : On génère uniquement les lignes HTML pour le mois actif sur le portail principal ---
 $rows = @()
@@ -292,7 +295,7 @@ $monthlyDtptDays = $dtptValues.Count
 $monthlyDtptHorsOverloadDays = $dtptHorsOverloadValues.Count
 $monthlyDtptSuffix = if ([string]::IsNullOrWhiteSpace($currentMonthLabel)) { "" } else { " ($currentMonthLabel)" }
 
-# --- CUMUL SITES DU MOIS EN COURS (JUILLET) ---
+# --- CUMUL SITES DU MOIS ACTIF ---
 $currentMonthSiteTotalsRows = Get-SiteTotals $portalPath $currentMonthEntries
 $currentMonthSiteRows = New-SiteRowsHtml $currentMonthSiteTotalsRows -IncludeMonthColumns
 $currentMonthSiteCount = $currentMonthSiteTotalsRows.Count
@@ -303,8 +306,8 @@ $latestSiteRows = New-SiteRowsHtml $latestSiteTotalsRows
 $latestSiteCount = $latestSiteTotalsRows.Count
 $totalDownForLatestDay = [Math]::Round((@($latestSiteTotalsRows) | Measure-Object -Property DownHours -Sum).Sum, 2)
 
-# --- ARCHIVES : GENERATION DE LA PAGE COMPLEMENTAIRE JUIN ---
-$pastMonthValue = if ($null -ne $latestDateValue) { $latestDateValue.AddMonths(-1) } else { $null }
+# --- ARCHIVES : GENERATION DE LA PAGE COMPLEMENTAIRE DU MOIS PRECEDENT ---
+$pastMonthValue = if ($null -ne $currentMonthValue) { $currentMonthValue.AddMonths(-1) } else { $null }
 $pastMonthLabel = if ($null -ne $pastMonthValue) { $pastMonthValue.ToString("MMMM yyyy", [System.Globalization.CultureInfo]::GetCultureInfo("fr-FR")) } else { "juin 2026" }
 
 $pastEntries = @()
@@ -319,9 +322,33 @@ if ($null -ne $pastMonthValue) {
 $pastSiteTotalsRows = Get-SiteTotals $portalPath $pastEntries
 $pastSiteRows = New-SiteRowsHtml $pastSiteTotalsRows -IncludeMonthColumns
 $pastSiteCount = $pastSiteTotalsRows.Count
+$pastDashboardCount = $pastEntries.Count
+$pastDtptValues = @(
+    foreach ($entry in $pastEntries) {
+        $value = Get-DashboardDtpt $portalPath $entry
+        if ($null -ne $value) { $value }
+    }
+)
+$pastDtptHorsOverloadValues = @(
+    foreach ($entry in $pastEntries) {
+        $value = Get-DashboardDtptHorsOverload $portalPath $entry
+        if ($null -ne $value) { $value }
+    }
+)
+$pastDtptAverageSansExclusion = if ($pastDtptValues.Count -gt 0) {
+    [Math]::Round((($pastDtptValues | Measure-Object -Average).Average), 2)
+} else {
+    ""
+}
+$pastDtptAverageHorsOverload = if ($pastDtptHorsOverloadValues.Count -gt 0) {
+    [Math]::Round((($pastDtptHorsOverloadValues | Measure-Object -Average).Average), 2)
+} else {
+    ""
+}
+$pastTotalDown = [Math]::Round((@($pastSiteTotalsRows) | Measure-Object -Property DownHours -Sum).Sum, 2)
 
 # Generation du fichier dedie pour l'archive (LIGNE MODIFIÉE ICI POUR GITHUB PAGES)
-$archiveHtmlFile = "Daily_Dashboards/archive_" + ($pastMonthValue.ToString("yyyy_MM")) + ".html"
+$archiveHtmlFile = "archive_" + ($pastMonthValue.ToString("yyyy_MM")) + ".html"
 $archiveHtmlPath = Join-Path $portalPath ("archive_" + ($pastMonthValue.ToString("yyyy_MM")) + ".html")
 
 $archivePageHtml = @"
@@ -339,6 +366,10 @@ h1 { margin: 0 0 6px; font-size: 24px; }
 h2 { margin: 20px 0 14px; font-size: 18px; }
 main { padding: 24px 34px 42px; }
 .back-btn { position: absolute; right: 34px; top: 26px; background: white; color: var(--brand-dark); border: none; padding: 10px 16px; border-radius: 6px; font-weight: bold; text-decoration: none; font-size: 14px; }
+.kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px; margin-bottom: 18px; }
+.kpi { background: var(--panel); border: 1px solid var(--line); border-radius: 6px; padding: 14px; min-height: 82px; }
+.kpi span { display: block; color: var(--muted); font-size: 12px; margin-bottom: 8px; }
+.kpi strong { display: block; color: #111827; font-size: 22px; line-height: 1.15; overflow-wrap: anywhere; }
 .toolbar { display: grid; grid-template-columns: minmax(220px, 1fr) auto; gap: 10px; margin-bottom: 12px; }
 input, button { border: 1px solid var(--line); border-radius: 6px; color: var(--ink); font: inherit; min-height: 40px; padding: 8px 10px; background: white; }
 button { cursor: pointer; font-weight: 700; color: var(--brand-dark); }
@@ -356,6 +387,15 @@ tbody tr:nth-child(even) { background: #f8fafc; }
 <a href="index.html" class="back-btn"><- Retour au Portail</a>
 </header>
 <main>
+<section class="kpis">
+<div class="kpi"><span>Dashboards archives</span><strong>$pastDashboardCount</strong></div>
+<div class="kpi"><span>DTPT moyen sans exclusion ($pastMonthLabel)</span><strong>$pastDtptAverageSansExclusion</strong></div>
+<div class="kpi"><span>DTPT moyen hors overload ($pastMonthLabel)</span><strong>$pastDtptAverageHorsOverload</strong></div>
+<div class="kpi"><span>Jours DTPT suivis ($pastMonthLabel)</span><strong>$($pastDtptValues.Count)</strong></div>
+<div class="kpi"><span>Jours DTPT hors overload ($pastMonthLabel)</span><strong>$($pastDtptHorsOverloadValues.Count)</strong></div>
+<div class="kpi"><span>Sites cumules $pastMonthLabel</span><strong>$pastSiteCount</strong></div>
+<div class="kpi"><span>Down cumule $pastMonthLabel</span><strong>$pastTotalDown h</strong></div>
+</section>
 <h2>Synthese des outages par site ($pastMonthLabel)</h2>
 <div class="toolbar">
 <input id="past-site-search" type="search" placeholder="Rechercher un site, un nom, une date...">

@@ -1,0 +1,8 @@
+﻿"#","Outage Date","Site ID","Site Name","Outage Start","Outage End","Alarm Before Down (h)","Outage Duration (h)","ETA (min)","Passive/Active","RCA","Resolution Comment","Fuel Outage","TRB Ref"
+"1","30-juil.-2026","DRKN0261","Punda","30/07/2026 01:50:09","30/07/2026 04:22:00","0","2,54","35","Passive","Mauvaise qualité du (Grid) sur le site","Le Grid a été momentanément isolé,DG a été démarré","Non","TRB1395883"
+"2","30-juil.-2026","DRKN0206","Mawana","30/07/2026 15:06:00","30/07/2026 16:48:00","1,43","1,7","15","Passive","Fuel Shortage","","Oui","TRB1396207"
+"3","30-juil.-2026","DRKN8442","Kin_Malueka_Nkotila","30/07/2026 14:35:00","30/07/2026 14:46:00","0","0,18","30","Passive","DG 20 kVa overload  (Down  instable)","/ Délestage de 2/6 strings de batterie ajout coolant et démarrage du DG","Non","TRB1396189"
+"4","30-juil.-2026","DRKN8442","Kin_Malueka_Nkotila","30/07/2026 15:41:00","30/07/2026 15:53:00","0","0,2","30","Passive","DG 20 kVa overload  (Down  instable)","/ Délestage de 2/6 strings de batterie et démarrage du DG","Non","TRB1396237"
+"5","30-juil.-2026","DRKN8442","Kin_Malueka_Nkotila","30/07/2026 17:09:00","30/07/2026 17:31:00","0","0,38","10","Passive","DG 20 kVa overload  (Down  instable)","/ Délestage de 2/6 strings de batterie et démarrage du DG","Non","TRB1396282"
+"6","30-juil.-2026","DRKN8442","Kin_Malueka_Nkotila","30/07/2026 22:47:35","30/07/2026 23:00:00","0","0,21","","Passive","DG 20 kVa overload  (Down  instable)","/ Délestage de 2/6 strings de batterie et démarrage du DG","Non","TRB1396420"
+"8","30-juil.-2026","DRKN0071","Sangamamba","30/07/2026 23:36:26","30/07/2026 23:57:00","0,62","0,35","25","Passive","DG 30 kVa overload","Ajout coolant","Non","TRB1396440"
