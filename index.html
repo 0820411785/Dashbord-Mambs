@@ -1,21 +1,175 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="fr">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="refresh" content="0; url=Daily_Dashboards/index.html">
-<title>Redirection vers le portail des dashboards incidents</title>
+<title>Portail des dashboards incidents</title>
 <style>
-body { margin: 0; min-height: 100vh; display: grid; place-items: center; font-family: Arial, Helvetica, sans-serif; color: #172033; background: #f5f7fb; }
-main { max-width: 560px; padding: 24px; text-align: center; }
-a { color: #115e59; font-weight: 700; }
+:root { color-scheme: light; --ink: #172033; --muted: #5b6678; --line: #d9e1ec; --panel: #fff; --page: #f5f7fb; --brand: #0f766e; --brand-dark: #115e59; }
+* { box-sizing: border-box; }
+body { margin: 0; font-family: Arial, Helvetica, sans-serif; color: var(--ink); background: var(--page); }
+header { background: linear-gradient(135deg, var(--brand-dark), var(--brand)); color: white; padding: 26px 34px; display: flex; justify-content: flex-start; align-items: center; position: relative; }
+h1 { margin: 0 0 6px; font-size: 28px; line-height: 1.15; }
+h2 { margin: 0 0 14px; font-size: 18px; color: var(--ink); }
+main { padding: 24px 34px 42px; }
+a { color: var(--brand-dark); font-weight: 700; text-decoration: none; }
+a:hover { text-decoration: underline; }
+.meta { opacity: .9; font-size: 13px; }
+.kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px; margin-bottom: 18px; }
+.kpi { background: var(--panel); border: 1px solid var(--line); border-radius: 6px; padding: 14px; min-height: 82px; }
+.kpi span { display: block; color: var(--muted); font-size: 12px; margin-bottom: 8px; }
+.kpi strong { display: block; color: #111827; font-size: 22px; line-height: 1.15; overflow-wrap: anywhere; }
+.toolbar { display: grid; grid-template-columns: minmax(220px, 1fr) auto; gap: 10px; margin-bottom: 12px; }
+input, button { border: 1px solid var(--line); border-radius: 6px; color: var(--ink); font: inherit; min-height: 40px; padding: 8px 10px; background: white; }
+button { cursor: pointer; font-weight: 700; color: var(--brand-dark); }
+.panel { background: var(--panel); border: 1px solid var(--line); border-radius: 6px; overflow-x: auto; margin-bottom: 22px; }
+.count { color: var(--muted); font-size: 12px; margin: 0 0 10px; }
+table { width: 100%; border-collapse: collapse; font-size: 14px; }
+th { text-align: left; background: #e8eef6; color: var(--ink); position: sticky; top: 0; z-index: 1; }
+th, td { border-bottom: 1px solid var(--line); padding: 12px 14px; vertical-align: top; }
+tbody tr:nth-child(even) { background: #f8fafc; }
+.lnk-archive { position: absolute; right: 34px; background: white; color: var(--brand-dark); padding: 10px 16px; border-radius: 6px; font-weight: bold; font-size: 14px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+.lnk-archive:hover { background: #f1f5f9; text-decoration: none; }
+@media (max-width: 720px) { main { padding: 18px; } header { padding: 20px; flex-direction: column; align-items: flex-start; } .lnk-archive { position: static; margin-top: 15px; } .toolbar { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
-<main>
+<header>
+<div>
 <h1>Portail des dashboards incidents</h1>
-<p>Redirection vers le portail en cours.</p>
-<p><a href="Daily_Dashboards/index.html">Ouvrir le portail</a></p>
+<div class="meta">Selectionner une journee pour consulter le dashboard correspondant.</div>
+</div>
+<a class="lnk-archive" href="archive_2026_07.html" target="_blank">ðŸ“‹ Consulter Archives (juillet 2026)</a>
+</header>
+<main>
+<section class="kpis">
+<div class="kpi"><span>Dashboards publies</span><strong>56</strong></div>
+<div class="kpi"><span>Derniere journee</span><strong><a href='2026-08-06/index.html'>Incidents du 06 Aout 2026</a></strong></div>
+<div class="kpi"><span>Fichier source</span><strong>OUTAGE 06 (1).xlsb</strong></div>
+<div class="kpi"><span>Derniere generation</span><strong>2026-08-07 05:54</strong></div>
+<div class="kpi"><span>DTPT moyen sans exclusion (août 2026)</span><strong>21.9</strong></div>
+<div class="kpi"><span>DTPT moyen hors overload (août 2026)</span><strong>5.91</strong></div>
+<div class="kpi"><span>Jours DTPT suivis (août 2026)</span><strong>6</strong></div>
+<div class="kpi"><span>Jours DTPT hors overload (août 2026)</span><strong>6</strong></div>
+<div class="kpi"><span>Sites du jour (06/08/2026)</span><strong>4</strong></div>
+<div class="kpi"><span>Down du jour (06/08/2026)</span><strong>11.77 h</strong></div>
+<div class="kpi"><span>Sites cumules août 2026</span><strong>23</strong></div>
+<div class="kpi"><span>Down cumule août 2026</span><strong>63.5 h</strong></div>
+</section>
+
+<h2>Dashboards journaliers</h2>
+<div class="toolbar">
+<input id="portal-search" type="search" placeholder="Rechercher une date, un fichier, un titre">
+<button id="portal-clear" type="button">Reinitialiser</button>
+</div>
+<p id="portal-count" class="count">6 / 6</p>
+<div class="panel">
+<table id="dashboards-table">
+<thead><tr><th>Date</th><th>Dashboard</th><th>Fichier source</th><th>Generation</th></tr></thead>
+<tbody>
+<tr data-search='2026-08-06 Incidents du 06 Aout 2026 OUTAGE 06 (1).xlsb 2026-08-07 05:54'><td>2026-08-06</td><td><a href='2026-08-06/index.html'>Incidents du 06 Aout 2026</a></td><td>OUTAGE 06 (1).xlsb</td><td>2026-08-07 05:54</td></tr>
+<tr data-search='2026-08-05 Incidents du 05 Aout 2026 OUTAGE 05 (1).xlsb 2026-08-06 13:31'><td>2026-08-05</td><td><a href='2026-08-05/index.html'>Incidents du 05 Aout 2026</a></td><td>OUTAGE 05 (1).xlsb</td><td>2026-08-06 13:31</td></tr>
+<tr data-search='2026-08-04 Incidents du 04 Aout 2026 OUTAGE 04 (1).xlsb 2026-08-05 05:53'><td>2026-08-04</td><td><a href='2026-08-04/index.html'>Incidents du 04 Aout 2026</a></td><td>OUTAGE 04 (1).xlsb</td><td>2026-08-05 05:53</td></tr>
+<tr data-search='2026-08-03 Incidents du 03 Aout 2026 OUTAGE 03 Ao&#251;t.xlsb 2026-08-04 14:15'><td>2026-08-03</td><td><a href='2026-08-03/index.html'>Incidents du 03 Aout 2026</a></td><td>OUTAGE 03 Ao&#251;t.xlsb</td><td>2026-08-04 14:15</td></tr>
+<tr data-search='2026-08-02 Incidents du 02 Aout 2026 OUTAGE 02 Aout.xlsb 2026-08-03 05:35'><td>2026-08-02</td><td><a href='2026-08-02/index.html'>Incidents du 02 Aout 2026</a></td><td>OUTAGE 02 Aout.xlsb</td><td>2026-08-03 05:35</td></tr>
+<tr data-search='2026-08-01 Incidents du 01 Aout 2026 OUTAGE 01 Ao&#251;t.xlsb 2026-08-02 12:34'><td>2026-08-01</td><td><a href='2026-08-01/index.html'>Incidents du 01 Aout 2026</a></td><td>OUTAGE 01 Ao&#251;t.xlsb</td><td>2026-08-02 12:34</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2>Outages du jour par site (06/08/2026)</h2>
+<div class="toolbar">
+<input id="site-search" type="search" placeholder="Rechercher un site, un nom, une date">
+<button id="site-clear" type="button">Reinitialiser</button>
+</div>
+<p id="site-count" class="count">4 / 4</p>
+<div class="panel">
+<table id="site-totals-table">
+<thead><tr><th>Site ID</th><th>Nom du site</th><th>Incidents</th><th>Down (h)</th></tr></thead>
+<tbody>
+<tr data-search='DRKN0006 Kimbwala 2 6.65 1 2026-08-06 2026-08-06'><td>DRKN0006</td><td>Kimbwala</td><td>2</td><td>6.65</td></tr>
+<tr data-search='DRKN8147 Malueka_Nkotila 1 3.74 1 2026-08-06 2026-08-06'><td>DRKN8147</td><td>Malueka_Nkotila</td><td>1</td><td>3.74</td></tr>
+<tr data-search='DRKN2139 Nguba 1 0.81 1 2026-08-06 2026-08-06'><td>DRKN2139</td><td>Nguba</td><td>1</td><td>0.81</td></tr>
+<tr data-search='DRKN7180 CS-Mafema3 1 0.57 1 2026-08-06 2026-08-06'><td>DRKN7180</td><td>CS-Mafema3</td><td>1</td><td>0.57</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2>Cumul des down par site - août 2026</h2>
+<div class="toolbar">
+<input id="current-site-search" type="search" placeholder="Rechercher un site, un nom, une date...">
+<button id="current-site-clear" type="button">Reinitialiser</button>
+</div>
+<p id="current-site-count" class="count">23 / 23</p>
+<div class="panel">
+<table id="current-site-totals-table">
+<thead><tr><th>Site ID</th><th>Nom du site</th><th>Incidents cumules</th><th>Down cumule (h)</th><th>Jours impactes</th><th>Jours concernes</th><th>Derniere journee</th></tr></thead>
+<tbody>
+<tr data-search='DRKN0202 Mbanza Mpa 6 19.16 4 2026-08-02, 2026-08-03, 2026-08-04, 2026-08-05 2026-08-05'><td>DRKN0202</td><td>Mbanza Mpa</td><td>6</td><td>19.16</td><td>4</td><td>2026-08-02, 2026-08-03, 2026-08-04, 2026-08-05</td><td>2026-08-05</td></tr>
+<tr data-search='DRKN0006 Kimbwala 11 17.36 3 2026-08-04, 2026-08-05, 2026-08-06 2026-08-06'><td>DRKN0006</td><td>Kimbwala</td><td>11</td><td>17.36</td><td>3</td><td>2026-08-04, 2026-08-05, 2026-08-06</td><td>2026-08-06</td></tr>
+<tr data-search='DRKN0697 Ex. Maternit&#233; 4 4.49 3 2026-08-01, 2026-08-03, 2026-08-04 2026-08-04'><td>DRKN0697</td><td>Ex. Maternit&#233;</td><td>4</td><td>4.49</td><td>3</td><td>2026-08-01, 2026-08-03, 2026-08-04</td><td>2026-08-04</td></tr>
+<tr data-search='DRKN8147 Malueka_Nkotila 1 3.74 1 2026-08-06 2026-08-06'><td>DRKN8147</td><td>Malueka_Nkotila</td><td>1</td><td>3.74</td><td>1</td><td>2026-08-06</td><td>2026-08-06</td></tr>
+<tr data-search='DRKN8442 Kin_Malueka_Nkotila 11 2.98 4 2026-08-01, 2026-08-02, 2026-08-03, 2026-08-04 2026-08-04'><td>DRKN8442</td><td>Kin_Malueka_Nkotila</td><td>11</td><td>2.98</td><td>4</td><td>2026-08-01, 2026-08-02, 2026-08-03, 2026-08-04</td><td>2026-08-04</td></tr>
+<tr data-search='DRKN7216 Kin_Binza_Wendo 1 2.94 1 2026-08-01 2026-08-01'><td>DRKN7216</td><td>Kin_Binza_Wendo</td><td>1</td><td>2.94</td><td>1</td><td>2026-08-01</td><td>2026-08-01</td></tr>
+<tr data-search='DRKN9259 Kinshasa_Mafuta 1 2.09 1 2026-08-04 2026-08-04'><td>DRKN9259</td><td>Kinshasa_Mafuta</td><td>1</td><td>2.09</td><td>1</td><td>2026-08-04</td><td>2026-08-04</td></tr>
+<tr data-search='DRKN2139 Nguba 2 1.52 2 2026-08-05, 2026-08-06 2026-08-06'><td>DRKN2139</td><td>Nguba</td><td>2</td><td>1.52</td><td>2</td><td>2026-08-05, 2026-08-06</td><td>2026-08-06</td></tr>
+<tr data-search='DRKN2082 Kinshasa_Pecheur 2 1.48 2 2026-08-03, 2026-08-04 2026-08-04'><td>DRKN2082</td><td>Kinshasa_Pecheur</td><td>2</td><td>1.48</td><td>2</td><td>2026-08-03, 2026-08-04</td><td>2026-08-04</td></tr>
+<tr data-search='DRKN0247 Malueka 1 1.2 1 2026-08-04 2026-08-04'><td>DRKN0247</td><td>Malueka</td><td>1</td><td>1.2</td><td>1</td><td>2026-08-04</td><td>2026-08-04</td></tr>
+<tr data-search='DRKN0252 Masanga Mbila 3 0.95 2 2026-08-03, 2026-08-05 2026-08-05'><td>DRKN0252</td><td>Masanga Mbila</td><td>3</td><td>0.95</td><td>2</td><td>2026-08-03, 2026-08-05</td><td>2026-08-05</td></tr>
+<tr data-search='DRKN0171 Kimwenza Gare 1 0.88 1 2026-08-03 2026-08-03'><td>DRKN0171</td><td>Kimwenza Gare</td><td>1</td><td>0.88</td><td>1</td><td>2026-08-03</td><td>2026-08-03</td></tr>
+<tr data-search='DRKN0203 Mazal 1 0.75 1 2026-08-03 2026-08-03'><td>DRKN0203</td><td>Mazal</td><td>1</td><td>0.75</td><td>1</td><td>2026-08-03</td><td>2026-08-03</td></tr>
+<tr data-search='DRKN8053 OBMK Meubles 2 0.61 2 2026-08-02, 2026-08-03 2026-08-03'><td>DRKN8053</td><td>OBMK Meubles</td><td>2</td><td>0.61</td><td>2</td><td>2026-08-02, 2026-08-03</td><td>2026-08-03</td></tr>
+<tr data-search='DRKN7180 CS-Mafema3 1 0.57 1 2026-08-06 2026-08-06'><td>DRKN7180</td><td>CS-Mafema3</td><td>1</td><td>0.57</td><td>1</td><td>2026-08-06</td><td>2026-08-06</td></tr>
+<tr data-search='DRKN0216 Bamboma 2 0.54 1 2026-08-02 2026-08-02'><td>DRKN0216</td><td>Bamboma</td><td>2</td><td>0.54</td><td>1</td><td>2026-08-02</td><td>2026-08-02</td></tr>
+<tr data-search='DRKN0253 Camping 1 0.54 1 2026-08-02 2026-08-02'><td>DRKN0253</td><td>Camping</td><td>1</td><td>0.54</td><td>1</td><td>2026-08-02</td><td>2026-08-02</td></tr>
+<tr data-search='DRKN0201 Mama Yemo 1 0.52 1 2026-08-04 2026-08-04'><td>DRKN0201</td><td>Mama Yemo</td><td>1</td><td>0.52</td><td>1</td><td>2026-08-04</td><td>2026-08-04</td></tr>
+<tr data-search='DRKN0753 Tshikapa Ngombe 1 0.4 1 2026-08-04 2026-08-04'><td>DRKN0753</td><td>Tshikapa Ngombe</td><td>1</td><td>0.4</td><td>1</td><td>2026-08-04</td><td>2026-08-04</td></tr>
+<tr data-search='DRKN0069 Bumba 1 0.26 1 2026-08-01 2026-08-01'><td>DRKN0069</td><td>Bumba</td><td>1</td><td>0.26</td><td>1</td><td>2026-08-01</td><td>2026-08-01</td></tr>
+<tr data-search='DRKN7232 Kin_Telecom_Dandu 1 0.22 1 2026-08-05 2026-08-05'><td>DRKN7232</td><td>Kin_Telecom_Dandu</td><td>1</td><td>0.22</td><td>1</td><td>2026-08-05</td><td>2026-08-05</td></tr>
+<tr data-search='DRKN8284 Mbudi-Conseiller 1 0.18 1 2026-08-01 2026-08-01'><td>DRKN8284</td><td>Mbudi-Conseiller</td><td>1</td><td>0.18</td><td>1</td><td>2026-08-01</td><td>2026-08-01</td></tr>
+<tr data-search='DRKN2081 Kinshasa_Kisiama 1 0.12 1 2026-08-05 2026-08-05'><td>DRKN2081</td><td>Kinshasa_Kisiama</td><td>1</td><td>0.12</td><td>1</td><td>2026-08-05</td><td>2026-08-05</td></tr>
+</tbody>
+</table>
+</div>
 </main>
+<script>
+(function () {
+    function normalize(value) {
+        return (value || '').toString().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    }
+
+    function wireSearch(tableId, inputId, clearId, countId) {
+        var table = document.getElementById(tableId);
+        if (!table) { return; }
+
+        var searchInput = document.getElementById(inputId);
+        var clearButton = document.getElementById(clearId);
+        var countLabel = document.getElementById(countId);
+        var rows = Array.prototype.slice.call(table.tBodies[0].rows);
+
+        function applySearch() {
+            var query = normalize(searchInput.value);
+            var visible = 0;
+            rows.forEach(function (row) {
+                var show = normalize(row.dataset.search).indexOf(query) !== -1;
+                row.hidden = !show;
+                if (show) { visible += 1; }
+            });
+            countLabel.textContent = visible + ' / ' + rows.length;
+        }
+
+        searchInput.addEventListener('input', applySearch);
+        clearButton.addEventListener('click', function () {
+            searchInput.value = '';
+            applySearch();
+            searchInput.focus();
+        });
+    }
+
+    wireSearch('dashboards-table', 'portal-search', 'portal-clear', 'portal-count');
+    wireSearch('site-totals-table', 'site-search', 'site-clear', 'site-count');
+    wireSearch('current-site-totals-table', 'current-site-search', 'current-site-clear', 'current-site-count');
+}());
+</script>
 </body>
 </html>
