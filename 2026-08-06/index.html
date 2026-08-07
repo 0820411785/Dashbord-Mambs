@@ -53,7 +53,7 @@ tbody tr:nth-child(even) { background: #f8fafc; }
 <body>
 <header>
 <h1>Tableau de bord journalier des incidents</h1>
-<div class="meta">Source : C:\Users\hp\Documents\MAMBS\Incoming_Files\OUTAGE 06 (1).xlsb | Genere le : 2026-08-07 05:54</div>
+<div class="meta">Source : C:\Users\hp\Documents\MAMBS\Incoming_Files\OUTAGE 06 (1).xlsb | Genere le : 2026-08-07 06:01</div>
 </header>
 <main>
 <nav class="actions" aria-label="Exports CSV"><a href='index_Incidents.csv'>Incidents CSV</a><a href='index_BySite.csv'>Sites CSV</a><a href='index_ByHour.csv'>Heures CSV</a><a href='index_Fuel.csv'>Fuel CSV</a><a href='index_Durees.csv'>Durees CSV</a><a href='index_RCA.csv'>RCA CSV</a></nav>
@@ -65,8 +65,8 @@ tbody tr:nth-child(even) { background: #f8fafc; }
 <div class="kpi"><span>Incidents Fuel</span><strong>0</strong></div>
 <div class="kpi"><span>Incidents Non Fuel</span><strong>5</strong></div>
 <div class="kpi"><span>DTPT sans exclusion</span><strong>24.35</strong></div>
-<div class="kpi"><span>DTPT hors overload</span><strong>10.59</strong></div>
-<div class="kpi"><span>Cas overload exclus</span><strong>2</strong></div>
+<div class="kpi"><span>DTPT hors overload</span><strong>2.85</strong></div>
+<div class="kpi"><span>Cas overload exclus</span><strong>3</strong></div>
 <div class="kpi wide-kpi"><span>Plus longue interruption</span><strong>DRKN0006 - Kimbwala (4.56 h)</strong></div>
 </section>
 <section class="grid">
@@ -136,16 +136,16 @@ tbody tr:nth-child(even) { background: #f8fafc; }
 <text x='678' y='43' class='value-label'>5</text>
 </svg></div>
 <div class="panel"><h2>Top mots RCA</h2><svg viewBox='0 0 760 424' role='img'>
-<text x='0' y='43' class='axis-label'>vodacom</text>
+<text x='0' y='43' class='axis-label'>overload</text>
 <rect x='170' y='24' width='500' height='28' rx='3' class='bar'></rect>
 <text x='678' y='43' class='value-label'>3</text>
-<text x='0' y='81' class='axis-label'>overload</text>
-<rect x='170' y='62' width='333' height='28' rx='3' class='bar'></rect>
-<text x='511' y='81' class='value-label'>2</text>
-<text x='0' y='119' class='axis-label'>off</text>
+<text x='0' y='81' class='axis-label'>vodacom</text>
+<rect x='170' y='62' width='500' height='28' rx='3' class='bar'></rect>
+<text x='678' y='81' class='value-label'>3</text>
+<text x='0' y='119' class='axis-label'>bbs</text>
 <rect x='170' y='100' width='333' height='28' rx='3' class='bar'></rect>
 <text x='511' y='119' class='value-label'>2</text>
-<text x='0' y='157' class='axis-label'>bbs</text>
+<text x='0' y='157' class='axis-label'>off</text>
 <rect x='170' y='138' width='333' height='28' rx='3' class='bar'></rect>
 <text x='511' y='157' class='value-label'>2</text>
 <text x='0' y='195' class='axis-label'>cboff</text>
@@ -177,7 +177,7 @@ tbody tr:nth-child(even) { background: #f8fafc; }
 <button id="clear-filters" type="button">Reinitialiser</button>
 </div>
 <div id="incident-count" class="count">5 / 5</div>
-<table id='incidents-table' class='data-table'><thead><tr><th>#</th><th>Date outage</th><th>Site ID</th><th>Nom du site</th><th>Debut outage</th><th>Fin outage</th><th>Duree outage (h)</th><th>Passive/Active</th><th>Fuel outage</th><th>Reference TRB</th><th>RCA</th><th>Commentaire resolution</th></tr></thead><tbody><tr data-search='1 06-ao&#251;t-2026 DRKN2139 Nguba 06/08/2026 02:42 06/08/2026 03:30 0.81 Passive Non TRB1399704 2/6 Modules Faulty; seul Orange down (site sous zone rouge) Modules remplac&#233;s et demarrage DG' data-fuel='Non' data-pa='Passive' data-duration='0.81'><td>1</td><td>06-ao&#251;t-2026</td><td>DRKN2139</td><td>Nguba</td><td>06/08/2026 02:42</td><td>06/08/2026 03:30</td><td>0.81</td><td>Passive</td><td>Non</td><td>TRB1399704</td><td>2/6 Modules Faulty; seul Orange down (site sous zone rouge)</td><td>Modules remplac&#233;s et demarrage DG</td></tr><tr data-search='2 06-ao&#251;t-2026 DRKN7180 CS-Mafema3 06/08/2026 11:49 06/08/2026 12:23 0.57 Passive Non TRB1399849 Le G&#233;n&#233;rateur ne supporte pas la charge de 8BBU U4 D&#233;lestage de 4BBU sur 8' data-fuel='Non' data-pa='Passive' data-duration='0.57'><td>2</td><td>06-ao&#251;t-2026</td><td>DRKN7180</td><td>CS-Mafema3</td><td>06/08/2026 11:49</td><td>06/08/2026 12:23</td><td>0.57</td><td>Passive</td><td>Non</td><td>TRB1399849</td><td>Le G&#233;n&#233;rateur ne supporte pas la charge de 8BBU U4</td><td>D&#233;lestage de 4BBU sur 8</td></tr><tr data-search='3 06-ao&#251;t-2026 DRKN0006 Kimbwala 06/08/2026 17:47 06/08/2026 19:52 2.09 Passive Non TRB1400041 CBOff dans BBS  Tenant vodacom de 100 A off  Tenant Overload 112 A CB enclench&#233; manuellement' data-fuel='Non' data-pa='Passive' data-duration='2.09'><td>3</td><td>06-ao&#251;t-2026</td><td>DRKN0006</td><td>Kimbwala</td><td>06/08/2026 17:47</td><td>06/08/2026 19:52</td><td>2.09</td><td>Passive</td><td>Non</td><td>TRB1400041</td><td>CBOff dans BBS  Tenant vodacom de 100 A off  Tenant Overload 112 A</td><td>CB enclench&#233; manuellement</td></tr><tr data-search='4 06-ao&#251;t-2026 DRKN0006 Kimbwala 06/08/2026 20:54 07/08/2026 01:28 4.56 Passive Non TRB1400130 CBOff dans BBS  Tenant vodacom de 100 A off  Tenant Overload 112 A CB enclench&#233; manuellement' data-fuel='Non' data-pa='Passive' data-duration='4.56'><td>4</td><td>06-ao&#251;t-2026</td><td>DRKN0006</td><td>Kimbwala</td><td>06/08/2026 20:54</td><td>07/08/2026 01:28</td><td>4.56</td><td>Passive</td><td>Non</td><td>TRB1400130</td><td>CBOff dans BBS  Tenant vodacom de 100 A off  Tenant Overload 112 A</td><td>CB enclench&#233; manuellement</td></tr><tr data-search='7 06-ao&#251;t-2026 DRKN8147 Malueka_Nkotila 06/08/2026 20:41 07/08/2026 00:25 3.74 Passive Non TRB1400114 D&#233;clanchement du disjoncteur de vodacom dans laDC Box cause par le load qui d&#233;passe son calibre ' data-fuel='Non' data-pa='Passive' data-duration='3.74'><td>7</td><td>06-ao&#251;t-2026</td><td>DRKN8147</td><td>Malueka_Nkotila</td><td>06/08/2026 20:41</td><td>07/08/2026 00:25</td><td>3.74</td><td>Passive</td><td>Non</td><td>TRB1400114</td><td>D&#233;clanchement du disjoncteur de vodacom dans laDC Box cause par le load qui d&#233;passe son calibre</td><td></td></tr></tbody></table></div>
+<table id='incidents-table' class='data-table'><thead><tr><th>#</th><th>Date outage</th><th>Site ID</th><th>Nom du site</th><th>Debut outage</th><th>Fin outage</th><th>Duree outage (h)</th><th>Passive/Active</th><th>Fuel outage</th><th>Reference TRB</th><th>RCA</th><th>Commentaire resolution</th></tr></thead><tbody><tr data-search='1 06-ao&#251;t-2026 DRKN2139 Nguba 06/08/2026 02:42 06/08/2026 03:30 0.81 Passive Non TRB1399704 2/6 Modules Faulty; seul Orange down (site sous zone rouge) Modules remplac&#233;s et demarrage DG' data-fuel='Non' data-pa='Passive' data-duration='0.81'><td>1</td><td>06-ao&#251;t-2026</td><td>DRKN2139</td><td>Nguba</td><td>06/08/2026 02:42</td><td>06/08/2026 03:30</td><td>0.81</td><td>Passive</td><td>Non</td><td>TRB1399704</td><td>2/6 Modules Faulty; seul Orange down (site sous zone rouge)</td><td>Modules remplac&#233;s et demarrage DG</td></tr><tr data-search='2 06-ao&#251;t-2026 DRKN7180 CS-Mafema3 06/08/2026 11:49 06/08/2026 12:23 0.57 Passive Non TRB1399849 Le G&#233;n&#233;rateur ne supporte pas la charge de 8BBU U4 D&#233;lestage de 4BBU sur 8' data-fuel='Non' data-pa='Passive' data-duration='0.57'><td>2</td><td>06-ao&#251;t-2026</td><td>DRKN7180</td><td>CS-Mafema3</td><td>06/08/2026 11:49</td><td>06/08/2026 12:23</td><td>0.57</td><td>Passive</td><td>Non</td><td>TRB1399849</td><td>Le G&#233;n&#233;rateur ne supporte pas la charge de 8BBU U4</td><td>D&#233;lestage de 4BBU sur 8</td></tr><tr data-search='3 06-ao&#251;t-2026 DRKN0006 Kimbwala 06/08/2026 17:47 06/08/2026 19:52 2.09 Passive Non TRB1400041 CBOff dans BBS  Tenant vodacom de 100 A off  Tenant Overload 112 A CB enclench&#233; manuellement' data-fuel='Non' data-pa='Passive' data-duration='2.09'><td>3</td><td>06-ao&#251;t-2026</td><td>DRKN0006</td><td>Kimbwala</td><td>06/08/2026 17:47</td><td>06/08/2026 19:52</td><td>2.09</td><td>Passive</td><td>Non</td><td>TRB1400041</td><td>CBOff dans BBS  Tenant vodacom de 100 A off  Tenant Overload 112 A</td><td>CB enclench&#233; manuellement</td></tr><tr data-search='4 06-ao&#251;t-2026 DRKN0006 Kimbwala 06/08/2026 20:54 07/08/2026 01:28 4.56 Passive Non TRB1400130 CBOff dans BBS  Tenant vodacom de 100 A off  Tenant Overload 112 A CB enclench&#233; manuellement' data-fuel='Non' data-pa='Passive' data-duration='4.56'><td>4</td><td>06-ao&#251;t-2026</td><td>DRKN0006</td><td>Kimbwala</td><td>06/08/2026 20:54</td><td>07/08/2026 01:28</td><td>4.56</td><td>Passive</td><td>Non</td><td>TRB1400130</td><td>CBOff dans BBS  Tenant vodacom de 100 A off  Tenant Overload 112 A</td><td>CB enclench&#233; manuellement</td></tr><tr data-search='7 06-ao&#251;t-2026 DRKN8147 Malueka_Nkotila 06/08/2026 20:41 07/08/2026 00:25 3.74 Passive Non TRB1400114 D&#233;clanchement du disjoncteur de vodacom dans laDC Box cause par le load qui d&#233;passe son calibre overload ' data-fuel='Non' data-pa='Passive' data-duration='3.74'><td>7</td><td>06-ao&#251;t-2026</td><td>DRKN8147</td><td>Malueka_Nkotila</td><td>06/08/2026 20:41</td><td>07/08/2026 00:25</td><td>3.74</td><td>Passive</td><td>Non</td><td>TRB1400114</td><td>D&#233;clanchement du disjoncteur de vodacom dans laDC Box cause par le load qui d&#233;passe son calibre overload</td><td></td></tr></tbody></table></div>
 </section>
 </main>
 <script>

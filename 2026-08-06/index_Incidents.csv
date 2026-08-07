@@ -3,4 +3,4 @@
 "2","06-août-2026","DRKN7180","CS-Mafema3","06/08/2026 11:49:40","06/08/2026 12:23:00","1,67","0,57","30","Passive","Le Générateur ne supporte pas la charge de 8BBU U4","Délestage de 4BBU sur 8","Non","TRB1399849"
 "3","06-août-2026","DRKN0006","Kimbwala","06/08/2026 17:47:15","06/08/2026 19:52:00","0","2,09","30","Passive","CBOff dans BBS  Tenant vodacom de 100 A off  Tenant Overload 112 A","CB enclenché manuellement","Non","TRB1400041"
 "4","06-août-2026","DRKN0006","Kimbwala","06/08/2026 20:54:25","07/08/2026 01:28:00","0","4,56","30","Passive","CBOff dans BBS  Tenant vodacom de 100 A off  Tenant Overload 112 A","CB enclenché manuellement","Non","TRB1400130"
-"7","06-août-2026","DRKN8147","Malueka_Nkotila","06/08/2026 20:41:00","07/08/2026 00:25:00","0","3,74","25","Passive","Déclanchement du disjoncteur de vodacom dans laDC Box cause par le load qui dépasse son calibre","","Non","TRB1400114"
+"7","06-août-2026","DRKN8147","Malueka_Nkotila","06/08/2026 20:41:00","07/08/2026 00:25:00","0","3,74","25","Passive","Déclanchement du disjoncteur de vodacom dans laDC Box cause par le load qui dépasse son calibre overload","","Non","TRB1400114"
