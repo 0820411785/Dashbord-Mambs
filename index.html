@@ -43,18 +43,18 @@ tbody tr:nth-child(even) { background: #f8fafc; }
 </header>
 <main>
 <section class="kpis">
-<div class="kpi"><span>Dashboards publies</span><strong>61</strong></div>
-<div class="kpi"><span>Derniere journee</span><strong><a href='2026-08-11/index.html'>Incidents du 11 Aout 2026</a></strong></div>
-<div class="kpi"><span>Fichier source</span><strong>OUTAGE du 11 aout.xlsb</strong></div>
-<div class="kpi"><span>Derniere generation</span><strong>2026-08-12 13:52</strong></div>
-<div class="kpi"><span>DTPT moyen sans exclusion (août 2026)</span><strong>20.79</strong></div>
-<div class="kpi"><span>DTPT moyen hors overload (août 2026)</span><strong>5.93</strong></div>
-<div class="kpi"><span>Jours DTPT suivis (août 2026)</span><strong>11</strong></div>
-<div class="kpi"><span>Jours DTPT hors overload (août 2026)</span><strong>10</strong></div>
-<div class="kpi"><span>Sites du jour (11/08/2026)</span><strong>11</strong></div>
-<div class="kpi"><span>Down du jour (11/08/2026)</span><strong>13.41 h</strong></div>
-<div class="kpi"><span>Sites cumules août 2026</span><strong>40</strong></div>
-<div class="kpi"><span>Down cumule août 2026</span><strong>110.17 h</strong></div>
+<div class="kpi"><span>Dashboards publies</span><strong>63</strong></div>
+<div class="kpi"><span>Derniere journee</span><strong><a href='2026-08-13/index.html'>Incidents du 13 Aout 2026</a></strong></div>
+<div class="kpi"><span>Fichier source</span><strong>OUTAGE 13 Aout.xlsx</strong></div>
+<div class="kpi"><span>Derniere generation</span><strong>2026-08-14 03:42</strong></div>
+<div class="kpi"><span>DTPT moyen sans exclusion (août 2026)</span><strong>28.63</strong></div>
+<div class="kpi"><span>DTPT moyen hors overload (août 2026)</span><strong>14.72</strong></div>
+<div class="kpi"><span>Jours DTPT suivis (août 2026)</span><strong>13</strong></div>
+<div class="kpi"><span>Jours DTPT hors overload (août 2026)</span><strong>12</strong></div>
+<div class="kpi"><span>Sites du jour (13/08/2026)</span><strong>6</strong></div>
+<div class="kpi"><span>Down du jour (13/08/2026)</span><strong>12.08 h</strong></div>
+<div class="kpi"><span>Sites cumules août 2026</span><strong>49</strong></div>
+<div class="kpi"><span>Down cumule août 2026</span><strong>131.53 h</strong></div>
 </section>
 
 <h2>Dashboards journaliers</h2>
@@ -62,11 +62,13 @@ tbody tr:nth-child(even) { background: #f8fafc; }
 <input id="portal-search" type="search" placeholder="Rechercher une date, un fichier, un titre">
 <button id="portal-clear" type="button">Reinitialiser</button>
 </div>
-<p id="portal-count" class="count">11 / 11</p>
+<p id="portal-count" class="count">13 / 13</p>
 <div class="panel">
 <table id="dashboards-table">
 <thead><tr><th>Date</th><th>Dashboard</th><th>Fichier source</th><th>Generation</th></tr></thead>
 <tbody>
+<tr data-search='2026-08-13 Incidents du 13 Aout 2026 OUTAGE 13 Aout.xlsx 2026-08-14 03:42'><td>2026-08-13</td><td><a href='2026-08-13/index.html'>Incidents du 13 Aout 2026</a></td><td>OUTAGE 13 Aout.xlsx</td><td>2026-08-14 03:42</td></tr>
+<tr data-search='2026-08-12 Incidents du 12 Aout 2026 OUTAGE 12 Aout.xlsx 2026-08-14 03:42'><td>2026-08-12</td><td><a href='2026-08-12/index.html'>Incidents du 12 Aout 2026</a></td><td>OUTAGE 12 Aout.xlsx</td><td>2026-08-14 03:42</td></tr>
 <tr data-search='2026-08-11 Incidents du 11 Aout 2026 OUTAGE du 11 aout.xlsb 2026-08-12 13:52'><td>2026-08-11</td><td><a href='2026-08-11/index.html'>Incidents du 11 Aout 2026</a></td><td>OUTAGE du 11 aout.xlsb</td><td>2026-08-12 13:52</td></tr>
 <tr data-search='2026-08-10 Incidents du 10 Aout 2026 OUTAGE 10  Aout.xlsb 2026-08-11 07:22'><td>2026-08-10</td><td><a href='2026-08-10/index.html'>Incidents du 10 Aout 2026</a></td><td>OUTAGE 10  Aout.xlsb</td><td>2026-08-11 07:22</td></tr>
 <tr data-search='2026-08-09 Incidents du 09 Aout 2026 OUTAGE 09 Aout.xlsb 2026-08-10 12:21'><td>2026-08-09</td><td><a href='2026-08-09/index.html'>Incidents du 09 Aout 2026</a></td><td>OUTAGE 09 Aout.xlsb</td><td>2026-08-10 12:21</td></tr>
@@ -82,27 +84,22 @@ tbody tr:nth-child(even) { background: #f8fafc; }
 </table>
 </div>
 
-<h2>Outages du jour par site (11/08/2026)</h2>
+<h2>Outages du jour par site (13/08/2026)</h2>
 <div class="toolbar">
 <input id="site-search" type="search" placeholder="Rechercher un site, un nom, une date">
 <button id="site-clear" type="button">Reinitialiser</button>
 </div>
-<p id="site-count" class="count">11 / 11</p>
+<p id="site-count" class="count">6 / 6</p>
 <div class="panel">
 <table id="site-totals-table">
 <thead><tr><th>Site ID</th><th>Nom du site</th><th>Incidents</th><th>Down (h)</th></tr></thead>
 <tbody>
-<tr data-search='DRKN0006 Kimbwala 2 6.37 1 2026-08-11 2026-08-11'><td>DRKN0006</td><td>Kimbwala</td><td>2</td><td>6.37</td></tr>
-<tr data-search='DRKN2269 CS-Mafema3_KR 2 2.3 1 2026-08-11 2026-08-11'><td>DRKN2269</td><td>CS-Mafema3_KR</td><td>2</td><td>2.3</td></tr>
-<tr data-search='DRKN8079 EP_Mobokoli 1 2.08 1 2026-08-11 2026-08-11'><td>DRKN8079</td><td>EP_Mobokoli</td><td>1</td><td>2.08</td></tr>
-<tr data-search='DRKN2168 Mbudi 1 0.82 1 2026-08-11 2026-08-11'><td>DRKN2168</td><td>Mbudi</td><td>1</td><td>0.82</td></tr>
-<tr data-search='DRKN2141 Kin_Masangambila 1 0.8 1 2026-08-11 2026-08-11'><td>DRKN2141</td><td>Kin_Masangambila</td><td>1</td><td>0.8</td></tr>
-<tr data-search='DRKN8284 Mbudi-Conseiller 1 0.33 1 2026-08-11 2026-08-11'><td>DRKN8284</td><td>Mbudi-Conseiller</td><td>1</td><td>0.33</td></tr>
-<tr data-search='DRKN0067 Eucalyptus1 1 0.3 1 2026-08-11 2026-08-11'><td>DRKN0067</td><td>Eucalyptus1</td><td>1</td><td>0.3</td></tr>
-<tr data-search='DRKN0101 Ep4 Makelele 1 0.22 1 2026-08-11 2026-08-11'><td>DRKN0101</td><td>Ep4 Makelele</td><td>1</td><td>0.22</td></tr>
-<tr data-search='DRKN2134 Masikita 1 0.17 1 2026-08-11 2026-08-11'><td>DRKN2134</td><td>Masikita</td><td>1</td><td>0.17</td></tr>
-<tr data-search='DRKN0286 Ngaliema 1 0.02 1 2026-08-11 2026-08-11'><td>DRKN0286</td><td>Ngaliema</td><td>1</td><td>0.02</td></tr>
-<tr data-search='DRKN0191 Kitomesa 1 0 1 2026-08-11 2026-08-11'><td>DRKN0191</td><td>Kitomesa</td><td>1</td><td>0</td></tr>
+<tr data-search='DRKN0205 Sanga Mamba 2 3.88 1 2026-08-13 2026-08-13'><td>DRKN0205</td><td>Sanga Mamba</td><td>2</td><td>3.88</td></tr>
+<tr data-search='DRKN2102 Kinshasa_Herady 4 3.53 1 2026-08-13 2026-08-13'><td>DRKN2102</td><td>Kinshasa_Herady</td><td>4</td><td>3.53</td></tr>
+<tr data-search='DRKN8147 Malueka_Nkotila 1 2.51 1 2026-08-13 2026-08-13'><td>DRKN8147</td><td>Malueka_Nkotila</td><td>1</td><td>2.51</td></tr>
+<tr data-search='DRKN2156 Telecom 1 0.88 1 2026-08-13 2026-08-13'><td>DRKN2156</td><td>Telecom</td><td>1</td><td>0.88</td></tr>
+<tr data-search='DRKN0141 Upn / Niwa 1 0.68 1 2026-08-13 2026-08-13'><td>DRKN0141</td><td>Upn / Niwa</td><td>1</td><td>0.68</td></tr>
+<tr data-search='DRKN8048 Route_Sebo 1 0.6 1 2026-08-13 2026-08-13'><td>DRKN8048</td><td>Route_Sebo</td><td>1</td><td>0.6</td></tr>
 </tbody>
 </table>
 </div>
@@ -112,7 +109,7 @@ tbody tr:nth-child(even) { background: #f8fafc; }
 <input id="current-site-search" type="search" placeholder="Rechercher un site, un nom, une date...">
 <button id="current-site-clear" type="button">Reinitialiser</button>
 </div>
-<p id="current-site-count" class="count">40 / 40</p>
+<p id="current-site-count" class="count">49 / 49</p>
 <div class="panel">
 <table id="current-site-totals-table">
 <thead><tr><th>Site ID</th><th>Nom du site</th><th>Incidents cumules</th><th>Down cumule (h)</th><th>Jours impactes</th><th>Jours concernes</th><th>Derniere journee</th></tr></thead>
@@ -121,14 +118,18 @@ tbody tr:nth-child(even) { background: #f8fafc; }
 <tr data-search='DRKN0202 Mbanza Mpa 6 19.16 4 2026-08-02, 2026-08-03, 2026-08-04, 2026-08-05 2026-08-05'><td>DRKN0202</td><td>Mbanza Mpa</td><td>6</td><td>19.16</td><td>4</td><td>2026-08-02, 2026-08-03, 2026-08-04, 2026-08-05</td><td>2026-08-05</td></tr>
 <tr data-search='DRKN2141 Kin_Masangambila 10 7.25 4 2026-08-08, 2026-08-09, 2026-08-10, 2026-08-11 2026-08-11'><td>DRKN2141</td><td>Kin_Masangambila</td><td>10</td><td>7.25</td><td>4</td><td>2026-08-08, 2026-08-09, 2026-08-10, 2026-08-11</td><td>2026-08-11</td></tr>
 <tr data-search='DRKN8079 EP_Mobokoli 4 6.69 4 2026-08-08, 2026-08-09, 2026-08-10, 2026-08-11 2026-08-11'><td>DRKN8079</td><td>EP_Mobokoli</td><td>4</td><td>6.69</td><td>4</td><td>2026-08-08, 2026-08-09, 2026-08-10, 2026-08-11</td><td>2026-08-11</td></tr>
+<tr data-search='DRKN8147 Malueka_Nkotila 2 6.25 2 2026-08-06, 2026-08-13 2026-08-13'><td>DRKN8147</td><td>Malueka_Nkotila</td><td>2</td><td>6.25</td><td>2</td><td>2026-08-06, 2026-08-13</td><td>2026-08-13</td></tr>
+<tr data-search='DRKN7628 New_Matadi_Kibala_2 7 5.98 3 2026-08-09, 2026-08-10, 2026-08-12 2026-08-12'><td>DRKN7628</td><td>New_Matadi_Kibala_2</td><td>7</td><td>5.98</td><td>3</td><td>2026-08-09, 2026-08-10, 2026-08-12</td><td>2026-08-12</td></tr>
+<tr data-search='DRKN0221 Herady 3 5.44 2 2026-08-10, 2026-08-12 2026-08-12'><td>DRKN0221</td><td>Herady</td><td>3</td><td>5.44</td><td>2</td><td>2026-08-10, 2026-08-12</td><td>2026-08-12</td></tr>
 <tr data-search='DRKN0697 Ex. Maternit&#233; 4 4.49 3 2026-08-01, 2026-08-03, 2026-08-04 2026-08-04'><td>DRKN0697</td><td>Ex. Maternit&#233;</td><td>4</td><td>4.49</td><td>3</td><td>2026-08-01, 2026-08-03, 2026-08-04</td><td>2026-08-04</td></tr>
-<tr data-search='DRKN8147 Malueka_Nkotila 1 3.74 1 2026-08-06 2026-08-06'><td>DRKN8147</td><td>Malueka_Nkotila</td><td>1</td><td>3.74</td><td>1</td><td>2026-08-06</td><td>2026-08-06</td></tr>
-<tr data-search='DRKN7628 New_Matadi_Kibala_2 4 3.67 2 2026-08-09, 2026-08-10 2026-08-10'><td>DRKN7628</td><td>New_Matadi_Kibala_2</td><td>4</td><td>3.67</td><td>2</td><td>2026-08-09, 2026-08-10</td><td>2026-08-10</td></tr>
-<tr data-search='DRKN0221 Herady 1 3.22 1 2026-08-10 2026-08-10'><td>DRKN0221</td><td>Herady</td><td>1</td><td>3.22</td><td>1</td><td>2026-08-10</td><td>2026-08-10</td></tr>
+<tr data-search='DRKN0205 Sanga Mamba 2 3.88 1 2026-08-13 2026-08-13'><td>DRKN0205</td><td>Sanga Mamba</td><td>2</td><td>3.88</td><td>1</td><td>2026-08-13</td><td>2026-08-13</td></tr>
+<tr data-search='DRKN2102 Kinshasa_Herady 4 3.53 1 2026-08-13 2026-08-13'><td>DRKN2102</td><td>Kinshasa_Herady</td><td>4</td><td>3.53</td><td>1</td><td>2026-08-13</td><td>2026-08-13</td></tr>
 <tr data-search='DRKN8442 Kin_Malueka_Nkotila 12 2.98 5 2026-08-01, 2026-08-02, 2026-08-03, 2026-08-04, 2026-08-07 2026-08-07'><td>DRKN8442</td><td>Kin_Malueka_Nkotila</td><td>12</td><td>2.98</td><td>5</td><td>2026-08-01, 2026-08-02, 2026-08-03, 2026-08-04, 2026-08-07</td><td>2026-08-07</td></tr>
 <tr data-search='DRKN7216 Kin_Binza_Wendo 1 2.94 1 2026-08-01 2026-08-01'><td>DRKN7216</td><td>Kin_Binza_Wendo</td><td>1</td><td>2.94</td><td>1</td><td>2026-08-01</td><td>2026-08-01</td></tr>
 <tr data-search='DRKN2269 CS-Mafema3_KR 2 2.3 1 2026-08-11 2026-08-11'><td>DRKN2269</td><td>CS-Mafema3_KR</td><td>2</td><td>2.3</td><td>1</td><td>2026-08-11</td><td>2026-08-11</td></tr>
+<tr data-search='DRKN0142 College Saint Ignace 1 2.13 1 2026-08-12 2026-08-12'><td>DRKN0142</td><td>College Saint Ignace</td><td>1</td><td>2.13</td><td>1</td><td>2026-08-12</td><td>2026-08-12</td></tr>
 <tr data-search='DRKN9259 Kinshasa_Mafuta 1 2.09 1 2026-08-04 2026-08-04'><td>DRKN9259</td><td>Kinshasa_Mafuta</td><td>1</td><td>2.09</td><td>1</td><td>2026-08-04</td><td>2026-08-04</td></tr>
+<tr data-search='DRKN0300 Ozone 1 1.82 1 2026-08-12 2026-08-12'><td>DRKN0300</td><td>Ozone</td><td>1</td><td>1.82</td><td>1</td><td>2026-08-12</td><td>2026-08-12</td></tr>
 <tr data-search='DRKN2139 Nguba 2 1.52 2 2026-08-05, 2026-08-06 2026-08-06'><td>DRKN2139</td><td>Nguba</td><td>2</td><td>1.52</td><td>2</td><td>2026-08-05, 2026-08-06</td><td>2026-08-06</td></tr>
 <tr data-search='DRKN2082 Kinshasa_Pecheur 2 1.48 2 2026-08-03, 2026-08-04 2026-08-04'><td>DRKN2082</td><td>Kinshasa_Pecheur</td><td>2</td><td>1.48</td><td>2</td><td>2026-08-03, 2026-08-04</td><td>2026-08-04</td></tr>
 <tr data-search='DRKN0753 Tshikapa Ngombe 2 1.4 2 2026-08-04, 2026-08-08 2026-08-08'><td>DRKN0753</td><td>Tshikapa Ngombe</td><td>2</td><td>1.4</td><td>2</td><td>2026-08-04, 2026-08-08</td><td>2026-08-08</td></tr>
@@ -138,10 +139,13 @@ tbody tr:nth-child(even) { background: #f8fafc; }
 <tr data-search='DRKN0164 Bianda 1 1.12 1 2026-08-09 2026-08-09'><td>DRKN0164</td><td>Bianda</td><td>1</td><td>1.12</td><td>1</td><td>2026-08-09</td><td>2026-08-09</td></tr>
 <tr data-search='DRKN0252 Masanga Mbila 3 0.95 2 2026-08-03, 2026-08-05 2026-08-05'><td>DRKN0252</td><td>Masanga Mbila</td><td>3</td><td>0.95</td><td>2</td><td>2026-08-03, 2026-08-05</td><td>2026-08-05</td></tr>
 <tr data-search='DRKN0171 Kimwenza Gare 1 0.88 1 2026-08-03 2026-08-03'><td>DRKN0171</td><td>Kimwenza Gare</td><td>1</td><td>0.88</td><td>1</td><td>2026-08-03</td><td>2026-08-03</td></tr>
+<tr data-search='DRKN2156 Telecom 1 0.88 1 2026-08-13 2026-08-13'><td>DRKN2156</td><td>Telecom</td><td>1</td><td>0.88</td><td>1</td><td>2026-08-13</td><td>2026-08-13</td></tr>
 <tr data-search='DRKN2168 Mbudi 1 0.82 1 2026-08-11 2026-08-11'><td>DRKN2168</td><td>Mbudi</td><td>1</td><td>0.82</td><td>1</td><td>2026-08-11</td><td>2026-08-11</td></tr>
 <tr data-search='DRKN0203 Mazal 1 0.75 1 2026-08-03 2026-08-03'><td>DRKN0203</td><td>Mazal</td><td>1</td><td>0.75</td><td>1</td><td>2026-08-03</td><td>2026-08-03</td></tr>
+<tr data-search='DRKN0141 Upn / Niwa 1 0.68 1 2026-08-13 2026-08-13'><td>DRKN0141</td><td>Upn / Niwa</td><td>1</td><td>0.68</td><td>1</td><td>2026-08-13</td><td>2026-08-13</td></tr>
 <tr data-search='DRKN8454 New Okapi 1 0.62 1 2026-08-08 2026-08-08'><td>DRKN8454</td><td>New Okapi</td><td>1</td><td>0.62</td><td>1</td><td>2026-08-08</td><td>2026-08-08</td></tr>
 <tr data-search='DRKN8053 OBMK Meubles 2 0.61 2 2026-08-02, 2026-08-03 2026-08-03'><td>DRKN8053</td><td>OBMK Meubles</td><td>2</td><td>0.61</td><td>2</td><td>2026-08-02, 2026-08-03</td><td>2026-08-03</td></tr>
+<tr data-search='DRKN8048 Route_Sebo 1 0.6 1 2026-08-13 2026-08-13'><td>DRKN8048</td><td>Route_Sebo</td><td>1</td><td>0.6</td><td>1</td><td>2026-08-13</td><td>2026-08-13</td></tr>
 <tr data-search='DRKN7180 CS-Mafema3 1 0.57 1 2026-08-06 2026-08-06'><td>DRKN7180</td><td>CS-Mafema3</td><td>1</td><td>0.57</td><td>1</td><td>2026-08-06</td><td>2026-08-06</td></tr>
 <tr data-search='DRKN0216 Bamboma 2 0.54 1 2026-08-02 2026-08-02'><td>DRKN0216</td><td>Bamboma</td><td>2</td><td>0.54</td><td>1</td><td>2026-08-02</td><td>2026-08-02</td></tr>
 <tr data-search='DRKN0253 Camping 1 0.54 1 2026-08-02 2026-08-02'><td>DRKN0253</td><td>Camping</td><td>1</td><td>0.54</td><td>1</td><td>2026-08-02</td><td>2026-08-02</td></tr>
@@ -149,14 +153,16 @@ tbody tr:nth-child(even) { background: #f8fafc; }
 <tr data-search='DRKN8284 Mbudi-Conseiller 2 0.51 2 2026-08-01, 2026-08-11 2026-08-11'><td>DRKN8284</td><td>Mbudi-Conseiller</td><td>2</td><td>0.51</td><td>2</td><td>2026-08-01, 2026-08-11</td><td>2026-08-11</td></tr>
 <tr data-search='DRKN0067 Eucalyptus1 1 0.3 1 2026-08-11 2026-08-11'><td>DRKN0067</td><td>Eucalyptus1</td><td>1</td><td>0.3</td><td>1</td><td>2026-08-11</td><td>2026-08-11</td></tr>
 <tr data-search='DRKN0069 Bumba 1 0.26 1 2026-08-01 2026-08-01'><td>DRKN0069</td><td>Bumba</td><td>1</td><td>0.26</td><td>1</td><td>2026-08-01</td><td>2026-08-01</td></tr>
+<tr data-search='DRKN0286 Ngaliema 2 0.23 2 2026-08-11, 2026-08-12 2026-08-12'><td>DRKN0286</td><td>Ngaliema</td><td>2</td><td>0.23</td><td>2</td><td>2026-08-11, 2026-08-12</td><td>2026-08-12</td></tr>
+<tr data-search='DRKN0191 Kitomesa 2 0.22 2 2026-08-11, 2026-08-12 2026-08-12'><td>DRKN0191</td><td>Kitomesa</td><td>2</td><td>0.22</td><td>2</td><td>2026-08-11, 2026-08-12</td><td>2026-08-12</td></tr>
 <tr data-search='DRKN0101 Ep4 Makelele 1 0.22 1 2026-08-11 2026-08-11'><td>DRKN0101</td><td>Ep4 Makelele</td><td>1</td><td>0.22</td><td>1</td><td>2026-08-11</td><td>2026-08-11</td></tr>
 <tr data-search='DRKN7232 Kin_Telecom_Dandu 1 0.22 1 2026-08-05 2026-08-05'><td>DRKN7232</td><td>Kin_Telecom_Dandu</td><td>1</td><td>0.22</td><td>1</td><td>2026-08-05</td><td>2026-08-05</td></tr>
+<tr data-search='DRKN0261 Punda 1 0.2 1 2026-08-12 2026-08-12'><td>DRKN0261</td><td>Punda</td><td>1</td><td>0.2</td><td>1</td><td>2026-08-12</td><td>2026-08-12</td></tr>
 <tr data-search='DRKN6826 Camp-CPA_KR 1 0.19 1 2026-08-08 2026-08-08'><td>DRKN6826</td><td>Camp-CPA_KR</td><td>1</td><td>0.19</td><td>1</td><td>2026-08-08</td><td>2026-08-08</td></tr>
 <tr data-search='DRKN2210 Kinsuka 1 0.18 1 2026-08-09 2026-08-09'><td>DRKN2210</td><td>Kinsuka</td><td>1</td><td>0.18</td><td>1</td><td>2026-08-09</td><td>2026-08-09</td></tr>
 <tr data-search='DRKN2134 Masikita 1 0.17 1 2026-08-11 2026-08-11'><td>DRKN2134</td><td>Masikita</td><td>1</td><td>0.17</td><td>1</td><td>2026-08-11</td><td>2026-08-11</td></tr>
+<tr data-search='DRKN8123 Station_Brikin 1 0.17 1 2026-08-12 2026-08-12'><td>DRKN8123</td><td>Station_Brikin</td><td>1</td><td>0.17</td><td>1</td><td>2026-08-12</td><td>2026-08-12</td></tr>
 <tr data-search='DRKN2081 Kinshasa_Kisiama 1 0.12 1 2026-08-05 2026-08-05'><td>DRKN2081</td><td>Kinshasa_Kisiama</td><td>1</td><td>0.12</td><td>1</td><td>2026-08-05</td><td>2026-08-05</td></tr>
-<tr data-search='DRKN0286 Ngaliema 1 0.02 1 2026-08-11 2026-08-11'><td>DRKN0286</td><td>Ngaliema</td><td>1</td><td>0.02</td><td>1</td><td>2026-08-11</td><td>2026-08-11</td></tr>
-<tr data-search='DRKN0191 Kitomesa 1 0 1 2026-08-11 2026-08-11'><td>DRKN0191</td><td>Kitomesa</td><td>1</td><td>0</td><td>1</td><td>2026-08-11</td><td>2026-08-11</td></tr>
 </tbody>
 </table>
 </div>
