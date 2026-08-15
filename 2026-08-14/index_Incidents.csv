@@ -1,0 +1,7 @@
+﻿"#","Outage Date","Site ID","Site Name","Outage Start","Outage End","Alarm Before Down (h)","Outage Duration (h)","ETA (min)","Passive/Active","RCA","Resolution Comment","Fuel Outage","TRB Ref"
+"1","14-août-2026","DRKN0828","Météo_Erosion","14/08/2026 00:05:35","14/08/2026 00:54:00","1,42","0,82","30","Passive","high temp du a une Diminution d'huile moteur (investigation en cours ) (DOWN instable)","Appoint de 4 l et démarrage DG","Non","TRB1404063"
+"2","14-août-2026","DRKN2168","Mbudi","14/08/2026 00:15:08","14/08/2026 01:17:00","0,08","1,03","15","Passive","fuel  contaminé","Tuyau ajusté et nettoyage filtre a gazoil et démarrage DG","Non","TRB1404101"
+"3","14-août-2026","DRKN0205","Sanga Mamba","14/08/2026 06:43:00","14/08/2026 09:05:00","2,5","2,37","","Passive","Crémaillère bloqué","Crémaillère débloqué et démarrage DG","Non","TRB1404232"
+"4","14-août-2026","DRKN0753","Tshikapa Ngombe","14/08/2026 07:57:00","14/08/2026 09:26:00","2,92","1,48","","Passive","pompe mecanique faulty","Bye passé pompe mécanique et démarrage du Générateur site sous Générateur","Non","TRB1404233"
+"7","14-août-2026","DRKN0006","Kimbwala","14/08/2026 10:05:00","14/08/2026 11:17:00","0","1,2","","Passive","vodacom down/ Disjoncteur  de la bbs brûlée  et de la DC box faulty","Disjoncteur  de la bbs remplacé  site sous DG","Non","TRB1404315"
+"8","14-août-2026","DRKN0221","Herady","14/08/2026 18:02:00","14/08/2026 18:29:00","0","0,45","","Passive","Dysfonctionnement de la carte DeepSea dû à un problème de configuration.","Réconfiguration de la deepsea","Non","TRB1404493"
