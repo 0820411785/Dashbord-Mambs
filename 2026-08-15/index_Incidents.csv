@@ -1,0 +1,6 @@
+﻿"#","Outage Date","Site ID","Site Name","Outage Start","Outage End","Alarm Before Down (h)","Outage Duration (h)","ETA (min)","Passive/Active","RCA","Resolution Comment","Fuel Outage","TRB Ref"
+"1","15-août-2026","DRKN0125","Maman Mobutu","15/08/2026 12:58:00","15/08/2026 13:14:00","0,4","0,27","25","Passive","Mauvaise qualité du GRID","Démarrage manuel du DG","Non","TRB1404897"
+"2","15-août-2026","DRKN2102","Kinshasa_Herady","15/08/2026 15:40:00","15/08/2026 17:35:00","1,75","1,92","","Passive","Alternateur de charge et le chargeur statique faulty","en attente de remplacement de l'alternateur de charge site sous générateur 50v","Non","TRB1404940"
+"3","15-août-2026","DRKN0246","Kimpese","15/08/2026 16:27:00","15/08/2026 16:42:00","0,67","0,25","","Passive","Mauvaise qualité du GRID","Démarrage manuel du DG","Non","TRB1404976"
+"4","15-août-2026","DRKN2102","Kinshasa_Herady","15/08/2026 20:58:00","15/08/2026 21:42:00","0","0,73","","Passive","Alternateur de charge et le chargeur statique faulty","en attente de remplacement","Non","TRB1405078"
+"7","15-août-2026","DRKN7181","Malueka2","15/08/2026 23:32:00","16/08/2026 00:59:00","0","1,45","","Passive","EN ATTENTE DU FEEDBACK","","","TRB1405143"
