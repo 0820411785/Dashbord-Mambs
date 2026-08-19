@@ -1,0 +1,6 @@
+﻿"#","Outage Date","Site ID","Site Name","Outage Start","Outage End","Alarm Before Down (h)","Outage Duration (h)","ETA (min)","Passive/Active","RCA","Resolution Comment","Fuel Outage","TRB Ref"
+"1","18-août-2026","DRKN0125","Maman Mobutu","18/08/2026 14:30:00","18/08/2026 15:04:00","1,58","0,58","25","Passive","Insuffisance de module  un module Faulty sur 9","Module remplacer","Non","TRB1406477"
+"2","18-août-2026","DRKN0206","Mawana","18/08/2026 18:32:00","18/08/2026 18:59:00","0,7","0,46","30","Passive","Chauffage DG due au Diminution coolant","Ajout coolant et démarrage DG","Non","TRB1406589"
+"3","18-août-2026","DRKN0006","Kimbwala","18/08/2026 16:33:00","18/08/2026 20:08:00","0","3,58","30","Passive","Brulure D'un bout  du cable DC Au niveau de la BBS","Bout du Cable remplacé","Non","TRB1406599"
+"4","18-août-2026","DRKN7249","Kin_Nguma_Lubefu","18/08/2026 21:25:15","18/08/2026 21:37:00","0","0,2","30","Passive","Instabilité grid _ Grid isolé","démarrage DG","Non","TRB1406642"
+"7","18-août-2026","DRKN8123","Station_Brikin","18/08/2026 23:23:15","19/08/2026 12:08:00","1,55","12,76","30","Passive","Insuffisance de module  3 module Faulty sur 6","Delestage de 2/4 batteries site sous grid","Non","TRB1406680"
