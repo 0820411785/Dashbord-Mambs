@@ -1,0 +1,3 @@
+﻿"#","Outage Date","Site ID","Site Name","Outage Start","Outage End","Alarm Before Down (h)","Outage Duration (h)","ETA (min)","Passive/Active","RCA","Resolution Comment","Fuel Outage","TRB Ref"
+"1","19-août-2026","DRKN0252","Masanga Mbila","19/08/2026 09:54:00","19/08/2026 10:30:00","1,23","0,6","30","Passive","Fuilte d'huiles au niveau du bourrage avant et arrière","Appoint d'huile et demarrage DG","Non","TRB1406882"
+"2","19-août-2026","DRKN2225","Makelele","19/08/2026 20:41:00","19/08/2026 22:10:00","0","1,48","25","Passive","CB dans le DC Box Orange Brûlé","CB remplacer","Non","TRB1407198"
