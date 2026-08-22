@@ -1,0 +1,6 @@
+﻿"#","Outage Date","Site ID","Site Name","Outage Start","Outage End","Alarm Before Down (h)","Outage Duration (h)","ETA (min)","Passive/Active","RCA","Resolution Comment","Fuel Outage","TRB Ref"
+"2","21-août-2026","DRKN0193","Hôpital Kintambo","21/08/2026 15:59:25","21/08/2026 16:48:00","0","0,82","30","Passive","l'enclenchement du CB de 125 A au niveau de la DC Box, causé par une perte de ses valeurs","Le CB a été remplacé en attendant la création d'une seconde ligne","Non","TRB1408245"
+"2","21-août-2026","DRKN0117","Kimbualea 2","21/08/2026 20:27:27","21/08/2026 22:25:00","0,12","1,96","30","Passive","1 Phase Grid missing (Seul Orange Down)","Grid restored","","TRB1408354"
+"3","21-août-2026","DRKN7179","Kintambo-Cimetiere","21/08/2026 20:30:27","21/08/2026 22:00:00","0","1,49","30","Passive","CB Off Dans la DC Box Vodacom overload 125A","Enclenché Manuelement","","TRB1408359"
+"4","21-août-2026","DRKN0251","New MSC","21/08/2026 22:14:00","21/08/2026 22:29:00","1,23","0,26","30","Passive","High temp causé par la pompe à eau 30Kva faulty","Ajout de 5L coolant, pompe à eau en remplacement","","TRB1408371"
+"5","21-août-2026","DRKN2139","Nguba","21/08/2026 21:56:25","21/08/2026 22:48:00","0","0,87","30","Passive","CB Off Dans la DC Box Vodacom overload 128A","Enclenché Manuelement","","TRB1408417"
